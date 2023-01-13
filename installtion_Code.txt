@@ -1,0 +1,7 @@
+npm i
+cd '.\Daily Project Work Entry\'
+npm i
+cd .\Backend\
+npm i
+cd..
+npm run both

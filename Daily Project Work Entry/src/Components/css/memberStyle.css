@@ -1,0 +1,32 @@
+@media screen and (max-width: 722px) {
+    .AddMember-mobile-style {
+        width: 100%;
+    }
+
+    .Addmember-Profile {
+        width: 80px;
+        height: 80px;        
+        margin: 5px 0px;
+    }
+}
+
+@media screen and (min-width :723px) and (max-width: 1201px) {
+    .AddMember-mobile-style {
+        width: 50%;
+    }
+
+    .Addmember-Profile {
+        width: 200px;
+        height: 200px;
+        margin: 50px 0px;
+    }
+}
+@media screen and (min-width :1202px) {
+
+
+    .Addmember-Profile {
+        width: 200px;
+        height: 200px;
+        margin: 50px 0px;
+    }
+}
