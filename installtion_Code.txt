@@ -1,3 +1,5 @@
+Open Project folder and run this code in terminal.
+
 npm i
 cd '.\Daily Project Work Entry\'
 npm i
@@ -5,3 +7,4 @@ cd .\Backend\
 npm i
 cd..
 npm run both
+

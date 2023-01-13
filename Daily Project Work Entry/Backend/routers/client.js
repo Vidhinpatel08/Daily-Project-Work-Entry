@@ -16,7 +16,6 @@ router.post('/createclient', async (req, res) => {
     try {
         // featch email from database
         let user = await Client.findOne({ clientName })
-        console.log(user)
         
         // if your don't Exists
         if (user) {

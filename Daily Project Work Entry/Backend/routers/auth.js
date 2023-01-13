@@ -32,7 +32,6 @@ router.post('/resetPassword', [
         if (!user) {
             return res.status(400).json({ error: "Sorry a user with this email Not exists" })
         }
-        console.log(user)
 
         // Create a hash password with salt by bcrypt 
         const salt = await bcrypt.genSalt(10); // return Promise
@@ -43,8 +42,6 @@ router.post('/resetPassword', [
 
         //if user want update any perticular field
         { newMember.password = secPass }
-
-        console.log('member',user.id)
         // Find the note to updated to update it 
         // let member = await Member.findById({user: user.id})
         
@@ -53,9 +50,8 @@ router.post('/resetPassword', [
         //     return res.status(404).send('Not found')
         // }
         
-        console.log('member2')
         // if note Exists 
-        member = await Member.findByIdAndUpdate(user.id, { $set: newMember }, { new: true })
+       let  member = await Member.findByIdAndUpdate(user.id, { $set: newMember }, { new: true })
         res.json({ "success": "password has been Updated successfully", member })
 
     } catch (error) {
@@ -100,7 +96,6 @@ router.post('/login', [
     try {
         // featch email from database
         let user = await Member.findOne({ email })
-        console.log(user)
 
         // if your don't Exists
         if (!user) {
