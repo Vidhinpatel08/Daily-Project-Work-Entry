@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Member = require('../models/Member')
 const fetchuser = require("../middleware/fetchuser");
+const uploadfile = require("../middleware/uploadfile");
 
 const bcrypt = require('bcryptjs');
 
 // Route -1 :  create Member using : POST "api/member/createmember". No Login required
-router.post('/createmember', async (req, res) => {
+router.post('/createmember', uploadfile, async (req, res) => {
     try {
         // check whether the user with this email exits already
         let user = await Member.findOne({ email: req.body.email }) // check user email already exits or not 
@@ -34,10 +35,10 @@ router.post('/createmember', async (req, res) => {
             joindate: req.body.joindate,
             LeaveStartDate: req.body.LeaveStartDate,
             LeaveEndDate: req.body.LeaveEndDate,
-            profile: req.body.profile,
+            profile: (req.file ? req.file.filename : null),
         })
         const saveMember = await user.save()
-        res.send({"success": "Member has been added successfully"})
+        res.send({ "success": "Member has been added successfully" })
 
 
     } catch (error) {
@@ -64,11 +65,11 @@ router.post('/getuser', async (req, res) => {
 
 
 //  ROUTE - 3 :     update an existing notes : PUT "api/notes/updatenote/:id". Login required
-router.put('/updatemember/:id',  async (req, res) => {
+router.put('/updatemember/:id', uploadfile, async (req, res) => {
     try {
 
-        const { firstName, lastName, email, userRole, joindate, phone, userDesignation, alterPhone, alterEmail, department, LeaveStartDate, LeaveEndDate, profile, isActive} = req.body;
-
+        const { firstName, lastName, email, userRole, joindate, phone, userDesignation, alterPhone, alterEmail, department, LeaveStartDate, LeaveEndDate,isActive } = req.body;
+        console.log(req.file)
         // create a note object
         const newMember = {};
 
@@ -85,19 +86,19 @@ router.put('/updatemember/:id',  async (req, res) => {
         if (joindate) { newMember.joindate = joindate }
         if (LeaveStartDate) { newMember.LeaveStartDate = LeaveStartDate }
         if (LeaveEndDate) { newMember.LeaveEndDate = LeaveEndDate }
-        if (profile) { newMember.profile = profile }
+        if (req.file) { newMember.profile = (req.file ? req.file.filename : '') }
         { newMember.isActive = isActive }
 
         // Find the note to updated to update it 
-        let member = await Member.findById(req.params.id)
+        let ismember = await Member.findById(req.params.id)
 
         // if note not found
-        if (!member) {
+        if (!ismember) {
             return res.status(404).send('Not found')
         }
 
         // if note Exists 
-        member = await Member.findByIdAndUpdate(req.params.id, { $set: newMember }, { new: true })
+        let member = await Member.findByIdAndUpdate(req.params.id, { $set: newMember }, { new: true })
         res.json({ "success": "Member has been Updated successfully", member })
 
     } catch (error) {
@@ -108,7 +109,7 @@ router.put('/updatemember/:id',  async (req, res) => {
 
 
 //  ROUTE - 4 :     Delete an existing notes : DELETE "api/notes/deletenote/:id". Login required
-router.delete('/deletenote/:id',  async (req, res) => {
+router.delete('/deletenote/:id', async (req, res) => {
     try {
 
         // Find the note to updated to update it 
@@ -121,7 +122,7 @@ router.delete('/deletenote/:id',  async (req, res) => {
 
         // if note Exists 
         member = await Member.findByIdAndDelete(req.params.id)
-        res.json({"success": "Member has been Deleted successfully", member})
+        res.json({ "success": "Member has been Deleted successfully", member })
 
     } catch (error) {
         console.error(error.message)

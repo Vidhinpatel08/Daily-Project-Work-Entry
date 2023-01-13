@@ -12,8 +12,10 @@ const Member = () => {
   const { members, getMember, updateMember } = context;
   const refEdit = useRef(null)
   const refclose = useRef(null)
-  const [member, setMember] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', profile: '' })
+  const [member, setMember] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '' })
   const [mode, setMode] = useState(false)
+  const [image, setImage] = useState('')
+  const imageURL = 'http://localhost:5000/uploads/'
 
   // search filed
   const [filterName, setFilterName] = useState('')
@@ -21,7 +23,10 @@ const Member = () => {
   const [filterActive, setFilterActive] = useState('')
   const [filterDepartment, setFilterDepartment] = useState('')
 
-
+  const capitalized = (word) => {
+    let newText = word.toLowerCase()
+    return newText.charAt(0).toUpperCase() + newText.slice(1)
+  }
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -37,20 +42,40 @@ const Member = () => {
   const updateNote = (currentMember) => {
     setMember(currentMember)
     setMode(currentMember.isActive)
+    setImage(currentMember.profile)
     refEdit.current.click()
   }
-
   const handleAddSubmit = (e) => {
     e.preventDefault();
-
-    updateMember(member._id, member.firstName.toLowerCase(), member.lastName.toLowerCase(), member.email.toLowerCase(), member.userRole, member.joindate, member.phone, member.userDesignation, member.alterPhone, member.alterEmail, member.department, member.LeaveStartDate, member.LeaveEndDate, member.password, member.profile, mode)
+    let formData = new FormData()
+    formData.append('profile', image);
+    formData.append('firstName', capitalized(member.firstName))
+    formData.append('lastName', capitalized(member.lastName))
+    formData.append('email', member.email.toLowerCase())
+    formData.append('userRole', member.userRole)
+    formData.append('phone', member.phone)
+    formData.append('userDesignation', member.userDesignation)
+    formData.append('alterPhone', member.alterPhone)
+    formData.append('alterEmail', member.alterEmail)
+    formData.append('department', member.department)
+    formData.append('password', member.password)
+    formData.append('joindate', member.joindate)
+    formData.append('LeaveStartDate', member.LeaveStartDate)
+    formData.append('LeaveEndDate', member.LeaveEndDate)
+    formData.append('isActive', mode)
+    updateMember(member._id, formData)
+    // updateMember(member._id, member.firstName.toLowerCase(), member.lastName.toLowerCase(), member.email.toLowerCase(), member.userRole, member.joindate, member.phone, member.userDesignation, member.alterPhone, member.alterEmail, member.department, member.LeaveStartDate, member.LeaveEndDate, member.password,Image, mode)
 
     setMember({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', profile: '' })
     setMode(false)
+    setImage('')
     refclose.current.click()
   }
   const onchange = (e) => {
     setMember({ ...member, [e.target.name]: e.target.value })
+  }
+  const imageUpload = (e) => {
+    setImage(e.target.files[0])
   }
 
   const toggleMode = () => {
@@ -61,6 +86,7 @@ const Member = () => {
       setMode(true)
     }
   }
+
 
   return (
     <div className="mx-5 px-3" style={{ marginTop: '30px' }}>
@@ -105,7 +131,7 @@ const Member = () => {
                           {/* // 5 Date  */}
                           <div className="col mt-2 AddMember-mobile-style">
                             <div className='fs-6'>Choose a JoinDate:</div>
-                            <input type="date" className='bottom-border'  value={member.joindate} onChange={onchange} name="joindate" />
+                            <input type="date" className='bottom-border' value={member.joindate} onChange={onchange} name="joindate" />
                           </div>
                           <div className="mt-4 pt-1 AddMember-mobile-style">
                             <input type="text " className='bottom-border' placeholder="Phone Number *" value={member.phone} onChange={onchange} name="phone" minLength={10} required />
@@ -143,12 +169,12 @@ const Member = () => {
                           {/* // 11 date  */}
                           <div className="col-md-6 mt-4 AddMember-mobile-style">
                             <div className='fs-6'>Choose a Leave StartDate</div>
-                            <input type="date" className='bottom-border'  value={member.LeaveStartDate} onChange={onchange} name="LeaveStartDate" />
+                            <input type="date" className='bottom-border' value={member.LeaveStartDate} onChange={onchange} name="LeaveStartDate" />
                           </div>
                           {/* // 12 date  */}
                           <div className="col-md-6 mt-4 AddMember-mobile-style">
                             <div className='fs-6'>Choose a Leave EndDate</div>
-                            <input type="date" className='bottom-border'  value={member.LeaveEndDate} onChange={onchange} name="LeaveEndDate" />
+                            <input type="date" className='bottom-border' value={member.LeaveEndDate} onChange={onchange} name="LeaveEndDate" />
                           </div>
                           <div className="mt-4 pt-2 AddMember-mobile-style">
                             <input type="password " disabled className='bottom-border' placeholder="Password *" value={member.password} onChange={onchange} name="password" minLength={5} required />
@@ -157,7 +183,7 @@ const Member = () => {
                           <div className="col mt-1 pt-1 AddMember-mobile-style">
                             <div className='fs-6'><strong>Profile Picture</strong></div>
                             <input type="file"
-                               name="profile" value={member.profile} onChange={onchange}
+                              name="profile" onChange={imageUpload}
                               accept="image/png, image/jpeg" />
                           </div>
                           {/* // 14 switch  */}
@@ -173,7 +199,7 @@ const Member = () => {
                       </form>
                     </div>
                     <div className="col-lg-1 p-0  text-center" >
-                      <img src="https://www.detectivestraining.com/views/assets/images/online-learning.jpg" className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
+                      <img src={typeof (image) === 'string' ? ((member.profile === null || member.profile === undefined) ? 'https://www.detectivestraining.com/views/assets/images/online-learning.jpg' : `${imageURL}${member.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
                     </div>
                   </div>
 
@@ -198,10 +224,10 @@ const Member = () => {
 
       <div className=" row ">
         <div className="col-lg-3 mt-3 pt-1 AddMember-mobile-style">
-          <input type="text " className='bottom-border ' value={filterName} onChange={(e) => setFilterName(e.target.value)} placeholder="Filter member" style={{width:'80%'}} name="filterName" />
+          <input type="text " className='bottom-border ' value={filterName} onChange={(e) => setFilterName(e.target.value)} placeholder="Filter member" style={{ width: '80%' }} name="filterName" />
         </div>
         <div className="col-lg-3 mt-4 AddMember-mobile-style">
-          <select className="bottom-border" placeholder="User Role *" value={filterRole} onChange={(e) => setFilterRole(e.target.value)} aria-label="User Role *" style={{width:'80%'}} name="userRole">
+          <select className="bottom-border" placeholder="User Role *" value={filterRole} onChange={(e) => setFilterRole(e.target.value)} aria-label="User Role *" style={{ width: '80%' }} name="userRole">
             <option value=''>Select Member Roles</option>
             <option value='Employee'>Employee</option>
             <option value='Admin'>Admin</option>
@@ -209,7 +235,7 @@ const Member = () => {
           </select>
         </div>
         <div className="col-lg-3 mt-4 AddMember-mobile-style">
-          <select className="bottom-border" value={filterActive} onChange={(e) => setFilterActive(e.target.value)} aria-label="filterActive" style={{width:'80%'}} name="filterActive">
+          <select className="bottom-border" value={filterActive} onChange={(e) => setFilterActive(e.target.value)} aria-label="filterActive" style={{ width: '80%' }} name="filterActive">
             <option value=''>Select Active Staus</option>
             <option value="true">True</option>
             <option value="false">False</option>
@@ -217,7 +243,7 @@ const Member = () => {
         </div>
         <div className="col-lg-3 AddMember-mobile-style">
           <div className='fs-6 fw-light mx-1'>Department</div>
-          <select className="bottom-border" aria-label="filterDepartment" value={filterDepartment} onChange={(e) => setFilterDepartment(e.target.value)} style={{width:'80%'}} name="filterDepartment">
+          <select className="bottom-border" aria-label="filterDepartment" value={filterDepartment} onChange={(e) => setFilterDepartment(e.target.value)} style={{ width: '80%' }} name="filterDepartment">
             <option value=''>Select Department</option>
             <option value='Dispatch Department'>Web Application Development</option>
             <option value='Finance Department'>Mobile Application Development</option>

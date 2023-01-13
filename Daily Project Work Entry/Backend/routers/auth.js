@@ -42,6 +42,7 @@ router.post('/resetPassword', [
 
         //if user want update any perticular field
         { newMember.password = secPass }
+
         // Find the note to updated to update it 
         // let member = await Member.findById({user: user.id})
         
@@ -51,7 +52,7 @@ router.post('/resetPassword', [
         // }
         
         // if note Exists 
-       let  member = await Member.findByIdAndUpdate(user.id, { $set: newMember }, { new: true })
+        let member = await Member.findByIdAndUpdate(user.id, { $set: newMember }, { new: true })
         res.json({ "success": "password has been Updated successfully", member })
 
     } catch (error) {
