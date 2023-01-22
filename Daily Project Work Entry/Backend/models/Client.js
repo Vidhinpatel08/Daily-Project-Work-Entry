@@ -10,7 +10,14 @@ const ClientSchema = new Schema({
     country: {
         type: String,
         required: true
-    }
+    },
+    code: {
+        type: String,
+        required: true
+    },
+    ActiveStatus :{
+        type: Boolean,
+    },
 });
 
 module.exports = mongoose.model('client', ClientSchema)

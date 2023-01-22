@@ -68,8 +68,7 @@ router.post('/getuser', async (req, res) => {
 router.put('/updatemember/:id', uploadfile, async (req, res) => {
     try {
 
-        const { firstName, lastName, email, userRole, joindate, phone, userDesignation, alterPhone, alterEmail, department, LeaveStartDate, LeaveEndDate,isActive } = req.body;
-        console.log(req.file)
+        const { firstName, lastName, email, userRole, joindate, phone, userDesignation, alterPhone, alterEmail, department, LeaveStartDate, LeaveEndDate, isActive } = req.body;
         // create a note object
         const newMember = {};
 
@@ -99,6 +98,7 @@ router.put('/updatemember/:id', uploadfile, async (req, res) => {
 
         // if note Exists 
         let member = await Member.findByIdAndUpdate(req.params.id, { $set: newMember }, { new: true })
+        console.log(member)
         res.json({ "success": "Member has been Updated successfully", member })
 
     } catch (error) {

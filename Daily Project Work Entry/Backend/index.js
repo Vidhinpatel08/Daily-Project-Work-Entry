@@ -19,6 +19,7 @@ app.use('/api/auth',require('./routers/auth') )
 app.use('/api/member',require('./routers/member') )
 app.use('/api/project',require('./routers/project') )
 app.use('/api/client',require('./routers/client') )
+app.use('/api/dprs',require('./routers/dprs') )
 
 
 app.listen(port, () => {

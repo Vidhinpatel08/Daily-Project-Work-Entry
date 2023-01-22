@@ -21,6 +21,7 @@
     width: 95%;
     border: none;
     border-bottom: 1px solid #1890ff;
+    background-color: transparent;
     outline: none;
 }
 
@@ -37,4 +38,24 @@
     width: 40px;
     height: 40px;
     outline: none;
+}
+
+.profile-box-item {
+    width: 30%;
+    margin: 10px;
+    margin-left: 20px;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+}
+
+
+
+@media screen and (max-width: 722px){
+    .profile-box-item {
+        width: 100%;
+        margin-right: 15px;
+        margin-left: 15px;
+        background-color: #e8e8e8;
+        border-radius: 10px;
+    }
 }

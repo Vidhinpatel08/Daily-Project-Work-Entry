@@ -92,7 +92,7 @@ const ProjectState = (props) => {
     }
   }
 
-  
+
   const getClient = async () => {
     try {
       const response = await fetch(`${host}/api/client/fetchclient`, {
@@ -108,16 +108,16 @@ const ProjectState = (props) => {
       console.log('Internal Error occure')
     }
   }
-  
-  
-  const createClient = async (clientName,country) => {
+
+
+  const createClient = async (clientName, country, code, staus) => {
     try {
       const response = await fetch(`${host}/api/client/createclient`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({clientName,country })
+        body: JSON.stringify({ clientName, country, code, staus })
       });
       await response.json();
       getClient()
@@ -128,10 +128,47 @@ const ProjectState = (props) => {
   }
 
 
+  const updateClient = async (id,clientName, country, code, staus) => {
+    try {
+      const response = await fetch(`${host}/api/client/updateclient/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ clientName, country, code, staus })
+      });
+      await response.json();
+      getClient()
+      // showAlert('Added Successfully', 'success')
+      console.log('Edit Successfully')
+    } catch (error) {
+      console.error(error)
+      console.log('Internal Error occure')
+    }
+  }
+
+
+  const deleteClient = async (id) => {
+    try {
+      const response = await fetch(`${host}/api/client/deleteclient/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      await response.json();
+      getClient()
+      // showAlert('Added Successfully', 'success')
+      console.log('Deleted Successfully')
+    } catch (error) {
+      console.error(error)
+      console.log('Internal Error occure')
+    }
+  }
 
   return (
-    <noteContext.Provider value={{ projects, getProject, createProject, updateProject, deleteProject,client, createClient,getClient }}>
-      {props.children};
+    <noteContext.Provider value={{ projects, getProject, createProject, updateProject, deleteProject, client, createClient, getClient, updateClient, deleteClient }}>
+      {props.children}
     </noteContext.Provider>
 
   )

@@ -12,7 +12,7 @@ const Member = () => {
   const { members, getMember, updateMember } = context;
   const refEdit = useRef(null)
   const refclose = useRef(null)
-  const [member, setMember] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '' })
+  const [member, setMember] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '' })
   const [mode, setMode] = useState(false)
   const [image, setImage] = useState('')
   const imageURL = 'http://localhost:5000/uploads/'
@@ -58,15 +58,12 @@ const Member = () => {
     formData.append('alterPhone', member.alterPhone)
     formData.append('alterEmail', member.alterEmail)
     formData.append('department', member.department)
-    formData.append('password', member.password)
     formData.append('joindate', member.joindate)
     formData.append('LeaveStartDate', member.LeaveStartDate)
     formData.append('LeaveEndDate', member.LeaveEndDate)
     formData.append('isActive', mode)
     updateMember(member._id, formData)
-    // updateMember(member._id, member.firstName.toLowerCase(), member.lastName.toLowerCase(), member.email.toLowerCase(), member.userRole, member.joindate, member.phone, member.userDesignation, member.alterPhone, member.alterEmail, member.department, member.LeaveStartDate, member.LeaveEndDate, member.password,Image, mode)
-
-    setMember({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', profile: '' })
+    setMember({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '' })
     setMode(false)
     setImage('')
     refclose.current.click()
@@ -88,9 +85,12 @@ const Member = () => {
   }
 
 
-  return (
-    <div className="mx-5 px-3" style={{ marginTop: '30px' }}>
-      <h3 className='fw-light p-0'>Member List</h3>
+  return (<>
+    <div className="topbar  p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
+      MANAGE MEMBERS
+    </div>
+    <div className="mx-2 px-3 " style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
+      <h4 className='fw-light mt-2'>Member List</h4>
 
       {/* <!-- Button trigger modal --> */}
       <button type="button" ref={refEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
@@ -119,7 +119,6 @@ const Member = () => {
                           <div className="mt-4 AddMember-mobile-style">
                             <input type="email " className='bottom-border' placeholder="Email *" name="email" value={member.email} onChange={onchange} required />
                           </div>
-                          {/* // 4 menu */}
                           <div className="mt-4 pt-2 AddMember-mobile-style">
                             <select className="bottom-border" placeholder="User Role *" aria-label="User Role *" value={member.userRole} onChange={onchange} name="userRole" required>
                               <option value=''>User Role*</option>
@@ -128,7 +127,6 @@ const Member = () => {
 
                             </select>
                           </div>
-                          {/* // 5 Date  */}
                           <div className="col mt-2 AddMember-mobile-style">
                             <div className='fs-6'>Choose a JoinDate:</div>
                             <input type="date" className='bottom-border' value={member.joindate} onChange={onchange} name="joindate" />
@@ -136,7 +134,6 @@ const Member = () => {
                           <div className="mt-4 pt-1 AddMember-mobile-style">
                             <input type="text " className='bottom-border' placeholder="Phone Number *" value={member.phone} onChange={onchange} name="phone" minLength={10} required />
                           </div>
-                          {/* // 7 menu  */}
                           <div className="mt-4 pt-1 AddMember-mobile-style">
                             <select className="bottom-border" placeholder="User Designation *" aria-label="User Designation *" value={member.userDesignation} onChange={onchange} name="userDesignation" required>
                               <option value=''>User Designation*</option>
@@ -157,7 +154,6 @@ const Member = () => {
                           <div className="mt-4 AddMember-mobile-style">
                             <input type="email " className='bottom-border' placeholder="Alternative Email" value={member.alterEmail} onChange={onchange} name="alterEmail" />
                           </div>
-                          {/* // 10 menu  */}
                           <div className="col-md-12 mt-4 pt-1 AddMember-mobile-style">
                             <select className="bottom-border" placeholder="Department *" aria-label="Department" value={member.department} onChange={onchange} name="department" style={{ width: '30%' }} required>
                               <option value=''>Department*</option>
@@ -166,27 +162,23 @@ const Member = () => {
                               <option value='Human Resource Department'>Human Resource</option>
                             </select>
                           </div>
-                          {/* // 11 date  */}
                           <div className="col-md-6 mt-4 AddMember-mobile-style">
                             <div className='fs-6'>Choose a Leave StartDate</div>
                             <input type="date" className='bottom-border' value={member.LeaveStartDate} onChange={onchange} name="LeaveStartDate" />
                           </div>
-                          {/* // 12 date  */}
                           <div className="col-md-6 mt-4 AddMember-mobile-style">
                             <div className='fs-6'>Choose a Leave EndDate</div>
                             <input type="date" className='bottom-border' value={member.LeaveEndDate} onChange={onchange} name="LeaveEndDate" />
                           </div>
                           <div className="mt-4 pt-2 AddMember-mobile-style">
-                            <input type="password " disabled className='bottom-border' placeholder="Password *" value={member.password} onChange={onchange} name="password" minLength={5} required />
+                            <input type="password " disabled className='bottom-border' placeholder="Password *" name="password" />
                           </div>
-                          {/* // 13 file  */}
                           <div className="col mt-1 pt-1 AddMember-mobile-style">
                             <div className='fs-6'><strong>Profile Picture</strong></div>
                             <input type="file"
                               name="profile" onChange={imageUpload}
                               accept="image/png, image/jpeg" />
                           </div>
-                          {/* // 14 switch  */}
                           <div className="form-check form-switch mt-3 AddMember-mobile-style">
                             <input className="form-check-input border border-dark " checked={mode === true ? true : false} type="checkbox" role="switch" onChange={toggleMode} name="isActive" />
                             <label className="form-check-label  " htmlFor="flexSwitchCheckChecked">Is Active?</label>
@@ -199,10 +191,9 @@ const Member = () => {
                       </form>
                     </div>
                     <div className="col-lg-1 p-0  text-center" >
-                      <img src={typeof (image) === 'string' ? ((member.profile === null || member.profile === undefined) ? 'https://www.detectivestraining.com/views/assets/images/online-learning.jpg' : `${imageURL}${member.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
+                      <img src={(typeof (image) === 'string' || image === null  || image === undefined ) ? ((member.profile === null || member.profile === undefined) ? 'https://www.detectivestraining.com/views/assets/images/online-learning.jpg' : `${imageURL}${member.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
                     </div>
                   </div>
-
                 </div>
               </>
             </div>
@@ -224,14 +215,13 @@ const Member = () => {
 
       <div className=" row ">
         <div className="col-lg-3 mt-3 pt-1 AddMember-mobile-style">
-          <input type="text " className='bottom-border ' value={filterName} onChange={(e) => setFilterName(e.target.value)} placeholder="Filter member" style={{ width: '80%' }} name="filterName" />
+          <input type="text " className='bottom-border fw-light' value={filterName} onChange={(e) => setFilterName(e.target.value)} placeholder="Filter member" style={{ width: '80%' }} name="filterName" />
         </div>
         <div className="col-lg-3 mt-4 AddMember-mobile-style">
           <select className="bottom-border" placeholder="User Role *" value={filterRole} onChange={(e) => setFilterRole(e.target.value)} aria-label="User Role *" style={{ width: '80%' }} name="userRole">
             <option value=''>Select Member Roles</option>
             <option value='Employee'>Employee</option>
             <option value='Admin'>Admin</option>
-
           </select>
         </div>
         <div className="col-lg-3 mt-4 AddMember-mobile-style">
@@ -252,8 +242,8 @@ const Member = () => {
         </div>
       </div>
 
-      <div className='mt-3 border p-1'>
-        <table className="table table-striped table-hover text-center  p-5">
+      <div className='mt-3 border p-1 table-responsive'>
+        <table className="table table-striped table-hover text-center align-middle p-5">
           <thead>
             <tr className='py-2'>
               <th>Name</th>
@@ -271,7 +261,7 @@ const Member = () => {
             {members.length === 0 ? <tr></tr> :
 
               members.filter((member) => {
-                return filterName.toLowerCase() === '' ? member : `${member.firstName} ${member.lastName}`.toLowerCase().includes(filterName)
+                return filterName.toLowerCase() === '' ? member : `${member.firstName} ${member.lastName}`.toLowerCase().includes(filterName.toLowerCase())
               }).filter((member) => {
                 return filterRole === '' ? member : member.userRole.includes(filterRole)
               }).filter((member) => {
@@ -285,7 +275,9 @@ const Member = () => {
           </tbody>
         </table>
       </div>
+      <div className='mb-2'> </div>
     </div>
+  </>
   )
 }
 

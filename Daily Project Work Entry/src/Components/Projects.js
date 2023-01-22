@@ -5,11 +5,12 @@ import noteContext from '../Context/notes/notecontext';
 import { useNavigate } from 'react-router-dom';
 import Multiselect from 'multiselect-react-dropdown';
 import TimePicker from 'react-time-picker';
+import AddClient from './AddClient';
 
 const Projects = () => {
   const navigate = useNavigate();
   const context = useContext(noteContext);
-  const { projects, getProject, updateProject,createClient,getClient,client } = context;
+  const { projects, getProject, updateProject, getClient, client } = context;
   const [filterName, setFilterName] = useState('')
   const [filterProjectStatus, setFilterProjectStatus] = useState('')
   const [filterManager, setFilterManager] = useState('')
@@ -19,13 +20,13 @@ const Projects = () => {
   const refclose = useRef(null)
   const [members, setMembers] = useState([])
   const [membersList, setMembersList] = useState([])
-  const [clients, setClients] = useState({ clientName: '', country: '' })
-  const refClient = useRef(null)
+
   const [limitHours, setLimitHours] = useState('08:00');
   const host = 'http://localhost:5000'
 
   const updateproject = (currentProject) => {
     setProject(currentProject)
+
     refEdit.current.click()
     setMembersList([currentProject.member])
   }
@@ -76,25 +77,20 @@ const Projects = () => {
     // eslint-disable-next-line
   }, [])
 
-  const handleClient = (e) => {
-    e.preventDefault();
-    createClient(clients.clientName, clients.country)
-    setClients({ clientName: '', country: ''})
-    refClient.current.click()
-  }
-  const onChanges = (e) => {
-    setClients({ ...clients, [e.target.name]: e.target.value })
-  }
 
 
-  return (
-    <div className="mx-5 px-3" style={{ marginTop: '20px' }}>
-      <h3 className='fw-light p-0'>Project List</h3>
+  return (<>
+    <div className="topbar  p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
+      MANAGE PROJECTS
+    </div>
+    <div className="mx-2 px-3 " style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
+      {/* <div className="mx-2 px-3" style={{ marginTop: '20px' }}> */}
+      <h4 className='fw-light mt-2'>Project List</h4>
       {/* Edit Project  */}
       <button type="button" ref={refEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#editProjectModal" >
       </button>
       <div className="modal fade" ref={refclose} id="editProjectModal" tabIndex="-1" aria-labelledby="#exampleModalAddProject" aria-hidden="true">
-        <div className="modal-dialog modal-xl modal-dialog-centered">
+        <div className="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Project</h1>
@@ -145,13 +141,11 @@ const Projects = () => {
                           <option value='Month'>Month</option>
                         </select>
                       </section>
-                      {/* limithours */}
 
                     </div>
                     <div className="d-flex pt-1 flex-column ">
                       <label htmlFor="days" className='' style={{ fontSize: '14px' }}>select limit hours</label>
-                      <TimePicker clockIcon={null} style={{position:'relative'}} value={limitHours} onChange={setLimitHours}   />
-
+                      <TimePicker clockIcon={null} style={{ position: 'relative' }} onChange={setLimitHours} value={project.limithours} />
 
                     </div>
                     <div className="mt-4 pt-1 AddMember-mobile-style">
@@ -165,14 +159,16 @@ const Projects = () => {
                       <input type="text " className='bottom-border ' placeholder="Type *" value={project.type} onChange={onchange} name="type" minLength={2} maxLength={25} required />
                     </div>
                   </div>
-                </div>
-                <div className="m-4 border  ">
-                  <div className="form-group m-3">
-                    {/* <label htmlFor="exampleFormControlTextarea1">Enter Project Description</label> */}
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name='projectDescription' value={project.projectDescription} onChange={onchange} placeholder='Enter Project Description'></textarea>
+
+                  <div className="mt-3">
+                    <div className="form-group">
+                      <div className='fs-6 py-2'>Enter Project Description</div>
+                      <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name='projectDescription' value={project.projectDescription} onChange={onchange} placeholder='Enter Project Description' required></textarea>
+                    </div>
                   </div>
+
                 </div>
-                <div className="  m-4 border ">
+                <div className="m-4">
                   <div className="container mx-4 p-1 AddMember-mobile-style">
                     <button type="submit" className="btn btn-primary px-4 fw-bold border border-dark" ref={refclose}>Save</button>
                     <button type="reset" className="btn btn-light btn-outline-dark mx-3 px-3 fw-bold " data-bs-dismiss="modal">Cancel</button>
@@ -194,19 +190,18 @@ const Projects = () => {
           </svg>
         </button>
       </ div>
-      <AddProject  members={members} />
+      <AddProject members={members} />
 
       {/* Filter Modal  */}
       <div className=" row ">
         <div className="col-lg-3 mt-3 pt-1 AddMember-mobile-style">
-          <input type="text " className='bottom-border ' value={filterName} onChange={(e) => setFilterName(e.target.value)} placeholder="Project Name" maxLength={25} name="filterName" />
+          <input type="text " className='bottom-border fw-light' value={filterName} onChange={(e) => setFilterName(e.target.value)} placeholder="Project Name" maxLength={25} name="filterName" />
         </div>
         <div className="col-lg-3 AddMember-mobile-style">
           <div className='fs-6 fw-light mx-1'>Project Status</div>
           <select className="bottom-border" aria-label="filterProjectStatus" value={filterProjectStatus} onChange={(e) => setFilterProjectStatus(e.target.value)} name="filterProjectStatus">
             <option value=''>Select Project Status</option>
             {projects.map((project) => { return <option key={project._id} value={project.type} >{project.type}</option> })}
-
           </select>
         </div>
         <div className="col-lg-3 AddMember-mobile-style">
@@ -226,8 +221,8 @@ const Projects = () => {
       </div>
 
       {/* table Modal  */}
-      <div className='mt-3 border p-1'>
-        <table className="table table-striped table-hover text-center  p-5">
+      <div className='mt-3 border table-responsive p-1'>
+        <table className="table table-striped table-hover text-center align-middle p-5">
           <thead>
             <tr className='py-2'>
               <th>Project</th>
@@ -244,7 +239,7 @@ const Projects = () => {
             {projects.length === 0 ? <tr></tr> :
 
               projects.filter((project) => {
-                return filterName.toLowerCase() === '' ? project : project.projectName.toLowerCase().includes(filterName)
+                return filterName.toLowerCase() === '' ? project : project.projectName.toLowerCase().includes(filterName.toLowerCase())
               }).filter((project) => {
                 return filterProjectStatus === '' ? project : project.type.toString().includes(filterProjectStatus)
               }).filter((project) => {
@@ -258,36 +253,10 @@ const Projects = () => {
           </tbody>
         </table>
       </div>
-      {/* <!-- Modal --> */}
-      <div className="modal fade" ref={refClient} id="createClient" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Add New Client</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body ">
-              <>
-                <form onSubmit={handleClient}>
-                  <div className="container m-auto">
-                    <div className="mt-4 AddMember-mobile-style ">
-                      <input type="text " className='bottom-border' style={{ width: '80%' }} placeholder="Client Name *" value={clients.clientName} onChange={onChanges} name="clientName" minLength={2} maxLength={25} required />
-                    </div>
-                    <div className="mt-4 AddMember-mobile-style">
-                      <input type="text " className='bottom-border' style={{ width: '80%' }} placeholder="Country" value={clients.country} onChange={onChanges} name="country" minLength={2} maxLength={25} required />
-                    </div>
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" className="btn btn-success" ref={refClient}>ADD Client</button>
-                  </div>
-                </form>
-              </>
-            </div>
-          </div>
-        </div>
-      </div>
+      <AddClient />
+      <div className='mb-2'></div>
     </div >
+  </>
   )
 }
 

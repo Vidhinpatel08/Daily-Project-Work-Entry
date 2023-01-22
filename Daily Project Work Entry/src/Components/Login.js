@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './css/style.css'
 
-const Login = (props) => {
+const Login = () => {
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     const history = useNavigate();
     const handleSubmit = async (e) => {
@@ -11,13 +11,11 @@ const Login = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // change hardcode token 
             },
             body: JSON.stringify({ email: credentials.email.toLowerCase(), password: credentials.password })
         });
         const json = await response.json();
         if (json.success) {
-            // save the token Redirect
             localStorage.setItem('token', json.authToken)
             console.log("Loged in Sucessfully", 'success')
             history('/')
@@ -44,7 +42,7 @@ const Login = (props) => {
                 <div >
                 </div>
                 <div className=" py-2 m-1">
-                <button type="submit" className="btn btn-primary w-100">Login</button>
+                    <button type="submit" className="btn btn-primary w-100">Login</button>
                 </div>
                 <div className=" m-1">
                     <Link className="m-1" id='label-forget' to="/forgetpassword">Forgot your password?</Link>

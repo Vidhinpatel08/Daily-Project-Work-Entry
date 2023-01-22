@@ -2,23 +2,24 @@ import Multiselect from 'multiselect-react-dropdown';
 import React, { useContext, useRef, useState } from 'react'
 import TimePicker from 'react-time-picker';
 import noteContext from '../Context/notes/notecontext';
+import AddClient from './AddClient';
 import './css/projectstyle.css'
 
 const AddProject = (props) => {
   const context = useContext(noteContext);
-  const { createProject,client } = context;
+  const { createProject, client } = context;
   const refclose = useRef(null)
-  const {  members } = props
+  const { members } = props
   const [membersList, setMembersList] = useState([])
   const [limitHours, setLimitHours] = useState('08:00');
 
 
-  const [project, setProject] = useState({ projectName: '', clientName: '', member: '', durationHours: '',  durationType: 'Day', technologies: '', projectManager: '', type: '', projectDescription: '' })
+  const [project, setProject] = useState({ projectName: '', clientName: '', member: '', durationHours: '', durationType: 'Day', technologies: '', projectManager: '', type: '', projectDescription: '' })
 
   const handleAddSubmit = (e) => {
     e.preventDefault();
     createProject(project.projectName, project.clientName, membersList.join(', '), project.durationHours, project.durationType, limitHours, project.technologies, project.projectManager, project.type, project.projectDescription)
-    setProject({ projectName: '', clientName: '', member: '', durationHours: '',  durationType: 'Day', technologies: '', projectManager: '', type: '', projectDescription: '' })
+    setProject({ projectName: '', clientName: '', member: '', durationHours: '', durationType: 'Day', technologies: '', projectManager: '', type: '', projectDescription: '' })
     setLimitHours('')
     refclose.current.click()
     setMembersList([])
@@ -36,7 +37,7 @@ const AddProject = (props) => {
     <>
       {/* <!-- Modal --> */}
       <div className="modal fade" ref={refclose} id="exampleModalAddProject" tabIndex="-1" aria-labelledby="#exampleModalAddProject" aria-hidden="true">
-        <div className="modal-dialog modal-xl modal-dialog-centered">
+        <div className="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Add Project</h1>
@@ -65,7 +66,7 @@ const AddProject = (props) => {
 
 
                     </div>        <div className="pt-2 AddMember-mobile-style">
-                      <Multiselect isObject={false} displayValue='Id' key={members.map((m)=>{return m._id})} className='multiselectContainer' hidePlaceholder={true} onRemove={addedMember} onSelect={addedMember} showCheckbox options={members.map((member) => {  return  `${member.firstName} ${member.lastName}` })} />
+                      <Multiselect isObject={false} displayValue='Id' key={members.map((m) => { return m._id })} className='multiselectContainer' hidePlaceholder={true} onRemove={addedMember} onSelect={addedMember} showCheckbox options={members.map((member) => { return `${member.firstName} ${member.lastName}` })} />
                     </div>
                     <div className="mt-4 pt-1 AddMember-mobile-style">
                       <select className="bottom-border" placeholder="Technologies" aria-label="Technologies" value={project.technologies} onChange={onchange} name="technologies" >
@@ -87,13 +88,11 @@ const AddProject = (props) => {
                           <option value='Month'>Month</option>
                         </select>
                       </section>
-                      {/* limithours */}
 
                     </div>
                     <div className="d-flex pt-1 flex-column ">
                       <label htmlFor="days" className='' style={{ fontSize: '14px' }}>select limit hours</label>
-                      {/* <input type="time" className='limithoursFiled limitHour' placeholder="00:00" step='60'  max='24:00' min='00:00' value={project.limithours} onChange={onchange} name="limithours"  required /> */}
-                      <TimePicker clockIcon={null} style={{position:'relative'}} value={limitHours} onChange={setLimitHours}   />
+                      <TimePicker clockIcon={null} style={{ position: 'relative' }} value={limitHours} onChange={setLimitHours} />
 
 
                     </div>
@@ -108,14 +107,16 @@ const AddProject = (props) => {
                       <input type="text " className='bottom-border ' placeholder="Type *" value={project.type} onChange={onchange} name="type" minLength={2} maxLength={25} required />
                     </div>
                   </div>
-                </div>
-                <div className="m-4 border border-dark ">
-                  <div className="form-group m-3">
-                    {/* <label htmlFor="exampleFormControlTextarea1">Enter Project Description</label> */}
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name='projectDescription' value={project.projectDescription} onChange={onchange} placeholder='Enter Project Description'></textarea>
+
+                  <div className="mt-3">
+                    <div className="form-group">
+                      <div className='fs-6 py-2'>Enter Project Description</div>
+                      <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name='projectDescription' value={project.projectDescription} onChange={onchange} placeholder='Enter Project Description' required></textarea>
+                    </div>
                   </div>
+
                 </div>
-                <div className="  m-4 border ">
+                <div className="m-4">
                   <div className="container mx-4 p-1 AddMember-mobile-style">
                     <button type="submit" className="btn btn-primary px-4 fw-bold border border-dark" ref={refclose}>Save</button>
                     <button type="reset" className="btn btn-light btn-outline-dark mx-3 px-3 fw-bold " data-bs-dismiss="modal">Cancel</button>
@@ -125,11 +126,8 @@ const AddProject = (props) => {
             </div>
           </div>
         </div>
+        <AddClient />
       </div>
-
-
-      {/* client Modal  */}
-
     </>
   )
 }

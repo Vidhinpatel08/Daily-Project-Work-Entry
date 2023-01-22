@@ -6,7 +6,6 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchuser = require("../middleware/fetchuser");
-const { findByDisplayValue } = require("@testing-library/react");
 
 const JWT_SECRET = 'welcome$man' // create secret Key
 let success = false //if you sucessfully pass Api then Successs true
@@ -61,20 +60,20 @@ router.post('/resetPassword', [
     }
 });
 
-// //  ROUTE - 3 :      get logged in user details Using : POST "api/auth/getuser". Login required
-// router.post('/getuser', fetchuser, async (req, res) => {
+//  ROUTE - 3 :      get logged in user details Using : POST "api/auth/getuser". Login required
+router.post('/getuser', fetchuser, async (req, res) => {
 
-//     try {
-//         const userid = req.user.id;
-//         const user = await User.findById(userid).select("-password")
-//         success = true
-//         res.json({ success, user })
-//     } catch (error) {
-    //         console.error(error.message)
-//         res.status(500).send('Internal server Error Occure')
-//     }
+    try {
+        const userid = req.user.id;
+        const user = await Member.findById(userid).select("-password")
+        success = true
+        res.json({ success, user })
+    } catch (error) {
+            console.error(error.message)
+        res.status(500).send('Internal server Error Occure')
+    }
 
-// });
+});
 
 
 

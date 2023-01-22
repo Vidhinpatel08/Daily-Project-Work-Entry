@@ -31,7 +31,3 @@ const MemberItem = (props) => {
 }
 
 export default MemberItem
-
-// ###################################################### //
-
-// Project Status => Profile for Now
