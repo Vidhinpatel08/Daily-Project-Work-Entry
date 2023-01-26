@@ -12,7 +12,7 @@ let MyPassword = 'xxxxxxxxx'
 let MyEmailId = 'xxxxxxxxx'
 const JWT_SECRET = 'welcome$man' // create secret Key
 let success = false //if you sucessfully pass Api then Successs true
-
+ 
 router.post('/getuser', fetchuser, async (req, res) => {
 
     try {
