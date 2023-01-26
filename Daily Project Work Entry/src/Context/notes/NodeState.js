@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import globalContext from "./globalContext";
 import noteContext from "./notecontext";
 
 const NoteState = (props) => {
-  // const { showAlert } = props;
+  const gContext = useContext(globalContext)
+  const { showAlert } = gContext;
   const [members, setMembers] = useState([])
   const host = 'http://localhost:5000'
 
@@ -18,7 +20,7 @@ const NoteState = (props) => {
       const json = await response.json();
       setMembers(json.user)
     } catch (error) {
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
     }
   }
 
@@ -32,11 +34,10 @@ const NoteState = (props) => {
       });
       await response.json();
       getMember()
-      // showAlert('Added Successfully', 'success')
-      // console.log('Added Successfully')
+      showAlert('Member Added Successfully', 'success')
     } catch (error) {
-      // showAlert('Internal Error occure', 'danger')
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 
@@ -49,11 +50,10 @@ const NoteState = (props) => {
       });
       await response.json();
       getMember()
-      // showAlert('Edited Successfully', 'success')
-      console.log('Edited Successfully')
+      showAlert('Member Edited Successfully', 'success')
     } catch (error) {
-      // showAlert('Internal Error occure', 'danger')
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 
@@ -64,15 +64,15 @@ const NoteState = (props) => {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          // change hardcode token 
         },
         body: JSON.stringify()
       });
       await response.json();
       getMember()
+      showAlert('Member Deleted Successfully', 'success')
     } catch (error) {
-      // showAlert('Internal Error occure', 'danger')
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 

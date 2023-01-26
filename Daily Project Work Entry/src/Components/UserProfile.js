@@ -1,8 +1,11 @@
 import './css/style.css'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import globalContext from '../Context/notes/globalContext'
 
 const UserProfile = () => {
+    const gContext = useContext(globalContext)
+    const { showAlert } = gContext;
     const [userProfile, setUserProfile] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', isActive: '' })
     const [image, setImage] = useState('')
     const navigate = useNavigate();
@@ -23,7 +26,7 @@ const UserProfile = () => {
             setUserProfile(json.user)
             setImage(json.user.profile)
         } catch (error) {
-            console.log('Internal Error occure')
+            showAlert('Internal Error occure','danger')
         }
     }
 
@@ -37,11 +40,9 @@ const UserProfile = () => {
                 body: JSON.stringify({ firstName, lastName, phone })
             });
             await response.json();
-            // showAlert('Edited Successfully', 'success')
-            console.log('Edited Successfully')
+            showAlert('User Details Edited Successfully', 'success')
         } catch (error) {
-            // showAlert('Internal Error occure', 'danger')
-            console.log('Internal Error occure')
+            showAlert('Internal Error occure', 'danger')
         }
     }
 

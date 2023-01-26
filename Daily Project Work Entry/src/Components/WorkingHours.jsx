@@ -171,7 +171,6 @@ const WorkingHours = () => {
               }))
               : <div className="text-center py-3"> No Data Found</div>
             }
-
           </div>
         </div>
       </div>

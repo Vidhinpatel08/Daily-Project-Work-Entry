@@ -5,6 +5,17 @@ const GlobalState = (props) => {
     const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
     const [user, setUser] = useState()
     const host = 'http://localhost:5000'
+    const [alert, setAlert] = useState(null)
+
+    const showAlert = (message, type) => {
+        setAlert({
+            msg: message,
+            type: type
+        })
+        setTimeout(() => {
+            setAlert(null)
+        }, 2000);
+    }
 
     const userdata = async () => {
         try {
@@ -17,13 +28,13 @@ const GlobalState = (props) => {
             });
             let json = await response.json()
             setUser(json.user)
-            // setUserProfile(json.user)
         } catch (error) {
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
+            showAlert('Something when to wrong', 'danger')
         }
     }
     return (
-        <globalContext.Provider value={{ sidebarIsOpen, setSidebarIsOpen, user, userdata }}>
+        <globalContext.Provider value={{ sidebarIsOpen, setSidebarIsOpen, user, userdata, alert, showAlert }}>
             {props.children}
         </globalContext.Provider>
 

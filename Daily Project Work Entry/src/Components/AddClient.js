@@ -69,7 +69,7 @@ const AddClient = () => {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" className="btn btn-success" ref={refClient}>ADD Client</button>
+                                        <button type="submit" className="btn btn-success" ref={refClient}>Submit</button>
                                     </div>
                                 </form>
                             </>

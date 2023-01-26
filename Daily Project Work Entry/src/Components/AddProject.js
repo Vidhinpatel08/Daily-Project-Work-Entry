@@ -100,11 +100,24 @@ const AddProject = (props) => {
                       <select className="bottom-border" placeholder="Project Manager *" aria-label="Project Manager" name="projectManager" value={project.projectManager} onChange={onchange} required>
                         <option value=''>Project Manager *</option>
                         {members.filter(member => member.userDesignation === 'Manager').map((member) => { return <option key={member._id} value={`${member.firstName} ${member.lastName}`} > {member.firstName} {member.lastName}</option> })}
-
                       </select>
                     </div>
-                    <div className="mt-4 AddMember-mobile-style">
-                      <input type="text " className='bottom-border ' placeholder="Type *" value={project.type} onChange={onchange} name="type" minLength={2} maxLength={25} required />
+                    <div className="mt-4 pt-1 AddMember-mobile-style">
+                      <select className="bottom-border" aria-label="Type" name="type" value={project.type} onChange={onchange} required>
+                        <option value=''>Type *</option>
+                        <option value='Active'>Active</option>
+                        <option value='Close'>Close</option>
+                        <option value='Pending'>Pending</option>
+                        <option value='Completed'>Completed</option>
+                        <option value='Delayed'>Delayed</option>
+                        <option value='Suspended'>Suspended</option>
+                        <option value='Abandoned'>Abandoned</option>
+                        <option value='Resumed'>Resumed</option>
+                        <option value='On Schedule'>On Schedule</option>
+                        <option value='Ahead of Schedule'>Ahead of Schedule</option>
+                        <option value='Behind Schedule'>Behind Schedule</option>
+                        <option value='At Risk'>At Risk</option>
+                      </select>
                     </div>
                   </div>
 

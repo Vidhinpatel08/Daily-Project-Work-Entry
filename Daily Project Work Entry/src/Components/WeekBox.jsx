@@ -6,7 +6,6 @@ const WeekBox = (props) => {
   const gContext = useContext(globalContext)
   const { sidebarIsOpen } = gContext;
   const { StartDate, lastDate, workHour, managementHour } = props
-  // console.log(StartDate, lastDate, workHour, managementHour)
   const dates = (date) => {
     let d = new Date(date).toString().split(' ')
     return `${d[2]}-${d[1]}`

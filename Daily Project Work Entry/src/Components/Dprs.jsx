@@ -34,7 +34,6 @@ const Dprs = () => {
     const onchange = (e) => {
         setDPRS({ ...DPRS, [e.target.name]: e.target.value })
         setSelect({ ...DPRS, [e.target.name]: e.target.value }.member === '' ? user : { ...DPRS, [e.target.name]: e.target.value }.member)
-        // console.log({ ...DPRS, [e.target.name]: e.target.value })
     }
     const clickForm = (e) => {
         userdata()

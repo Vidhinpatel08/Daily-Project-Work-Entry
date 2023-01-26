@@ -377,9 +377,9 @@ const WorkingCharts = () => {
   }, [sidebarIsOpen])
 
   return (
-    <div className=" justify-content-around w-100 " id='Dashboard-chart' style={{ height: 'fit-content' }} >
+    <div className="d-flex justify-content-around w-100 " style={{ height: 'fit-content' }} >
       <div className=" my-3">
-        <Bar data={dailyData} options={options} width={370} height={300} />
+        <Bar data={dailyData} options={options} width={420} height={300} />
       </div>
       <div className=' my-3'>
         <Line data={weeklyData} options={options} width={420} height={300}/>
@@ -388,17 +388,6 @@ const WorkingCharts = () => {
         <Line data={monthlyData} options={options} width={420} height={300}/>
       </div >
     </div >
-    // <div className="d-flex justify-content-center flex-wrap  py-2 "  >
-    //   <div className={sidebarIsOpen ? 'm-3' : 'm-3'} >
-    //     <Bar data={dailyData} options={options} width={450} height={200}/>
-    //   </div>
-    //   <div className={sidebarIsOpen ? 'm-3' : 'm-3'} >
-    //     <Line data={weeklyData} options={options} width={400}height={200} />
-    //   </div >
-    //   <div className={sidebarIsOpen ? 'm-3' : ' m-3'} >
-    //     <Line data={monthlyData} options={options} width={410} height={200}/>
-    //   </div >
-    // </div >
   )
 }
 

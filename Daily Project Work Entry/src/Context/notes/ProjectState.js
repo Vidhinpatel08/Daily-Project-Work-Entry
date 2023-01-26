@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import globalContext from "./globalContext";
 import noteContext from "./notecontext";
 
 const ProjectState = (props) => {
-
+  const gContext = useContext(globalContext)
+  const { showAlert } = gContext;
   const [projects, setProjects] = useState([])
   const [client, setClient] = useState([])
   const host = 'http://localhost:5000'
@@ -22,8 +24,7 @@ const ProjectState = (props) => {
       const json = await response.json();
       setProjects(json.project)
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
     }
   }
 
@@ -35,18 +36,15 @@ const ProjectState = (props) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // 'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify({ projectName, clientName, member, durationHours, durationType, limithours, technologies, projectManager, type, projectDescription })
       });
       await response.json();
       getProject()
-      // showAlert('Added Successfully', 'success')
-      // console.log('Added Successfully')
+      showAlert('Project Added Successfully', 'success')
     } catch (error) {
-      // showAlert('Internal Error occure', 'danger')
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 
@@ -57,18 +55,15 @@ const ProjectState = (props) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          // 'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify({ projectName, clientName, member, durationHours, durationType, limithours, technologies, projectManager, type, projectDescription })
       });
       await response.json();
       getProject()
-      // showAlert('Added Successfully', 'success')
-      // console.log('Edit Successfully')
-
+      showAlert('Project Edited Successfully', 'success')
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
 
   }
@@ -78,17 +73,14 @@ const ProjectState = (props) => {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          // 'auth-token': localStorage.getItem('token')
         },
       });
       await response.json();
       getProject()
-      // showAlert('Added Successfully', 'success')
-      // console.log('Deleted Successfully')
-
+      showAlert('Peoject Deleted Successfully', 'success')
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 
@@ -104,8 +96,7 @@ const ProjectState = (props) => {
       const json = await response.json();
       setClient(json.user)
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
     }
   }
 
@@ -121,9 +112,10 @@ const ProjectState = (props) => {
       });
       await response.json();
       getClient()
+      showAlert('Client Added Successfully', 'success')
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 
@@ -139,11 +131,10 @@ const ProjectState = (props) => {
       });
       await response.json();
       getClient()
-      // showAlert('Added Successfully', 'success')
-      console.log('Edit Successfully')
+      showAlert('Client Edit Successfully', 'success')
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 
@@ -158,11 +149,10 @@ const ProjectState = (props) => {
       });
       await response.json();
       getClient()
-      // showAlert('Added Successfully', 'success')
-      console.log('Deleted Successfully')
+      showAlert('Client Deleted Successfully', 'success')
     } catch (error) {
-      console.error(error)
-      console.log('Internal Error occure')
+      console.error('Internal Error occure :', error)
+      showAlert('Something when to wrong', 'danger')
     }
   }
 

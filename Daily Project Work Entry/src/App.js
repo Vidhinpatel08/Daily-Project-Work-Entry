@@ -18,6 +18,7 @@ import ActivitySummary from './Components/ActivitySummary';
 import GlobalState from './Context/notes/GlobalState';
 import ResetPassword from './Components/ResetPassword';
 import ForgotPassword from './Components/ForgotPassword';
+import Alert from './Alert';
 
 export default function App() {
   return (
@@ -26,10 +27,11 @@ export default function App() {
         <Router>
           <Routes>
             <Route path='/login' element={(<Login />)}></Route>
-            <Route path='/emailsender' element={(<ForgotPassword/>)}></Route>
+            <Route path='/emailsender' element={(<ForgotPassword />)}></Route>
             <Route path='*' element={(
               <>
                 <Navbar />
+                <Alert />
                 <Sidebar>
                   <Routes>
                     <Route path='/' element={(<DPRSState><Dashboard /></DPRSState>)}></Route>

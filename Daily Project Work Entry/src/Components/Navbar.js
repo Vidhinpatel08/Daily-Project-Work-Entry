@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
+import globalContext from '../Context/notes/globalContext';
 
 const Navbar = (props) => {
+    const gContext = useContext(globalContext)
+    const { showAlert } = gContext;
     const [userProfile, setUserProfile] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', isActive: '' })
     const [image, setImage] = useState('')
     const Host = 'http://localhost:5000'
@@ -20,7 +23,7 @@ const Navbar = (props) => {
             setUserProfile(json.user)
             setImage(json.user.profile)
         } catch (error) {
-            console.log('Internal Error occure')
+            showAlert('Internal Error occure','danger')
         }
     }
     const [islogin, setIsLogin] = useState(true)
@@ -31,7 +34,6 @@ const Navbar = (props) => {
         }
         else {
             setIsLogin(false)
-            console.log('not token in navbar')
         }
         // eslint-disable-next-line
     }, [])
@@ -39,9 +41,8 @@ const Navbar = (props) => {
 
     const handlelogout = () => {
         localStorage.removeItem('token')
-        props.isLoginuser()
         setUserProfile('')
-        console.log("Logout Successfully", 'success')
+        showAlert("Logout Successfully", 'success')
     }
     return (
         <>

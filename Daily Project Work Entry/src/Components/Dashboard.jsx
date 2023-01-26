@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import WorkingCharts from './WorkingCharts';
 import WorkingHours from './WorkingHours';
 import WorkingList from './WorkingList';
 import './css/style.css'
+import globalContext from '../Context/notes/globalContext';
 
 const Dashboard = () => {
+  const gContext = useContext(globalContext)
+  const { showAlert } = gContext;
   const navigate = useNavigate();
 
   const [isopenGraphs, setIsOpenGraphs] = useState(true)
@@ -15,6 +18,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!localStorage.getItem('token')) {
+      showAlert("Login Required", 'warning')
       navigate("/login");
     }
     // eslint-disable-next-line
@@ -29,11 +33,11 @@ const Dashboard = () => {
 
         {/* DAILY, WEEKLY & MONTHLY REPORTS CHARTS  */}
         <div className=""  >
-          <div className={isopenGraphs ? 'dashboard-item open m-2 p-3' : 'dashboard-item m-2 p-3'} style={{backgroundColor: 'white', border: '0.2px solid #c1bebe' }} aria-activedescendant='active' tabIndex={1}>
+          <div className={isopenGraphs ? 'dashboard-item open m-2 p-3' : 'dashboard-item m-2 p-3'} style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} aria-activedescendant='active' tabIndex={1}>
             <div className="dashboard-title" onClick={() => { setIsOpenGraphs(!isopenGraphs) }}>
               <span>
                 <div className=" justify-content-start" >
-                DAILY, WEEKLY & MONTHLY REPORTS CHARTS
+                  DAILY, WEEKLY & MONTHLY REPORTS CHARTS
                 </div>
               </span>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" style={{ transition: 'all 0.5s' }} className="bi bi-chevron-down toggle-btn" viewBox="0 0 16 16">
@@ -41,14 +45,14 @@ const Dashboard = () => {
               </svg>
             </div>
             <div className='dashboard-content p-o mx-0' >
-            <WorkingCharts/>
+              <WorkingCharts />
             </div>
           </div>
         </div>
 
         {/* DETAILS OF WORKING HOURS  */}
         <div className="" >
-          <div className={isopenHours ? 'dashboard-item open m-2  p-3' : 'dashboard-item m-2 p-3'} style={{ backgroundColor: 'white',  border: '0.2px solid #c1bebe' }} aria-activedescendant='active' tabIndex={1}>
+          <div className={isopenHours ? 'dashboard-item open m-2  p-3' : 'dashboard-item m-2 p-3'} style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} aria-activedescendant='active' tabIndex={1}>
             <div className="dashboard-title" onClick={() => { setIsOpenHours(!isopenHours) }}>
               <span>
                 <div className=" justify-content-start" >
@@ -68,7 +72,7 @@ const Dashboard = () => {
 
         {/* DETAILS OF WORKING LISTS */}
         <div className="" >
-          <div className={isopenList ? 'dashboard-item open m-2 p-3' : 'dashboard-item m-2 p-3'} style={{ backgroundColor: 'white',  border: '0.2px solid #c1bebe' }} aria-activedescendant='active' tabIndex={1}>
+          <div className={isopenList ? 'dashboard-item open m-2 p-3' : 'dashboard-item m-2 p-3'} style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} aria-activedescendant='active' tabIndex={1}>
             <div className="dashboard-title" onClick={() => { setIsOpenList(!isopenList) }}>
               <span>
                 <div className=" justify-content-start" >
@@ -80,7 +84,7 @@ const Dashboard = () => {
               </svg>
             </div>
             <div className='dashboard-content '>
-                    <WorkingList />
+              <WorkingList />
             </div>
           </div>
         </div>

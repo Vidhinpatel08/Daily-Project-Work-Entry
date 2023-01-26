@@ -6,8 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import Multiselect from 'multiselect-react-dropdown';
 import TimePicker from 'react-time-picker';
 import AddClient from './AddClient';
+import globalContext from '../Context/notes/globalContext';
 
 const Projects = () => {
+  const gContext = useContext(globalContext)
+  const { showAlert } = gContext;
   const navigate = useNavigate();
   const context = useContext(noteContext);
   const { projects, getProject, updateProject, getClient, client } = context;
@@ -53,7 +56,7 @@ const Projects = () => {
       const json = await response.json();
       setMembers(json.user)
     } catch (error) {
-      console.log('Internal Error occure')
+      showAlert('Internal Error occure','danger')
     }
   }
 
@@ -93,7 +96,7 @@ const Projects = () => {
         <div className="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Project</h1>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Update Project</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -155,8 +158,22 @@ const Projects = () => {
 
                       </select>
                     </div>
-                    <div className="mt-4 AddMember-mobile-style">
-                      <input type="text " className='bottom-border ' placeholder="Type *" value={project.type} onChange={onchange} name="type" minLength={2} maxLength={25} required />
+                    <div className="mt-4 pt-1 AddMember-mobile-style">
+                      <select className="bottom-border" aria-label="Type" name="type" value={project.type} onChange={onchange} required>
+                        <option value=''>Type *</option>
+                        <option value='Active'>Active</option>
+                        <option value='Close'>Close</option>
+                        <option value='Pending'>Pending</option>
+                        <option value='Completed'>Completed</option>
+                        <option value='Delayed'>Delayed</option>
+                        <option value='Suspended'>Suspended</option>
+                        <option value='Abandoned'>Abandoned</option>
+                        <option value='Resumed'>Resumed</option>
+                        <option value='On Schedule'>On Schedule</option>
+                        <option value='Ahead of Schedule'>Ahead of Schedule</option>
+                        <option value='Behind Schedule'>Behind Schedule</option>
+                        <option value='At Risk'>At Risk</option>
+                      </select>
                     </div>
                   </div>
 
@@ -170,7 +187,7 @@ const Projects = () => {
                 </div>
                 <div className="m-4">
                   <div className="container mx-4 p-1 AddMember-mobile-style">
-                    <button type="submit" className="btn btn-primary px-4 fw-bold border border-dark" ref={refclose}>Save</button>
+                    <button type="submit" className="btn btn-primary px-4 fw-bold border border-dark" ref={refclose}>Submit</button>
                     <button type="reset" className="btn btn-light btn-outline-dark mx-3 px-3 fw-bold " data-bs-dismiss="modal">Cancel</button>
                   </div>
                 </div>
@@ -201,7 +218,7 @@ const Projects = () => {
           <div className='fs-6 fw-light mx-1'>Project Status</div>
           <select className="bottom-border" aria-label="filterProjectStatus" value={filterProjectStatus} onChange={(e) => setFilterProjectStatus(e.target.value)} name="filterProjectStatus">
             <option value=''>Select Project Status</option>
-            {projects.map((project) => { return <option key={project._id} value={project.type} >{project.type}</option> })}
+            {[...new Set(projects.map(project => project.type))].map((type) => { return <option key={type} value={type} >{type}</option> })}
           </select>
         </div>
         <div className="col-lg-3 AddMember-mobile-style">

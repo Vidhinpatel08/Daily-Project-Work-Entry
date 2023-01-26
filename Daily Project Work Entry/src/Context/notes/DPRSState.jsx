@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import globalContext from './globalContext';
 import noteContext from "./notecontext";
 const DPRSState = (props) => {
+    const gContext = useContext(globalContext)
+    const { showAlert } = gContext;
     const [members, setMembers] = useState([])
     const [projects, setProjects] = useState([])
     const [user, setUser] = useState()
@@ -20,7 +23,7 @@ const DPRSState = (props) => {
             const json = await response.json();
             setMembers(json.user)
         } catch (error) {
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
         }
     }
     const getProject = async () => {
@@ -34,8 +37,7 @@ const DPRSState = (props) => {
             const json = await response.json();
             setProjects(json.project)
         } catch (error) {
-            console.error(error)
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
         }
     }
     const userdata = async () => {
@@ -49,9 +51,8 @@ const DPRSState = (props) => {
             });
             let json = await response.json()
             setUser(`${json.user.firstName} ${json.user.lastName}`)
-            // setUserProfile(json.user)
         } catch (error) {
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
         }
     }
 
@@ -67,10 +68,8 @@ const DPRSState = (props) => {
             });
             const json = await response.json();
             setDPRS(json.dprs)
-
         } catch (error) {
-            console.error(error)
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
         }
     }
     const createDPRS = async (member, project, date, workHour, managementHour, inTime, outTime, dprsDescription) => {
@@ -79,18 +78,15 @@ const DPRSState = (props) => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // 'auth-token': localStorage.getItem('token')
                 },
                 body: JSON.stringify({ member, project, date, workHour, managementHour, inTime, outTime, dprsDescription })
             });
             await response.json();
             getdprs()
-            // showAlert('Added Successfully', 'success')
-            console.log('Added Successfully')
+            showAlert('DPRS Added Successfully', 'success')
         } catch (error) {
-            // showAlert('Internal Error occure', 'danger')
-            console.error(error)
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
+            showAlert('Something when to wrong', 'danger')
         }
     }
 
@@ -106,11 +102,10 @@ const DPRSState = (props) => {
             });
             await response.json();
             getdprs()
-            // showAlert('Added Successfully', 'success')
-            console.log('Edit Successfully')
+            showAlert('DPRS Edited Successfully', 'success')
         } catch (error) {
-            console.error(error)
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
+            showAlert('Something when to wrong', 'danger')
         }
     }
 
@@ -125,11 +120,10 @@ const DPRSState = (props) => {
             });
             await response.json();
             getdprs()
-            // showAlert('Added Successfully', 'success')
-            console.log('Edit isVerify Successfully')
+            showAlert('DPRS Verify Edited Successfully', 'success')
         } catch (error) {
-            console.error(error)
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
+            showAlert('Something when to wrong', 'danger')
         }
     }
 
@@ -144,11 +138,10 @@ const DPRSState = (props) => {
             });
             await response.json();
             getdprs()
-            // showAlert('Added Successfully', 'success')
-            console.log('Deleted Successfully')
+            showAlert('DPRS Deleted Successfully', 'success')
         } catch (error) {
-            console.error(error)
-            console.log('Internal Error occure')
+            console.error('Internal Error occure :', error)
+            showAlert('Something when to wrong', 'danger')
         }
     }
 

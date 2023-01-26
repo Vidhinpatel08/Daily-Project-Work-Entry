@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './css/style.css'
 import { useNavigate } from 'react-router-dom';
+import Alert from '../Alert';
+import globalContext from '../Context/notes/globalContext';
 
 const ForgotPassword = () => {
+    const gContext = useContext(globalContext)
+    const { showAlert } = gContext;
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const handleSubmit = async (e) => {
@@ -16,16 +20,17 @@ const ForgotPassword = () => {
         });
         const json = await response.json();
         if (json.success) {
-            alert('Email senting successfully')
+            showAlert('Email senting successfully','success')
             navigate("/login");
         }
         else {
-            console.log("Invalid Details", 'danger')
+            showAlert("Invalid Details", 'danger')
         }
     }
     document.body.style.backgroundColor = '#e4e6ee'
     return (
         <>
+            <Alert />
             <div className='container  mx-auto px-4  py-4 login-style rounded' style={{ marginTop: '12%', width: '550px' }}>
                 <form onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 fw-normal py-3 fw-semibold">Reset Password</h1>

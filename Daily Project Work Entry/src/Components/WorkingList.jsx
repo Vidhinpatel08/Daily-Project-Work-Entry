@@ -38,7 +38,6 @@ const WorkingList = () => {
     const onchange = (e) => {
         setDPRSEntry({ ...DPRSEntry, [e.target.name]: e.target.value })
         setSelect({ ...DPRSEntry, [e.target.name]: e.target.value }.member === '' ? user : { ...DPRSEntry, [e.target.name]: e.target.value }.member)
-        // console.log({ ...DPRS, [e.target.name]: e.target.value })
     }
 
 
@@ -104,7 +103,7 @@ const WorkingList = () => {
                                             <div className="row mt-3 row-cols-3">
                                                 <div className="d-flex pt-1 flex-column ">
                                                     <div className='fs-6'>Work Date</div>
-                                                    <input type="date" className='bottom-border pt-1'  value={DPRSEntry.date} onChange={onchange} name="date" required />
+                                                    <input type="date" className='bottom-border pt-1' value={DPRSEntry.date} onChange={onchange} name="date" required />
                                                 </div>
                                                 <div className="d-flex pt-1 flex-column ">
                                                     <div className='fs-6'>Work Hours</div>
@@ -183,7 +182,6 @@ const WorkingList = () => {
                         {DPRS !== undefined ?
                             (DPRS.length === 0 ? <tr></tr> :
                                 DPRS.filter((dprs) => {
-                                    // return toDate === '' ? dprs : new Date(dprs.date).getTime() === new Date(toDate).getTime()
                                     return new Date(dprs.date).getTime() === new Date(toDate).getTime()
                                 }).filter((dprs) => {
                                     return filterDPRS === '' ? dprs : dprs.project.includes(filterDPRS)
@@ -194,8 +192,6 @@ const WorkingList = () => {
                     </tbody>
                 </table>
             </div>
-
-
         </div>
     )
 }

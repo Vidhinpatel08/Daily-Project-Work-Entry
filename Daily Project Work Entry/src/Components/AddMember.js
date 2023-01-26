@@ -5,7 +5,6 @@ import './css/memberStyle.css'
 
 const AddMember = () => {
   const imageURL = 'http://localhost:5000/uploads/'
-
   const [mode, setMode] = useState(false)
   const [image, setImage] = useState('')
   const context = useContext(noteContext);
@@ -158,8 +157,8 @@ const AddMember = () => {
                       </form>
                     </div>
                     <div className="col-lg-1 p-0  text-center" >
-                    
-                      <img src={image === ''?`${imageURL}img/online-learning.jpg`:URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
+
+                      <img src={image === '' ? `${imageURL}img/online-learning.jpg` : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
                     </div>
                   </div>
 

@@ -139,7 +139,6 @@ const ActivitySummary = () => {
             setSelect(user)
             setFilterMember(user)
         }
-        datafetch()
         // eslint-disable-next-line
     }, [])
 
@@ -220,7 +219,6 @@ const ActivitySummary = () => {
                         })
                         : <div className="text-center py-3"> No Data Found</div>)
                 }
-
             </div>
         </>
     )
