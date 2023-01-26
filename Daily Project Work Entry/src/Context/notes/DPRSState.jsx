@@ -94,8 +94,67 @@ const DPRSState = (props) => {
         }
     }
 
+
+    const updateDPRS = async (id, member, project, date, workHour, managementHour, inTime, outTime, dprsDescription) => {
+        try {
+            const response = await fetch(`${host}/api/dprs/updatedprs/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ member, project, date, workHour, managementHour, inTime, outTime, dprsDescription })
+            });
+            await response.json();
+            getdprs()
+            // showAlert('Added Successfully', 'success')
+            console.log('Edit Successfully')
+        } catch (error) {
+            console.error(error)
+            console.log('Internal Error occure')
+        }
+    }
+
+    const updateVerifyDPRS = async (id, isVarify) => {
+        try {
+            const response = await fetch(`${host}/api/dprs/updatedprsverify/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ isVarify })
+            });
+            await response.json();
+            getdprs()
+            // showAlert('Added Successfully', 'success')
+            console.log('Edit isVerify Successfully')
+        } catch (error) {
+            console.error(error)
+            console.log('Internal Error occure')
+        }
+    }
+
+
+    const deleteDPRS = async (id) => {
+        try {
+            const response = await fetch(`${host}/api/dprs/deletedprs/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            await response.json();
+            getdprs()
+            // showAlert('Added Successfully', 'success')
+            console.log('Deleted Successfully')
+        } catch (error) {
+            console.error(error)
+            console.log('Internal Error occure')
+        }
+    }
+
+
     return (
-        <noteContext.Provider value={{ userdata, getMember, getProject, members, projects, user, DPRS, getdprs, createDPRS, setDPRS }}>
+        <noteContext.Provider value={{ userdata, getMember, getProject, members, projects, user, DPRS, getdprs, createDPRS, setDPRS, updateDPRS, updateVerifyDPRS, deleteDPRS }}>
             {props.children}
         </noteContext.Provider>
     )

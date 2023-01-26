@@ -85,7 +85,7 @@ const Projects = () => {
     </div>
     <div className="mx-2 px-3 " style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
       {/* <div className="mx-2 px-3" style={{ marginTop: '20px' }}> */}
-      <h4 className='fw-light mt-2'>Project List</h4>
+      <h4 className='fw-light mt-4'>Project List</h4>
       {/* Edit Project  */}
       <button type="button" ref={refEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#editProjectModal" >
       </button>

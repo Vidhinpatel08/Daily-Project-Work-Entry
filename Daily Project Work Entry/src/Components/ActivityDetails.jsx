@@ -41,6 +41,7 @@ const ActivityDetails = () => {
         }
         // eslint-disable-next-line
     }, [])
+
     // Display Date
     let dd = new Date(fromDate).toString().split(' ')
     let fStartDate = `${dd[1]} ${dd[2]}, ${dd[3]}`
@@ -108,7 +109,11 @@ const ActivityDetails = () => {
                         <tbody  >
                             {DPRS !== undefined ?
                                 (DPRS.length === 0 ? <tr></tr> :
-                                    DPRS.filter((dprs) => {
+                                    DPRS.sort(function (fromDate, toDate) {
+                                        let dateA = new Date(fromDate.date);
+                                        let dateB = new Date(toDate.date);
+                                        return -(dateA - dateB);
+                                    }).filter((dprs) => {
                                         return new Date(dprs.date).getTime() >= new Date(fromDate).getTime()
                                     }).filter((dprs) => {
                                         return new Date(dprs.date).getTime() <= new Date(toDate).getTime()

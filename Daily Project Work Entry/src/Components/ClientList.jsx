@@ -49,7 +49,7 @@ const ClientList = () => {
             </div>
 
             <div className="mx-2 px-3 " style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
-                <h4 className='fw-light mt-2'>Clients List</h4>
+                <h4 className='fw-light mt-4'>Clients List</h4>
 
                 {/* Edit Client  */}
                 <button type="button" ref={refEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#editClientModal" >

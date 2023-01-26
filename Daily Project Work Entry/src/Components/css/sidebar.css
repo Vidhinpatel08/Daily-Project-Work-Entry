@@ -44,7 +44,7 @@
 
 main {
     width: 100%;
-    background-color: #f5f6fa;
+    background-color: #e4e6ee;
     color: rgb(0, 0, 0);
 }
 
@@ -63,12 +63,16 @@ main {
     color: rgb(8, 8, 8);
     height: 92vh;
     padding: 2px 5px;
-    border: 1px solid rgb(69, 70, 69);
+    /* border: 1px solid rgb(69, 70, 69); */
     background-color: #ffffff;
-    width: 18%;
+    width: fit-content;
     font-size: medium;
     position: sticky;
     top: 59px;
+}
+
+.sidebar.open {
+    width: 18%;
 }
 
 .link_text {
@@ -137,13 +141,88 @@ span {
     font-size: 12px;
 }
 
-.sidebar-subconent:hover{
+.sidebar-subconent:hover {
     color: rgb(255, 255, 255);
 }
-.sidebar-subconent.active{
+
+.sidebar-subconent.active {
     border: none;
     background-color: rgb(13 110 253);
     color: white;
     border-radius: 5px;
     transition: all 0.5s;
+}
+
+NavLink {
+    border-bottom: 2px soild black;
+}
+
+
+/* Dashboard  */
+
+.dashboard-item {
+    padding: 10px;
+    display: block;
+    color: rgb(0, 0, 0);
+    margin-top: 2px;
+    transition: all 0.5s;
+    align-items: center;
+    border-radius: 5px;
+    font-size: medium;
+
+}
+
+.dashboard-item:hover {
+    background-color: rgb(208, 225, 250);
+    color: rgb(0, 0, 0);
+    transition: all 0.5s;
+    border: 1px solid rgb(93, 93, 93);
+    border-radius: 8px;
+}
+
+.dashboard-title {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: #435899;
+    font-weight: bold;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dashboard-item.open .dashboard-title .toggle-btn {
+    transform: rotate(180deg);
+}
+
+.dashboard-content {
+    /* padding-top: 15px; */
+    height: 0px;
+    overflow: hidden;
+}
+
+.dashboard-item.open .dashboard-content {
+    padding-top: 10px;
+    height: auto;
+    /* background-color:  rgb(31, 31, 188); */
+}
+
+.workHour-title {
+    color: #435899;
+    font-weight: bold;
+}
+
+.workHour-container {
+    font-size: 13px;
+}
+
+@media screen and (max-width: 722px) {
+    .sidebar.open {
+        width: fit-content;
+        position: fixed;
+        top: auto;
+    }
+
+    .workHour-container {
+        margin-left: 10%;
+    }
 }

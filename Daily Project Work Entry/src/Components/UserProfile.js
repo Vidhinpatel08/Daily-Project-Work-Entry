@@ -9,6 +9,7 @@ const UserProfile = () => {
     const Host = 'http://localhost:5000'
     const imageURL = 'http://localhost:5000/uploads/'
 
+
     const userdata = async () => {
         try {
             const response = await fetch(`${Host}/api/auth/getuser`, {
@@ -69,13 +70,13 @@ const UserProfile = () => {
 
     return (
         <div>
-    <div className="topbar  p-2 m-2 mt-1" style={{ backgroundColor: 'white' ,color:'#a40df1', fontFamily: 'emoji', borderBottom:'0.5px solid #c1bebe'}}>
+            <div className="topbar  p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
                 USER PROFILE
             </div>
             <div className="container-fulid p-2 m-2" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
                 <div className=" row p-2 mt-4">
-                    <h4 className='px-3 my-2' style={{color:'#a40df1', fontFamily: 'emoji'}} >{userProfile.firstName} {userProfile.lastName}</h4>
-                    <div className=" row col-lg-8" >
+                    <h4 className='px-3 my-2' style={{ color: '#a40df1', fontFamily: 'emoji' }} >{userProfile.firstName} {userProfile.lastName}</h4>
+                    <div className=" row col-lg-9" >
                         <form onSubmit={handleAddSubmit} encType="multipart/form-data">
                             <div className="row  row-cols-3">
                                 <div className="col-md-4 py-3 profile-box-item  border border-dark" style={{ marginLeft: '15px' }}>
@@ -115,9 +116,9 @@ const UserProfile = () => {
                         </form>
                     </div>
                     <div className="col-lg-3 p-0  mt-0 text-center" >
-                        <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? 'https://www.detectivestraining.com/views/assets/images/online-learning.jpg' : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
+                        <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
                     </div>
-                </div>
+                </div> 
             </div>
         </div >
     )

@@ -6,59 +6,54 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchuser = require("../middleware/fetchuser");
+var nodemailer = require('nodemailer');
 
+let MyPassword = 'pmsrrhxuofouoquu'
+let MyEmailId = 'vidhin1208@gmail.com'
 const JWT_SECRET = 'welcome$man' // create secret Key
 let success = false //if you sucessfully pass Api then Successs true
 
 
 //  ROUTE - 1 :     create user using : POST "api/auth/createuser". No Login required
-router.post('/resetPassword', [
-    // check the validations...
-    body('email', 'Enter a valid Email').isEmail(),
-    body('password', 'Password must be 5 letters.').isLength({ min: 5 })
+// router.post('/resetPassword', [
+//     // check the validations...
+//     body('email', 'Enter a valid Email').isEmail(),
+//     body('password', 'Password must be 5 letters.').isLength({ min: 5 })
 
-], async (req, res) => {
+// ], async (req, res) => {
 
-    // if there are error, return bad request and the errors 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+//     // if there are error, return bad request and the errors 
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//         return res.status(400).json({ errors: errors.array() });
+//     }
 
-    try {
-        // check whether the user with this email exits already
-        let user = await Member.findOne({ email: req.body.email }) // check user email already exits or not 
-        if (!user) {
-            return res.status(400).json({ error: "Sorry a user with this email Not exists" })
-        }
+//     try {
+//         // check whether the user with this email exits already
+//         let user = await Member.findOne({ email: req.body.email }) // check user email already exits or not 
+//         if (!user) {
+//             return res.status(400).json({ error: "Sorry a user with this email Not exists" })
+//         }
 
-        // Create a hash password with salt by bcrypt 
-        const salt = await bcrypt.genSalt(10); // return Promise
-        const secPass = await bcrypt.hash(req.body.password, salt)
+//         // Create a hash password with salt by bcrypt 
+//         const salt = await bcrypt.genSalt(10); // return Promise
+//         const secPass = await bcrypt.hash(req.body.password, salt)
 
-        // create a note object
-        const newMember = {};
+//         // create a note object
+//         const newMember = {};
 
-        //if user want update any perticular field
-        { newMember.password = secPass }
+//         //if user want update any perticular field
+//         { newMember.password = secPass }
 
-        // Find the note to updated to update it 
-        // let member = await Member.findById({user: user.id})
-        
-        // if note not found
-        // if (!member) {
-        //     return res.status(404).send('Not found')
-        // }
-        
-        // if note Exists 
-        let member = await Member.findByIdAndUpdate(user.id, { $set: newMember }, { new: true })
-        res.json({ "success": "password has been Updated successfully", member })
+//         // if note Exists 
+//         let member = await Member.findByIdAndUpdate(user.id, { $set: newMember }, { new: true })
+//         res.json({ "success": "password has been Updated successfully", member })
 
-    } catch (error) {
-        console.error(error.message)
-        res.status(500).send('Internal server Error Occure')
-    }
-});
+//     } catch (error) {
+//         console.error(error.message)
+//         res.status(500).send('Internal server Error Occure')
+//     }
+// });
 
 //  ROUTE - 3 :      get logged in user details Using : POST "api/auth/getuser". Login required
 router.post('/getuser', fetchuser, async (req, res) => {
@@ -69,13 +64,41 @@ router.post('/getuser', fetchuser, async (req, res) => {
         success = true
         res.json({ success, user })
     } catch (error) {
-            console.error(error.message)
+        console.error(error.message)
         res.status(500).send('Internal server Error Occure')
     }
 
 });
 
 
+//  ROUTE - 5 :     update an Verify : PUT "api/projrct/updateproject/:id". Login required
+router.put('/resetPassword/:id', async (req, res) => {
+
+    try {
+
+        const salt = await bcrypt.genSalt(10); // return Promise
+        const secPass = await bcrypt.hash(req.body.password, salt)
+        // create a note object
+        const newdprs = { password: secPass };
+
+        // Find the note to updated to update it 
+        let authentic = await Member.findById(req.params.id)
+
+        // if note not found
+        if (!authentic) {
+            return res.status(404).send({ Error: "Project Not found" })
+        }
+
+        // if note Exists 
+        let member = await Member.findByIdAndUpdate(req.params.id, { $set: newdprs }, { new: true })
+        success = true
+        res.send({ "success": "Project has been Edited successfully", success })
+
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).json({ success, Error: 'Internal server Error Occure' })
+    }
+});
 
 
 //  ROUTE - 1 :      Authenticate a user : POST "api/auth/login". No Login required
@@ -117,11 +140,90 @@ router.post('/login', [
         const authToken = jwt.sign(data, JWT_SECRET)
         success = true
         res.json({ success, authToken })
-
     } catch (error) {
         console.error(error.message)
         res.status(500).send('Internal server Error Occure')
     }
+})
+
+// Api for ResetPassword 
+router.post('/login-reset-password', async (req, res) => {
+    const { email } = req.body;
+    try {
+        const oldUser = await Member.findOne({ email })
+        if (!oldUser) {
+            return res.status(400).json({ errors: "Please try to login correct credentials" });
+        }
+        const secret = JWT_SECRET + oldUser.password
+        const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: '5m' });
+        const link = `http://localhost:5000/api/auth/reset-password/${oldUser._id}/${token}`
+        success = true
+
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: MyEmailId,
+              pass: MyPassword
+            }
+          });
+          
+          var mailOptions = {
+            from: 'youremail@gmail.com',
+            to: `${email},${oldUser.alterEmail}`,
+            subject: 'DPRS RESET PASSWORD LINK',
+            text: `Hello Dear,${oldUser.firstName} ${oldUser.lastName}\n\nDPRS RESET LINK : ${link}\n\nNOTE: Link is Valid till 5 Mintes\n\nThankyou sir.`
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+        res.send({ success })
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('Internal server Error Occure')
+    }
+})
+
+router.get('/reset-password/:id/:token', async (req, res) => {
+    const { id, token } = req.params
+    try {
+        const oldUser = await Member.findOne({ _id: id })
+        if (!oldUser) {
+            return res.status(400).json({ errors: "Please try to login correct credentials" });
+        }
+        const secret = JWT_SECRET + oldUser.password
+        const verify = jwt.verify(token, secret)
+        res.render("index", { email: verify.email, status: "Not Verified" })
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('Internal server Error Occure')
+    }
+
+})
+
+router.post('/reset-password/:id/:token', async (req, res) => {
+    const { id, token } = req.params
+    const { password } = req.body
+    try {
+        const oldUser = await Member.findOne({ _id: id })
+        if (!oldUser) {
+            return res.status(400).json({ errors: "Please try to login correct credentials" });
+        }
+        const secret = JWT_SECRET + oldUser.password
+        const verify = jwt.verify(token, secret)
+        const salt = await bcrypt.genSalt(10); // return Promise
+        const secPass = await bcrypt.hash(password, salt)
+        let login = await Member.findByIdAndUpdate(id, { $set: {password:secPass} }, { new: true })
+        res.render("index", { email: verify.email, status: "verified" });
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('Internal server Error Occure')
+    }
+
 })
 
 

@@ -62,7 +62,7 @@ const ActivitySummary = () => {
 
     }
 
-    const datafetch = (e) => {
+    const datafetch = () => {
         userdata()
         setMonthly([])
         setWeekly([])

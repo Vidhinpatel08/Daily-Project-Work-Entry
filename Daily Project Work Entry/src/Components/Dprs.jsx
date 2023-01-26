@@ -22,11 +22,11 @@ const Dprs = () => {
     const handleAddSubmit = (e) => {
         e.preventDefault();
         createDPRS(DPRS.member, DPRS.project, DPRS.date, workHour, managementHour, inTime, outTime, DPRS.dprsDescription)
-        setDPRS({ member: { user }, project: '', date: `${Today}`, dprsDescription: '' })
+        setDPRS({ member: `${user}`, project: '', date: `${Today}`, dprsDescription: '' })
         setWorkHour('00:00')
         setManagementHour('00:00')
-        setWorkHour('00:00')
-        setManagementHour('00:00')
+        setInTime('00:00')
+        setOutTime('00:00')
         setMoreComponet(false)
         setSelect('')
     }
@@ -64,7 +64,7 @@ const Dprs = () => {
             <div className="topbar  p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
                 DPRS ENTRY
             </div>
-            <div className="mx-2 px-3 " style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
+            <div className="mx-2" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
                 <form onSubmit={handleAddSubmit} encType="multipart/form-data" onClick={clickForm}>
                     <div className='m-4   row'>
                         <div className="my-2 mx-0 AddMember-mobile-style">
@@ -76,7 +76,7 @@ const Dprs = () => {
                         </div>
                         <div className="my-2 AddMember-mobile-style">
                             <div className='fs-6 fw-light '>Select Project</div>
-                            <select className="bottom-border" aria-label="filterProjectStatus" value={DPRS.project} onChange={onchange}  name="project" required>
+                            <select className="bottom-border" aria-label="filterProjectStatus" value={DPRS.project} onChange={onchange} name="project" required>
                                 <option value=''></option>
                                 {projects.map((project, index) => { return (project.member.split(', ').some(pMember => pMember === `${select}`) === true ? projects[index] : null) }).filter((project) => { return project !== null }).map((project) => { return <option key={project._id} value={project.projectName} >{project.projectName}</option> })}
                             </select>

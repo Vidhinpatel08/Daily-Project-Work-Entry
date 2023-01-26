@@ -45,7 +45,7 @@ const Navbar = (props) => {
     }
     return (
         <>
-            <nav className="navbar bg-primary sticky-top  d-flex " data-bs-theme="dark" style={{ color: 'white' }}>
+            <nav className="navbar bg-primary sticky-top  d-flex " id='nav-container' data-bs-theme="dark" style={{ color: 'white' }}>
 
                 <div className="d-flex m-1 w-100">
                     <div className="px-2">
@@ -54,13 +54,13 @@ const Navbar = (props) => {
                         </svg>
                     </div>
                     <div className="px-2">
-                        <label className='fw-bold fs-5' style={{ fontFamily: 'emoji' }}> Daily Project Work Entry</label>
+                        <label className='fw-bold fs-5' style={{ fontFamily: 'emoji' }} > Daily Project Work Entry</label>
                     </div>
                     {islogin &&
                         <div className="ms-auto px-2 d-flex">
                             <div className="dropdown px-4 mx-2">
                                 <Link to="/userprofile" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? 'https://www.detectivestraining.com/views/assets/images/online-learning.jpg' : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} width="32" height="32" className="rounded-circle mx-2 border border-dark" alt="ProfilePicture" />
+                                    <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} width="32" height="32" className="rounded-circle mx-2 border border-dark" alt="ProfilePicture" />
                                     <strong style={{ color: 'white', fontFamily: 'emoji', fontSize:'18px' }}>{userProfile.firstName} {userProfile.lastName} </strong>
                                 </Link>
                                 <ul className="dropdown-menu text-small shadow " aria-labelledby="dropdownUser2">

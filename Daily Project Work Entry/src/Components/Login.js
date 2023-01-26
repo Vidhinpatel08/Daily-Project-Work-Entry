@@ -28,24 +28,22 @@ const Login = () => {
     const onchange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
-
+    document.body.style.backgroundColor = '#e4e6ee'
     return (
-        <div className="container  my-5  mx-auto p-5 login-style">
+        <div className='container  mx-auto p-5 login-style' style={{marginTop:'120px',width:'40%'}}>
             <form onSubmit={handleSubmit}>
                 <h1 className="h3 mb-3 fw-normal py-3 fw-semibold">LOG IN</h1>
                 <div className="py-2 m-1">
                     <input type="email" className="input-border form-control" id="email" value={credentials.email.toLowerCase()} onChange={onchange} name='email' aria-describedby="emailHelp" required placeholder="Email Address" />
                 </div>
-                <div className=" py-2 m-1">
+                <div className="py-2 m-1">
                     <input type="password" className="input-border form-control" id="password" value={credentials.password} onChange={onchange} name='password' required placeholder="Password" />
-                </div>
-                <div >
                 </div>
                 <div className=" py-2 m-1">
                     <button type="submit" className="btn btn-primary w-100">Login</button>
                 </div>
                 <div className=" m-1">
-                    <Link className="m-1" id='label-forget' to="/forgetpassword">Forgot your password?</Link>
+                    <Link className="m-1" id='label-forget' to="/emailsender">Forgot your password?</Link>
                 </div>
             </form>
         </div>

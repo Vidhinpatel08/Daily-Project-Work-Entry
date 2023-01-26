@@ -1,23 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import globalContext from '../Context/notes/globalContext'
 
 const Sidebar = ({ children }) => {
-    const [isopen, setIsOpen] = useState(false)
+    const gContext = useContext(globalContext)
+    const { sidebarIsOpen,setSidebarIsOpen} = gContext;
+    const [isopen, setIsOpen] = useState(sidebarIsOpen)
     const [isopenMaster, setIsOpenMaster] = useState(false)
     const [isopenReport, setIsOpenReport] = useState(false)
     const toggle = () => {
         setIsOpen(!isopen)
+        setSidebarIsOpen(!isopen)
     }
     return (
-        <div className='d-flex '>
-            <div className="sidebar" style={{ width: isopen ? '18%' : '4%', transition: 'all 0.5s' }} >
+        <div className='d-flex ' id='sidebar-main-container'>
+            <div className={isopen ? "sidebar open" : "sidebar"} id='sidebar-container' style={{ transition: 'all 0.5s' }} >
                 <div className="top_section">
                     <div className="bars pt-1">
                         {!isopen ?
                             <svg xmlns="http://www.w3.org/2000/svg" onClick={toggle} width="30" height="30" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                             </svg> :
-                            <svg xmlns="http://www.w3.org/2000/svg" onClick={toggle} width="25" height="25" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" onClick={toggle} width="29" height="29" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
                                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                             </svg>
                         }
@@ -63,7 +67,7 @@ const Sidebar = ({ children }) => {
                                 <path d="M4.5 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM6 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
                                 <path d="M12 1a2 2 0 0 1 2 2 2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10ZM2 12V5a2 2 0 0 1 2-2h9a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1Zm1-4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8H3Zm12-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2h12Z" />
                             </svg>
-                            <div className="link_text justify-content-start" style={{ display: isopen ? 'block' : 'none'}}>
+                            <div className="link_text justify-content-start" style={{ display: isopen ? 'block' : 'none' }}>
                                 MASTER
                             </div>
                         </span>
@@ -87,7 +91,7 @@ const Sidebar = ({ children }) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-lines-fill" viewBox="0 0 16 16">
                                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                                 </svg>
-                                <div className=" justify-content-start" style={{ display: isopen ? 'block' : 'none' , transition: 'all 0.5s'}}>
+                                <div className=" justify-content-start" style={{ display: isopen ? 'block' : 'none', transition: 'all 0.5s' }}>
                                     CLIENTS
                                 </div>
                             </span>
@@ -103,7 +107,7 @@ const Sidebar = ({ children }) => {
                                 <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
                                 <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
                             </svg>
-                            <div className="link_text justify-content-start" style={{ display: isopen ? 'block' : 'none' , transition: 'all 0.5s'}}>
+                            <div className="link_text justify-content-start" style={{ display: isopen ? 'block' : 'none', transition: 'all 0.5s' }}>
                                 REPORT
                             </div>
                         </span>
@@ -119,7 +123,7 @@ const Sidebar = ({ children }) => {
                                     <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
                                     <path fillRule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" />
                                 </svg>
-                                <div className=" justify-content-start" style={{ display: isopen ? 'block' : 'none'}}>
+                                <div className=" justify-content-start" style={{ display: isopen ? 'block' : 'none' }}>
                                     USER ACTIVITY DETAIL
                                 </div>
                             </span>
@@ -130,7 +134,7 @@ const Sidebar = ({ children }) => {
                                     <path fillRule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
                                     <path d="M2.242 2.194a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.256-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53z" />
                                 </svg>
-                                <div className=" justify-content-start" style={{ display: isopen ? 'block' : 'none'}}>
+                                <div className=" justify-content-start" style={{ display: isopen ? 'block' : 'none' }}>
                                     USER ACTIVITY SUMMARY
                                 </div>
                             </span>

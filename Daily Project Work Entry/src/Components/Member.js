@@ -90,7 +90,7 @@ const Member = () => {
       MANAGE MEMBERS
     </div>
     <div className="mx-2 px-3 " style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
-      <h4 className='fw-light mt-2'>Member List</h4>
+      <h4 className='fw-light mt-4'>Member List</h4>
 
       {/* <!-- Button trigger modal --> */}
       <button type="button" ref={refEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
@@ -191,7 +191,7 @@ const Member = () => {
                       </form>
                     </div>
                     <div className="col-lg-1 p-0  text-center" >
-                      <img src={(typeof (image) === 'string' || image === null  || image === undefined ) ? ((member.profile === null || member.profile === undefined) ? 'https://www.detectivestraining.com/views/assets/images/online-learning.jpg' : `${imageURL}${member.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
+                      <img src={(typeof (image) === 'string' || image === null  || image === undefined ) ? ((member.profile === null || member.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${member.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
                     </div>
                   </div>
                 </div>

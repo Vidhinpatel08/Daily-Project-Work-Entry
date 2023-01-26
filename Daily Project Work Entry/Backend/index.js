@@ -11,15 +11,18 @@ const port = 5000
 
 // MiddleWare : req, res object handle
 app.use(express.json())
+app.set("view engine", "ejs")
 app.use(cors())
-app.use('/uploads',express.static('uploads'))
+app.use('/uploads', express.static('uploads'))
+app.use(express.urlencoded({ extended: false }));
+
 
 // Available Routes 
-app.use('/api/auth',require('./routers/auth') )
-app.use('/api/member',require('./routers/member') )
-app.use('/api/project',require('./routers/project') )
-app.use('/api/client',require('./routers/client') )
-app.use('/api/dprs',require('./routers/dprs') )
+app.use('/api/auth', require('./routers/auth'))
+app.use('/api/member', require('./routers/member'))
+app.use('/api/project', require('./routers/project'))
+app.use('/api/client', require('./routers/client'))
+app.use('/api/dprs', require('./routers/dprs'))
 
 
 app.listen(port, () => {
