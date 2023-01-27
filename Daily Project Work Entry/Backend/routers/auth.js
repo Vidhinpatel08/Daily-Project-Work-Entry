@@ -8,11 +8,11 @@ const jwt = require('jsonwebtoken');
 const fetchuser = require("../middleware/fetchuser");
 var nodemailer = require('nodemailer');
 
-let MyPassword = 'xxxxxxxxx'
-let MyEmailId = 'xxxxxxxxx'
+let MyPassword = 'pmsrrhxuofouoquu'
+let MyEmailId = 'vidhin1208@gmail.com'
 const JWT_SECRET = 'welcome$man' // create secret Key
 let success = false //if you sucessfully pass Api then Successs true
- 
+
 router.post('/getuser', fetchuser, async (req, res) => {
 
     try {
@@ -114,31 +114,35 @@ router.post('/login-reset-password', async (req, res) => {
         const secret = JWT_SECRET + oldUser.password
         const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: '5m' });
         const link = `http://localhost:5000/api/auth/reset-password/${oldUser._id}/${token}`
-        success = true
+        try {
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: MyEmailId,
+                    pass: MyPassword
+                }
+            });
 
-        var transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              user: MyEmailId,
-              pass: MyPassword
-            }
-          });
-          
-          var mailOptions = {
-            from: 'youremail@gmail.com',
-            to: `${email},${oldUser.alterEmail}`,
-            subject: 'DPRS RESET PASSWORD LINK',
-            text: `Hello Dear,${oldUser.firstName} ${oldUser.lastName}\n\nDPRS RESET LINK : ${link}\n\nNOTE: Link is Valid till 5 Mintes\n\nThankyou sir.`
-          };
-          
-          transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-              console.log(error);
-            } else {
-              console.log('Email sent: ' + info.response);
-            }
-          });
-        res.send({ success })
+            var mailOptions = {
+                from: 'youremail@gmail.com',
+                to: `${email},${oldUser.alterEmail}`,
+                subject: 'DPRS RESET PASSWORD LINK',
+                text: `Hello Dear,${oldUser.firstName} ${oldUser.lastName}\n\nDPRS RESET LINK : ${link}\n\nNOTE: Link is Valid till 5 Mintes\n\nThankyou sir.`
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                    success = true
+                }
+            });
+            res.send({ success })
+        } catch (error) {
+            res.send({ success, error })
+        }
+
     } catch (error) {
         console.error(error.message)
         res.status(500).send('Internal server Error Occure')
@@ -174,7 +178,7 @@ router.post('/reset-password/:id/:token', async (req, res) => {
         const verify = jwt.verify(token, secret)
         const salt = await bcrypt.genSalt(10); // return Promise
         const secPass = await bcrypt.hash(password, salt)
-        let login = await Member.findByIdAndUpdate(id, { $set: {password:secPass} }, { new: true })
+        let login = await Member.findByIdAndUpdate(id, { $set: { password: secPass } }, { new: true })
         res.render("index", { email: verify.email, status: "verified" });
     } catch (error) {
         console.error(error.message)

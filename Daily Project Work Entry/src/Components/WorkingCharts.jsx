@@ -190,7 +190,7 @@ const WorkingCharts = () => {
       }
       for (let index = 0; index < monthly.length; index++) {
         const element = monthly[index];
-        monthdateData.push(index % 2 === 0 ? '' : `${element.startDate}`)
+        monthdateData.push(`${element.startDate}`)
         monthworkData.push(element.totalWorkHours)
         monthmanageData.push(element.totalManagementHours)
       }
@@ -264,7 +264,7 @@ const WorkingCharts = () => {
 
       for (let index = 0; index < weekly.length; index++) {
         const element = weekly[index];
-        weekdateData.push(index % 2 === 0 ? '' : `${element.startDate}-${element.endDate}`)
+        weekdateData.push( `${element.startDate}-${element.endDate}`)
         weekworkData.push(element.totalWorkHours)
         weekmanageData.push(element.totalManagementHours)
       }

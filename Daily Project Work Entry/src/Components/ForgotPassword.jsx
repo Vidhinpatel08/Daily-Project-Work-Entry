@@ -11,20 +11,25 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('')
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch("http://localhost:5000/api/auth/login-reset-password", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email })
-        });
-        const json = await response.json();
-        if (json.success) {
-            showAlert('Email senting successfully','success')
-            navigate("/login");
-        }
-        else {
-            showAlert("Invalid Details", 'danger')
+        try {
+            const response = await fetch("http://localhost:5000/api/auth/login-reset-password", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email })
+            });
+            const json = await response.json();
+            if (json.success) {
+                showAlert('Email senting successfully','success')
+                navigate("/login");
+            }
+            else {
+                showAlert('Request not sending... Try Again !!', 'danger')
+            }            
+        } catch (error) {
+            console.error('Internal Error occure :', error)
+            showAlert('Request not sending... Try Again !!', 'danger')
         }
     }
     document.body.style.backgroundColor = '#e4e6ee'
