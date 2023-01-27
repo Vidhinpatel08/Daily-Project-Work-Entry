@@ -8,8 +8,8 @@ const jwt = require('jsonwebtoken');
 const fetchuser = require("../middleware/fetchuser");
 var nodemailer = require('nodemailer');
 
-let MyPassword = 'pmsrrhxuofouoquu'
-let MyEmailId = 'vidhin1208@gmail.com'
+let MyPassword = 'xxxxxxxx'
+let MyEmailId = 'xxxxx@gmail.com'
 const JWT_SECRET = 'welcome$man' // create secret Key
 let success = false //if you sucessfully pass Api then Successs true
 
