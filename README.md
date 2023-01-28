@@ -8,8 +8,6 @@ The DPRS project is an advanced and comprehensive solution that provides a compr
 - [Contribution](#contribution)
 - [License](#license)
 - [Screenshots/Demo](#screenshots-demo)
-- [Future Work](#future-work)
-- [References](#references)
 - [Contact](#contact)
 - [FAQ](#faq)
 
@@ -24,6 +22,8 @@ we need some tool and IDEs.
 - #### MongoDBCompass : (https://www.mongodb.com/try/download/compass)
 
 ## Usage
+
+### <u> Installation Commands : </u>
 
 Open your project folder and Run code in terminal
 <br>
@@ -44,24 +44,7 @@ npm run both
 ## Contribution
 
 
-## <u> Installation Commands : </u>
-
-Open your project folder and Run code in terminal\
-```
-npm i
-cd '.\Daily Project Work Entry\'
-npm uninstall --save chart.js react-chartjs-2
-npm install --save chart.js react-chartjs-2
-npm i --save chart.js@3.9.1
-npm i
-cd .\Backend\
-npm i
-cd..
-npm run both 
-
-```
-
-## <u>You Need to Change</u>
+### <u>You Need to Change</u>
 #### you need to change MongoDb  connect link
 <br>
 
@@ -134,7 +117,7 @@ This project is licensed under [MIT License](./License) 2023
 
 ## Screenshots/Demo
 
-[DPRS]()
+Output Images [DPRS](./Outputs)
 <br>
 
 ## Contact
