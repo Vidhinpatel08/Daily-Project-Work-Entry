@@ -12,7 +12,7 @@ node_modules
 /build
 
 #images
-uploads
+
 
 # misc
 .DS_Store
