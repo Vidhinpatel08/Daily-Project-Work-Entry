@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "63be7165b0f3542dd73e5f3b"
+  },
+  "firstName": "Admin",
+  "lastName": "Admin",
+  "email": "admin@dprs.com",
+  "userRole": "Admin",
+  "joindate": "2000-01-01",
+  "phone": "1111111111",
+  "userDesignation": "Manager",
+  "department": "Human Resource Department",
+  "password": "$2a$10$7LFVegqs0wwHucEbqbiYGeeA47Ucqa6aXSgaLP4jffMTY1Cxoep2u",
+  "__v": 0,
+  "isActive": true,
+  "profile": "profile-1674894136050-157437367.png",
+  "LeaveEndDate": "2000-01-01",
+  "LeaveStartDate": "2000-01-01",
+  "alterEmail": "undefined",
+  "alterPhone": "undefined"
+}]
