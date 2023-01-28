@@ -1,9 +1,0 @@
-if(member){newdprs.member=izzz}
-if(project){newdprs.project=izzz}
-if(date){newdprs.date=izzz}
-if(workHour){newdprs.workHour=izzz}
-if(managementHour){newdprs.managementHour=izzz}
-if(inTime){newdprs.inTime=izzz}
-if(outTime){newdprs.outTime=izzz}
-if(dprsDescription){newdprs.dprsDescription=izzz}
-if(isVarify){newdprs.isVarify=izzz}
