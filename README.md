@@ -97,6 +97,8 @@ you can select "Import file" option to add Data file.
 we have json file which is already avilable in Code
 
 **Path of Json File :** [members.json](./Database/members.json)
+**User Name :** admin@dprs.com
+**Password : ** admin
 
 ![MongoDb Compass Adding Json File](./Database/Mongodb_Compass_AddingDataFile.png)
 
