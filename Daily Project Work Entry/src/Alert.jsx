@@ -30,8 +30,8 @@ const Alert = () => {
         }
     }
     return (
-        <div className="" style={{ height: alert ? '15px' : '', zIndex: 5, position:'sticky', top:'' }}>
-            {alert && <div className={`alert alert-${alert.type} alert-dismissible fade show py-0`} role="alert">
+        <div className="my-1" style={{ height: alert ? '15px' : '',  zIndex: 5, position:'absolute', right:'1%' }}>   
+            {alert && <div className={`alert alert-${alert.type} alert-dismissible fade show py-3  px-3 rounded-pill`} role="alert" >
                 <strong>{symbols(alert.type)}   {capitalized(alert.type)} : </strong> {alert.msg}
             </div>}
         </div>
