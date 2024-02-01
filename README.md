@@ -7,7 +7,7 @@ The DPRS project is an advanced and comprehensive solution that provides a compr
 - [Usage](#usage)
 - [Contribution](#contribution)
 - [License](#license)
-- [Screenshots/Demo](#screenshots-demo)
+- [Screenshots/Demo](#ScreenshotsAndDemo)
 - [Contact](#contact)
 - [FAQ](#faq)
 
@@ -118,9 +118,10 @@ This project is licensed under [MIT License](./License) 2023
 
 <br>
 
-## Screenshots/Demo
+## ScreenshotsAndDemo
 
-Output Images [DPRS](./Outputs)
+Output Images [DPRS](./Output_images)
+<br>
 <br>
 [![DPRS Project Video](./Database/YouTube_Thumbnail.png)](https://youtu.be/uV16Fp9HPEU?feature=shared)
 
