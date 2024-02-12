@@ -1,5 +1,12 @@
 ﻿# Daily Project  Work Entry
 
+<br>
+
+<p align="center">
+  <img src="./Output_images/LOGO_DPRS.png" alt="LOGO_DPRS" />
+</p>
+<br>
+
 The DPRS project is an advanced and comprehensive solution that provides a comprehensive dashboard with detailed data analysis capabilities, including day, week, and month-wise data visualization through various graphs. The dashboard also includes a work hours summary and weekly work data, along with a work list that allows for easy verification, update, and deletion of DPRS entries. The DPRS module allows for easy addition of DPRS entries by member and project name, along with the ability to track work hours and management support hours, and in/out times of members. The master module includes a comprehensive list of both members and clients, with the ability to add, update, and delete entries for both. The member list includes detailed information such as first name, last name, email, phone, role, designation, department, password, and profile, while the client list includes client name, code, and country. The report module provides detailed activity reports and summaries, which can be filtered by date, member name, and project. The profile module allows users to view and update their personal details, and also includes a password reset feature. The project also includes a login page, where users can log in with their email and password, and a password recovery feature that allows users to reset their password via email.
 
 ## Table of Contents
