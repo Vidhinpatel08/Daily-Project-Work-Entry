@@ -5,6 +5,7 @@ import globalContext from '../Context/notes/globalContext'
 import './css/style.css'
 
 const Login = () => {
+    const [typeFiled, setTypeField] = useState("password")
     const gContext = useContext(globalContext)
     const { showAlert } = gContext;
     const [credentials, setCredentials] = useState({ email: "", password: "" })
@@ -32,18 +33,35 @@ const Login = () => {
     const onchange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
+
+    const visible = (e) => {
+        setTypeField(typeFiled === "password" ? "text" : "password")
+    }
+
+
     document.body.style.backgroundColor = '#e4e6ee'
     return (
         <>
-        <Alert/>
+            <Alert />
             <div className='container  mx-auto p-5 login-style' style={{ marginTop: '120px', width: '40%' }}>
                 <form onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 fw-normal py-3 fw-semibold">LOG IN</h1>
                     <div className="py-2 m-1">
                         <input type="email" className="input-border form-control" id="email" value={credentials.email.toLowerCase()} onChange={onchange} name='email' aria-describedby="emailHelp" required placeholder="Email Address" />
                     </div>
-                    <div className="py-2 m-1">
-                        <input type="password" className="input-border form-control" id="password" value={credentials.password} onChange={onchange} name='password' required placeholder="Password" />
+                    <div className="py-2 m-1 ">
+                        <div className="input-border form-control d-flex">
+                            <input type={typeFiled} className='w-100 ' id="password" value={credentials.password} onChange={onchange} name='password' required placeholder="Password" style={{ outline: 'none', border: 'none' }} />
+                            <span className=" flex-shrink-1" onClick={visible}>
+                                {typeFiled === 'password' ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+                                </svg> : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-eye-slash-fill" viewBox="0 0 16 16">
+                                    <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z" />
+                                    <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z" />
+                                </svg>}
+                            </span>
+                        </div>
                     </div>
                     <div className=" py-2 m-1">
                         <button type="submit" className="btn btn-primary w-100">Login</button>

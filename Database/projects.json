@@ -1,0 +1,301 @@
+[{
+  "_id": {
+    "$oid": "2656b036c1f5d573b006f8b2"
+  },
+  "projectName": "Tcs gasline",
+  "clientName": "Procter & Gamble",
+  "member": "Avni Kumar, Aadya Shah, Hritik Patel",
+  "durationHours": "47",
+  "durationType": "Day",
+  "limithours": "11:06",
+  "technologies": "Python",
+  "projectManager": "Ira Sanon",
+  "type": "Delayed",
+  "projectDescription": "This is a Java based project for Tcs gasline.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "c74cc5e8b6dd43ab3521a0ff"
+  },
+  "projectName": "Jio 5g",
+  "clientName": "Google",
+  "member": "Faruk Ali, Riya Trivedi",
+  "durationHours": "52",
+  "durationType": "Day",
+  "limithours": "12:24",
+  "technologies": "Angular",
+  "projectManager": "Maya Sanon",
+  "type": "Delayed",
+  "projectDescription": "This is a Angular based project for Jio 5g.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "3f8aa52c234a7a974442990a"
+  },
+  "projectName": "Infosys ERP",
+  "clientName": "Microsoft",
+  "member": "Vihaan Desai, Saanvi Patel, Sai Patel",
+  "durationHours": "38",
+  "durationType": "Day",
+  "limithours": "09:03",
+  "technologies": "Python",
+  "projectManager": "Maya Patel",
+  "type": "Close",
+  "projectDescription": "This is a React Js based project for Infosys ERP.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d6028b955512d1ecde59dc"
+  },
+  "projectName": "Samsung Mobile App",
+  "clientName": "Samsung Electronics",
+  "member": "Aadya Shah",
+  "durationHours": "24",
+  "durationType": "Day",
+  "limithours": "12:17",
+  "technologies": "Java",
+  "projectManager": "Vidhin Patel",
+  "type": "Delayed",
+  "projectDescription": "This is a Java based project for Samsung Mobile App.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6dc130b793ff942da6b1e7e7"
+  },
+  "projectName": "Amazon Web Services",
+  "clientName": "Microsoft",
+  "member": "Vihaan Mehta, Zahir Namane, Maya Parekh",
+  "durationHours": "45",
+  "durationType": "Day",
+  "limithours": "11:13",
+  "technologies": "Python",
+  "projectManager": "Aadya Desai",
+  "type": "Completed",
+  "projectDescription": "This is a C++ based project for Amazon Web Services.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "d9c133a0c6f3a2552cc0ac3e"
+  },
+  "projectName": "Google Cloud Platform",
+  "clientName": "Amazon",
+  "member": "Aanya Sharma",
+  "durationHours": "31",
+  "durationType": "Day",
+  "limithours": "10:03",
+  "technologies": "React Js",
+  "projectManager": "Aadya Sanon",
+  "type": "Close",
+  "projectDescription": "This is a Angular based project for Google Cloud Platform.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "f3b5ff92e19e2aba7b43f322"
+  },
+  "projectName": "Microsoft Azure Migration",
+  "clientName": "Tata Consultancy Services",
+  "member": "Maya Parekh",
+  "durationHours": "32",
+  "durationType": "Day",
+  "limithours": "08:50",
+  "technologies": "Python",
+  "projectManager": "Aadya Patel",
+  "type": "Active",
+  "projectDescription": "This is a Python based project for Microsoft Azure Migration.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "8effcba4844891f5d6e5284e"
+  },
+  "projectName": "Apple iOS Development",
+  "clientName": "Procter & Gamble",
+  "member": "Avni Kumar, Ishika Singh, Aanya Sharma",
+  "durationHours": "23",
+  "durationType": "Day",
+  "limithours": "11:05",
+  "technologies": "React Js",
+  "projectManager": "Ira Shah",
+  "type": "Pending",
+  "projectDescription": "This is a C++ based project for Apple iOS Development.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "163050fe5fc76e6fda9b670a"
+  },
+  "projectName": "Facebook Social Network",
+  "clientName": "Samsung Electronics",
+  "member": "Anika Desai, Maya Parekh",
+  "durationHours": "58",
+  "durationType": "Day",
+  "limithours": "12:33",
+  "technologies": "Python",
+  "projectManager": "Ira Patel",
+  "type": "Pending",
+  "projectDescription": "This is a Java based project for Facebook Social Network.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "22045e5ffdfc11724f2ae1d6"
+  },
+  "projectName": "Walmart E-commerce",
+  "clientName": "Boeing",
+  "member": "Dhruv Gupta, Vedant Pathan, Helly Patel, Dolly Patel",
+  "durationHours": "55",
+  "durationType": "Day",
+  "limithours": "09:40",
+  "technologies": "C++",
+  "projectManager": "Ira Sanon",
+  "type": "Active",
+  "projectDescription": "This is a Java based project for Walmart E-commerce.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "7e1987c596d798ba90232a64"
+  },
+  "projectName": "Tata Motors Manufacturing",
+  "clientName": "Toyota Motor",
+  "member": "Anika Desai, Vidhin Patel, Prisha Joshi",
+  "durationHours": "38",
+  "durationType": "Day",
+  "limithours": "11:53",
+  "technologies": "Java",
+  "projectManager": "Maya Shah",
+  "type": "Active",
+  "projectDescription": "This is a C++ based project for Tata Motors Manufacturing.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "8ebaefd830f221aa271427d2"
+  },
+  "projectName": "Reliance Retail Expansion",
+  "clientName": "Nestle",
+  "member": "Vidhin Patel, Zahir Namane, Tisha Desai, Faruk Ali",
+  "durationHours": "28",
+  "durationType": "Day",
+  "limithours": "10:59",
+  "technologies": "React Js",
+  "projectManager": "Vidhin Desai",
+  "type": "Close",
+  "projectDescription": "This is a Java based project for Reliance Retail Expansion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "fcefa6cc59f801522aed591d"
+  },
+  "projectName": "Toyota Hybrid Cars",
+  "clientName": "Procter & Gamble",
+  "member": "Dhruv Gupta",
+  "durationHours": "43",
+  "durationType": "Day",
+  "limithours": "09:47",
+  "technologies": "Angular",
+  "projectManager": "Vidhin Patel",
+  "type": "Delayed",
+  "projectDescription": "This is a React Js based project for Toyota Hybrid Cars.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "b1c68545e32a1d1ff86f7827"
+  },
+  "projectName": "IBM Data Analytics",
+  "clientName": "Mastercard",
+  "member": "Dolly Patel, Kirti Sanon, Maya Parekh, Dhruv Gupta",
+  "durationHours": "48",
+  "durationType": "Day",
+  "limithours": "09:08",
+  "technologies": "React Js",
+  "projectManager": "Kirti Desai",
+  "type": "Pending",
+  "projectDescription": "This is a Angular based project for IBM Data Analytics.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "75055458af1d25507413c946"
+  },
+  "projectName": "Nestle Product Innovation",
+  "clientName": "BP",
+  "member": "Dolly Patel, Riya Trivedi, Vihaan Desai",
+  "durationHours": "25",
+  "durationType": "Day",
+  "limithours": "10:49",
+  "technologies": "Python",
+  "projectManager": "Maya Parekh",
+  "type": "Completed",
+  "projectDescription": "This is a Angular based project for Nestle Product Innovation.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "3b5ea8250441554c8bf59368"
+  },
+  "projectName": "Sony Entertainment System",
+  "clientName": "IBM",
+  "member": "Ira Desai, Vedant Pathan",
+  "durationHours": "30",
+  "durationType": "Day",
+  "limithours": "11:41",
+  "technologies": "C++",
+  "projectManager": "Aadya Patel",
+  "type": "Close",
+  "projectDescription": "This is a React Js based project for Sony Entertainment System.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "19f644148048f6165c7be586"
+  },
+  "projectName": "Coca-Cola Marketing Campaign",
+  "clientName": "Nokia",
+  "member": "Saanvi Trivedi, Vidhin Patel, Faruk Ali, Anika Desai",
+  "durationHours": "36",
+  "durationType": "Day",
+  "limithours": "11:13",
+  "technologies": "Python",
+  "projectManager": "Kirti Desai",
+  "type": "Close",
+  "projectDescription": "This is a Java based project for Coca-Cola Marketing Campaign.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e7f65528c92b5c120ec63"
+  },
+  "projectName": "General Electric Renewable Energy",
+  "clientName": "Johnson & Johnson",
+  "member": "Kabir Mehta, Ishika Singh, Vihaan Desai",
+  "durationHours": "40",
+  "durationType": "Day",
+  "limithours": "10:22",
+  "technologies": "Python",
+  "projectManager": "Ira Patel",
+  "type": "Delayed",
+  "projectDescription": "This is a React Js based project for General Electric Renewable Energy.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "d6478b9aaf9cd84bdae7e4f4"
+  },
+  "projectName": "Siemens Smart City Solutions",
+  "clientName": "State Bank of India",
+  "member": "Hritik Patel",
+  "durationHours": "46",
+  "durationType": "Day",
+  "limithours": "09:49",
+  "technologies": "C++",
+  "projectManager": "Maya Patel",
+  "type": "Pending",
+  "projectDescription": "This is a C++ based project for Siemens Smart City Solutions.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "fba7503cda65fa50960edbe7"
+  },
+  "projectName": "Amazon Prime Video Series",
+  "clientName": "JPMorgan Chase",
+  "member": "Riya Trivedi",
+  "durationHours": "38",
+  "durationType": "Day",
+  "limithours": "10:57",
+  "technologies": "C++",
+  "projectManager": "Aadya Patel",
+  "type": "Completed",
+  "projectDescription": "This is a React Js based project for Amazon Prime Video Series.",
+  "__v": 0
+}]

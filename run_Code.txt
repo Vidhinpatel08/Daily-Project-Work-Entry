@@ -1,0 +1,6 @@
+Open Project folder and run this code in terminal.
+
+
+cd '.\Daily Project Work Entry\'
+npm run both
+

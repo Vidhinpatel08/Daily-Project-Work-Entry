@@ -3,7 +3,7 @@
     "$oid": "63be7165b0f3542dd73e5f3b"
   },
   "firstName": "Admin",
-  "lastName": "Admin",
+  "lastName": "  ",
   "email": "admin@dprs.com",
   "userRole": "Admin",
   "joindate": "2000-01-01",
@@ -18,4 +18,664 @@
   "LeaveStartDate": "2000-01-01",
   "alterEmail": "undefined",
   "alterPhone": "undefined"
+},{
+  "_id": {
+    "$oid": "65ca6e4ee14118754bb163ee"
+  },
+  "firstName": "Zahir",
+  "lastName": "Namane",
+  "email": "zahirnamene@dprs.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916355748965",
+  "userDesignation": "Trainee",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Dispatch Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$y0jR7AtPUorndd53f1kFvOh9GLDpo8TDGct3oKY3bYpPSe6B06Jj2",
+  "profile": "profile-1707765326421-367393944.png",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ca6e8fe14118754bb163f3"
+  },
+  "firstName": "Faruk",
+  "lastName": "Ali",
+  "email": "farukali@dprs.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916355897485",
+  "userDesignation": "Team Lead",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Finance Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$G6Rq5.11y1.eJ5ds0h3fRO9lWFjMIf8l/wvyHsrcHK8g5jkZHmcUC",
+  "profile": "profile-1707765391081-961464417.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ca6ed7e14118754bb163f8"
+  },
+  "firstName": "Kirti",
+  "lastName": "Sanon",
+  "email": "kirtisanon@dprs.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916585967423",
+  "userDesignation": "Manager",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Finance Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$gDQsrEGZ23f0o.thzVzxL.nU0AP4xQZkYi4m477IX9ogG0dpaRyPu",
+  "profile": "profile-1707765463143-572349814.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ca6f0fe14118754bb163fd"
+  },
+  "firstName": "Dolly",
+  "lastName": "Patel",
+  "email": "dollypatel@dprs.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916385967424",
+  "userDesignation": "Junior Software Engineer",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$W.R/ApqKFLykUGKyxE1FoeaBkWEcKykje.U270AC801s9crXM2ilu",
+  "profile": "profile-1707765519113-401367069.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ca6f66e14118754bb16402"
+  },
+  "firstName": "Maya",
+  "lastName": "Parekh",
+  "email": "mayaparekh@dprs.com",
+  "userRole": "Admin",
+  "joindate": "",
+  "phone": "+916352418786",
+  "userDesignation": "Manager",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Finance Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$1i4WivYWAxQ.eyoNDf9vYeiuFVLSI0rqnuxvYRXKYfz8x.Vun6wUO",
+  "profile": "profile-1707765606090-484531228.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ca6fbbe14118754bb1640a"
+  },
+  "firstName": "Helly",
+  "lastName": "Patel",
+  "email": "hellypatel@dprs.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916598741232",
+  "userDesignation": "Senior Software Engineer",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Dispatch Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$KMQMSjIAwLIzZge/S4YfveU7o5skaZXsImDSZEHy2jCL4H8pGxpyO",
+  "profile": "profile-1707765691717-489595462.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65ca700ae14118754bb1640f"
+  },
+  "firstName": "Vedant",
+  "lastName": "Pathan",
+  "email": "vedantpathan@dprs.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916338952145",
+  "userDesignation": "Associate Consultant",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$JIrqmky.a9FBGm.9BAjt9OMPcu87b1G7t5Q6Fy3qcwaNwUBWoXbDO",
+  "profile": "profile-1707765770858-596207690.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65cb09d319f2cb02469ef784"
+  },
+  "firstName": "Vidhin",
+  "lastName": "Patel",
+  "email": "vidhin203@gmail.com",
+  "userRole": "Employee",
+  "joindate": "",
+  "phone": "+916355859681",
+  "userDesignation": "Manager",
+  "alterPhone": "",
+  "alterEmail": "",
+  "department": "Dispatch Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "$2a$10$sjJsDWuSBh4FFy40BdtFgupOLAZK/rn6fE7EpHcyBP4ZMSqdCHMFa",
+  "profile": "profile-1707805139473-691842424.png",
+  "isActive": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60537033ca5c5a685bfc47fb"
+  },
+  "firstName": "Ishika",
+  "lastName": "Singh",
+  "email": "IshikaSingh148@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-04-18",
+  "phone": "+916998600164",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+916477215618",
+  "alterEmail": "IshikaSingh822@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "fkyinwgmrd",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "d560ba14e80e72614cc80afa"
+  },
+  "firstName": "Tisha",
+  "lastName": "Desai",
+  "email": "TishaDesai166@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-05-14",
+  "phone": "+917256239755",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+916135247027",
+  "alterEmail": "TishaDesai164@gmail.com",
+  "department": "Mobile Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "vygjfqikjd",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "928257a3c8a754b770d51bd1"
+  },
+  "firstName": "Saanvi",
+  "lastName": "Patel",
+  "email": "SaanviPatel933@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-09-22",
+  "phone": "+918705001316",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+917009951648",
+  "alterEmail": "SaanviPatel530@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "afzvrusvrz",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "559caa4b77e82574b9483be1"
+  },
+  "firstName": "Kavya",
+  "lastName": "Desai",
+  "email": "KavyaDesai875@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-08-02",
+  "phone": "+919956310318",
+  "userDesignation": "Trainee",
+  "alterPhone": "+919451178697",
+  "alterEmail": "KavyaDesai559@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "eaeltjwikc",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "ebc1b58158a524bacbc18c5c"
+  },
+  "firstName": "Sai",
+  "lastName": "Patel",
+  "email": "SaiPatel558@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-03-10",
+  "phone": "+918726474872",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+918051874939",
+  "alterEmail": "SaiPatel823@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "fcrdqcxmra",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "a0a4832df632c3ff0211b45c"
+  },
+  "firstName": "Vihaan",
+  "lastName": "Desai",
+  "email": "VihaanDesai266@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-04-28",
+  "phone": "+916914673982",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+917824565180",
+  "alterEmail": "VihaanDesai237@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "mjeqoyedxa",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "1a2b81df5618fddc50f540d9"
+  },
+  "firstName": "Hritik",
+  "lastName": "Patel",
+  "email": "HritikPatel730@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-03-07",
+  "phone": "+917821349091",
+  "userDesignation": "Trainee",
+  "alterPhone": "+919508404338",
+  "alterEmail": "HritikPatel885@gmail.com",
+  "department": "Mobile Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "hidapurjhn",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "11523b76a37743e6a7a7b071"
+  },
+  "firstName": "Avni",
+  "lastName": "Kumar",
+  "email": "AvniKumar563@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-09-15",
+  "phone": "+916666939900",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+916516756222",
+  "alterEmail": "AvniKumar964@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "iwmozbltjc",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "074da2aacc73517588783691"
+  },
+  "firstName": "Prisha",
+  "lastName": "Joshi",
+  "email": "PrishaJoshi590@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-07-03",
+  "phone": "+918695028113",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+916101225259",
+  "alterEmail": "PrishaJoshi165@gmail.com",
+  "department": "Mobile Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "egnoooscqk",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "826433ea3fedff760df0873a"
+  },
+  "firstName": "Ishika",
+  "lastName": "Patel",
+  "email": "IshikaPatel661@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-11-07",
+  "phone": "+917563722119",
+  "userDesignation": "Junior Software Engineer",
+  "alterPhone": "+916333007076",
+  "alterEmail": "IshikaPatel313@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "wtuukubwos",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "2f07ea2beb5eb73b742505c0"
+  },
+  "firstName": "Vivaan",
+  "lastName": "Patel",
+  "email": "VivaanPatel779@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-12-28",
+  "phone": "+917783016670",
+  "userDesignation": "Associate Consultant",
+  "alterPhone": "+918449785751",
+  "alterEmail": "VivaanPatel134@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "wvzqqccpnl",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "518255660b929c3be02a74d1"
+  },
+  "firstName": "Kabir",
+  "lastName": "Mehta",
+  "email": "KabirMehta121@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-11-08",
+  "phone": "+918875627846",
+  "userDesignation": "Senior Architect",
+  "alterPhone": "+918471235422",
+  "alterEmail": "KabirMehta771@gmail.com",
+  "department": "Mobile Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "aioekyjlxn",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64542d1ee12b56167402c704"
+  },
+  "firstName": "Anika",
+  "lastName": "Singh",
+  "email": "AnikaSingh747@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2022-10-14",
+  "phone": "+916169509745",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+919673756988",
+  "alterEmail": "AnikaSingh947@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "leeqpuwlrt",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "c2ad87fce9429d552dba43d6"
+  },
+  "firstName": "Riya",
+  "lastName": "Trivedi",
+  "email": "RiyaTrivedi119@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2022-04-20",
+  "phone": "+919313533414",
+  "userDesignation": "Senior Architect",
+  "alterPhone": "+917931546520",
+  "alterEmail": "RiyaTrivedi816@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "ksflmpwpvr",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "07b7d57fe7962d3d9503fc4c"
+  },
+  "firstName": "Dhruv",
+  "lastName": "Gupta",
+  "email": "DhruvGupta614@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-11-10",
+  "phone": "+917884850034",
+  "userDesignation": "Associate Consultant",
+  "alterPhone": "+919239758263",
+  "alterEmail": "DhruvGupta858@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "rxdxnvgyir",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5cdcf82582e1198782f68b7c"
+  },
+  "firstName": "Saanvi",
+  "lastName": "Trivedi",
+  "email": "SaanviTrivedi377@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2022-02-18",
+  "phone": "+918465309469",
+  "userDesignation": "Trainee",
+  "alterPhone": "+919169135818",
+  "alterEmail": "SaanviTrivedi658@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "fakonmdsue",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd55b0209b8ce5a1a2a3182"
+  },
+  "firstName": "Ira",
+  "lastName": "Desai",
+  "email": "IraDesai288@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-01-29",
+  "phone": "+917448887291",
+  "userDesignation": "Manager",
+  "alterPhone": "+919274757786",
+  "alterEmail": "IraDesai701@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "dacdubfgiz",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "52713fde04200f76f2d41ecc"
+  },
+  "firstName": "Aarav",
+  "lastName": "Joshi",
+  "email": "AaravJoshi500@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-06-11",
+  "phone": "+918852529167",
+  "userDesignation": "Trainee",
+  "alterPhone": "+918647542365",
+  "alterEmail": "AaravJoshi444@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "sdutctpgfp",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "3d7a65f1aa8b396ff329faa5"
+  },
+  "firstName": "Aanya",
+  "lastName": "Sharma",
+  "email": "AanyaSharma191@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-02-13",
+  "phone": "+919270457516",
+  "userDesignation": "Technology Analyst",
+  "alterPhone": "+917156033308",
+  "alterEmail": "AanyaSharma934@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "bkeunwqzma",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "2fe41936fd7b2000b9ecd862"
+  },
+  "firstName": "Kabir",
+  "lastName": "Trivedi",
+  "email": "KabirTrivedi318@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-06-19",
+  "phone": "+918237751646",
+  "userDesignation": "Junior Software Engineer",
+  "alterPhone": "+919198762931",
+  "alterEmail": "KabirTrivedi267@gmail.com",
+  "department": "Mobile Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "jmjwzsmcou",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "e87064ca8341e4f4190199e9"
+  },
+  "firstName": "Anika",
+  "lastName": "Joshi",
+  "email": "AnikaJoshi354@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-06-16",
+  "phone": "+917109868703",
+  "userDesignation": "Architect",
+  "alterPhone": "+919966730322",
+  "alterEmail": "AnikaJoshi645@gmail.com",
+  "department": "Web Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "fsdgqmysmi",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "ecbeeef01c43179f07f04c73"
+  },
+  "firstName": "Aadya",
+  "lastName": "Shah",
+  "email": "AadyaShah393@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2023-05-15",
+  "phone": "+916115869319",
+  "userDesignation": "Manager",
+  "alterPhone": "+916875018191",
+  "alterEmail": "AadyaShah525@gmail.com",
+  "department": "Mobile Application Development",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "qplkehxjat",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "2e1641d58eb861664de44ca5"
+  },
+  "firstName": "Anika",
+  "lastName": "Desai",
+  "email": "AnikaDesai452@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-11-05",
+  "phone": "+917928031911",
+  "userDesignation": "Architect",
+  "alterPhone": "+916505976932",
+  "alterEmail": "AnikaDesai987@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "vygztgysgm",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "2b24323db33fa8852e681207"
+  },
+  "firstName": "Aaradhya",
+  "lastName": "Joshi",
+  "email": "AaradhyaJoshi648@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2021-12-20",
+  "phone": "+918979298744",
+  "userDesignation": "Junior Software Engineer",
+  "alterPhone": "+917876700770",
+  "alterEmail": "AaradhyaJoshi874@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "wgnhkubzcl",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "dc88db54b94eb3b3b8c042ad"
+  },
+  "firstName": "Vihaan",
+  "lastName": "Mehta",
+  "email": "VihaanMehta345@dprs.com",
+  "userRole": "Employee",
+  "joindate": "2022-04-09",
+  "phone": "+919861119121",
+  "userDesignation": "Senior Software Engineer",
+  "alterPhone": "+916527338437",
+  "alterEmail": "VihaanMehta703@gmail.com",
+  "department": "Human Resource Department",
+  "LeaveStartDate": "",
+  "LeaveEndDate": "",
+  "password": "fkffwgcsmr",
+  "profile": "profile-1674894136050-157437367.png",
+  "isActive": false,
+  "__v": 0
 }]

@@ -1,0 +1,451 @@
+[{
+  "_id": {
+    "$oid": "55b00e611c889deb395306d7"
+  },
+  "clientName": "Alibaba Group",
+  "country": "China",
+  "code": "C001",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "1d57d8039a543879d89375e1"
+  },
+  "clientName": "Microsoft",
+  "country": "United States",
+  "code": "C002",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "4c0dca86169faeec2a73f90b"
+  },
+  "clientName": "Unilever",
+  "country": "United Kingdom",
+  "code": "C003",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "212b6e342b439816ff61ad31"
+  },
+  "clientName": "Pfizer",
+  "country": "United States",
+  "code": "C004",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "3eea9e4953c9d90900fe69ad"
+  },
+  "clientName": "Siemens",
+  "country": "Germany",
+  "code": "C005",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "458445062fa8ddf7d7a63761"
+  },
+  "clientName": "Nokia",
+  "country": "Finland",
+  "code": "C006",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "9db37fe3d6d8eb9ac404ed10"
+  },
+  "clientName": "Tata Consultancy Services",
+  "country": "India",
+  "code": "C007",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "2b3cfeaf145d5cd76366d11b"
+  },
+  "clientName": "Nestle",
+  "country": "Switzerland",
+  "code": "C008",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "308e57e8ee62c3bb18201947"
+  },
+  "clientName": "Toyota Motor",
+  "country": "Japan",
+  "code": "C009",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "ef30b3a97386135b59ab3bb0"
+  },
+  "clientName": "Facebook",
+  "country": "United States",
+  "code": "C0010",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "0ba2ba343a82f4b1e9958739"
+  },
+  "clientName": "Exxon Mobil",
+  "country": "United States",
+  "code": "C0011",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6ba78a0987c210f91bf8a10d"
+  },
+  "clientName": "Royal Dutch Shell",
+  "country": "Netherlands",
+  "code": "C0012",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "f217dbd77252195539e09b58"
+  },
+  "clientName": "Hindustan Unilever",
+  "country": "India",
+  "code": "C0013",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "b77da8d85661a11a8fb86aba"
+  },
+  "clientName": "Reliance Industries",
+  "country": "India",
+  "code": "C0014",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "2d71d0d1ceaed465d34e3f55"
+  },
+  "clientName": "Merck & Co.",
+  "country": "United States",
+  "code": "C0015",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "8cfb342908b393246cb5a3fe"
+  },
+  "clientName": "Coca-Cola",
+  "country": "United States",
+  "code": "C0016",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "05d95b6055336bdc2d67bf60"
+  },
+  "clientName": "Verizon Communications",
+  "country": "United States",
+  "code": "C0017",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "32305923b27a8edbbbe0b89b"
+  },
+  "clientName": "BP",
+  "country": "United Kingdom",
+  "code": "C0018",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "0c0539cbdaa8df6250e9960e"
+  },
+  "clientName": "Infosys",
+  "country": "India",
+  "code": "C0019",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "a5ca594f96f1d6a94a6ce0d7"
+  },
+  "clientName": "State Bank of India",
+  "country": "India",
+  "code": "C0020",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "bbcbf2e285f8743b5565c4c8"
+  },
+  "clientName": "ASML",
+  "country": "Netherlands",
+  "code": "C0021",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6081085b357868a03d85bbbe"
+  },
+  "clientName": "LVMH Moet Hennessy",
+  "country": "France",
+  "code": "C0022",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "219c3f8eb32331a7901533e4"
+  },
+  "clientName": "AT&T",
+  "country": "United States",
+  "code": "C0023",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "4c7bbd51a0e4fed745f8ebc3"
+  },
+  "clientName": "Procter & Gamble",
+  "country": "United States",
+  "code": "C0024",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "30c359d3f86f2444cb5ce2ff"
+  },
+  "clientName": "Johnson & Johnson",
+  "country": "United States",
+  "code": "C0025",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "963fbff7be72edfa9e0ea62e"
+  },
+  "clientName": "Visa",
+  "country": "United States",
+  "code": "C0026",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "b18da2348b36363ab3d932e6"
+  },
+  "clientName": "Mastercard",
+  "country": "United States",
+  "code": "C0027",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "d7caba461f41e29d4b76ddf5"
+  },
+  "clientName": "General Motors",
+  "country": "United States",
+  "code": "C0028",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "e1f3fee2a05b13e57a7de1f8"
+  },
+  "clientName": "Google",
+  "country": "United States",
+  "code": "C0029",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "9ec1f82d1420de5fb845a6b5"
+  },
+  "clientName": "Hyundai Motor",
+  "country": "South Korea",
+  "code": "C0030",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6010581ea38b78edc84affda"
+  },
+  "clientName": "Sony",
+  "country": "Japan",
+  "code": "C0031",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "f7b303ac3a14efa5d8ff6a6d"
+  },
+  "clientName": "Berkshire Hathaway",
+  "country": "United States",
+  "code": "C0032",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "66ea5d377142fcffce359263"
+  },
+  "clientName": "Samsung Electronics",
+  "country": "South Korea",
+  "code": "C0033",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "1e322ade5033242a7d3aff85"
+  },
+  "clientName": "Apple",
+  "country": "United States",
+  "code": "C0034",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "1d0f22f737c544a6f376e3c8"
+  },
+  "clientName": "Samsung Electronics",
+  "country": "South Korea",
+  "code": "C0035",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "59fe3e3e8a9005f66e2b17a7"
+  },
+  "clientName": "Volkswagen",
+  "country": "Germany",
+  "code": "C0036",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "8a8995aa10eb1da84cb59e5d"
+  },
+  "clientName": "AXA",
+  "country": "France",
+  "code": "C0037",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "933b78e5ef2c2db48d335271"
+  },
+  "clientName": "Tencent Holdings",
+  "country": "China",
+  "code": "C0038",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "894f92bfa1d2f78c53caf5a4"
+  },
+  "clientName": "IBM",
+  "country": "United States",
+  "code": "C0039",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "3cf940c84abc268353f85dca"
+  },
+  "clientName": "Lockheed Martin",
+  "country": "United States",
+  "code": "C0040",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "124461dd1b3dfd8d36cf129e"
+  },
+  "clientName": "Boeing",
+  "country": "United States",
+  "code": "C0041",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "ab47cff745aa58670a75c1fc"
+  },
+  "clientName": "Walmart",
+  "country": "United States",
+  "code": "C0042",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "9df0e9115afd082b81e31933"
+  },
+  "clientName": "General Electric",
+  "country": "United States",
+  "code": "C0043",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6ab7b6f94e19b643e5fe5481"
+  },
+  "clientName": "JPMorgan Chase",
+  "country": "United States",
+  "code": "C0044",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "b6f5cf20e67271abfa3622c2"
+  },
+  "clientName": "Ford Motor",
+  "country": "United States",
+  "code": "C0045",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "b65875d6e19eed87c83fc50f"
+  },
+  "clientName": "Amazon",
+  "country": "United States",
+  "code": "C0046",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65cb401f1c1adc9e323699ca"
+  },
+  "clientName": "Instagram",
+  "country": "USA",
+  "code": "C047",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65cb402d1c1adc9e323699cf"
+  },
+  "clientName": "Wipro",
+  "country": "Landon",
+  "code": "C048",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65cb40391c1adc9e323699d4"
+  },
+  "clientName": "Patidar",
+  "country": "India",
+  "code": "C049",
+  "ActiveStatus": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65cb40431c1adc9e323699d9"
+  },
+  "clientName": "BJP",
+  "country": "India",
+  "code": "C050",
+  "ActiveStatus": true,
+  "__v": 0
+}]
