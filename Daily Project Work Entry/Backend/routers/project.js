@@ -1,29 +1,29 @@
 const express = require("express");
 const router = express.Router();
-const Project = require('../models/Project')
+const Project = require('../models/Project');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'welcome$man' // create secret Key
-let status = false
+const JWT_SECRET = 'welcome$man'; // create secret Key
+let status = false;
 
 
-//  ROUTE - 1 :     get all the notes : GET "api/project/fetchallnotes". Login required
+// ROUTE - 1: Fetch all projects: GET "api/project/fetchproject". Login required
 router.get('/fetchproject', async (req, res) => {
     try {
-        //  wait & find note by user
-        const project = await Project.find().select("")
-        status = true
-        res.json({ status, project })
+        // Fetch all projects
+        const project = await Project.find().select("");
+        status = true;
+        res.json({ status, project });
 
     } catch (error) {
-        console.error(error.message)
-        res.status(500).json({ status: status, Error: 'Internal server Error Occure' })
+        console.error(error.message);
+        res.status(500).json({ status: status, Error: 'Internal server Error Occurred' });
     }
-})
+});
 
-// Route -2 :  create Project using : POST "api/project/createproject".
+// Route - 2: Create a new project: POST "api/project/createproject".
 router.post('/createproject', async (req, res) => {
     try {
-        // create a new project
+        // Create a new project
         const project = await Project.create({
             projectName: req.body.projectName,
             clientName: req.body.clientName,
@@ -35,81 +35,81 @@ router.post('/createproject', async (req, res) => {
             projectManager: req.body.projectManager,
             type: req.body.type,
             projectDescription: req.body.projectDescription,
-        })
+        });
 
-        const saveproject = await project.save()
-        status = true
-        res.send({ status, "success": "Project has been added successfully" })
+        const saveproject = await project.save();
+        status = true;
+        res.send({ status, "success": "Project has been added successfully" });
 
     } catch (error) {
-        console.error(error.message)
-        res.status(500).json({ status: status, Error: 'Internal server Error Occure' })
+        console.error(error.message);
+        res.status(500).json({ status: status, Error: 'Internal server Error Occurred' });
     }
-})
+});
 
 
-//  ROUTE - 3 :     update an existing project : PUT "api/projrct/updateproject/:id". Login required
+// ROUTE - 3: Update an existing project: PUT "api/project/updateproject/:id". Login required
 router.put('/updateproject/:id', async (req, res) => {
     try {
 
         const { projectName, clientName, member, durationHours, durationType, limithours, technologies, projectManager, type, projectDescription } = req.body;
 
-        // create a note object
+        // Create a project object
         const newproject = {};
 
-        //if user want update any perticular field
-        if (projectName) { newproject.projectName = projectName }
-        if (clientName) { newproject.clientName = clientName }
-        if (member) { newproject.member = member }
-        if (durationHours) { newproject.durationHours = durationHours }
-        if (durationType) { newproject.durationType = durationType }
-        if (limithours) { newproject.limithours = limithours }
-        if (technologies) { newproject.technologies = technologies }
-        if (projectManager) { newproject.projectManager = projectManager }
-        if (type) { newproject.type = type }
-        if (projectDescription) { newproject.projectDescription = projectDescription }
+        // If user wants to update any particular field
+        if (projectName) { newproject.projectName = projectName; }
+        if (clientName) { newproject.clientName = clientName; }
+        if (member) { newproject.member = member; }
+        if (durationHours) { newproject.durationHours = durationHours; }
+        if (durationType) { newproject.durationType = durationType; }
+        if (limithours) { newproject.limithours = limithours; }
+        if (technologies) { newproject.technologies = technologies; }
+        if (projectManager) { newproject.projectManager = projectManager; }
+        if (type) { newproject.type = type; }
+        if (projectDescription) { newproject.projectDescription = projectDescription; }
 
-        // Find the note to updated to update it 
-        let project = await Project.findById(req.params.id)
+        // Find the project to be updated
+        let project = await Project.findById(req.params.id);
 
-        // if note not found
+        // If project not found
         if (!project) {
-            return res.status(404).send({ status, Error: "Project Not found" })
+            return res.status(404).send({ status, Error: "Project Not found" });
         }
 
-        // if note Exists 
-        project = await Project.findByIdAndUpdate(req.params.id, { $set: newproject }, { new: true })
-        status = true
-        res.send({ status, "success": "Project has been Edited successfully" })
+        // If project exists 
+        project = await Project.findByIdAndUpdate(req.params.id, { $set: newproject }, { new: true });
+        status = true;
+        res.send({ status, "success": "Project has been Edited successfully" });
 
     } catch (error) {
-        console.error(error.message)
-        res.status(500).json({ status: status, Error: 'Internal server Error Occure' })
+        console.error(error.message);
+        res.status(500).json({ status: status, Error: 'Internal server Error Occurred' });
     }
 });
 
 
-//  ROUTE - 4 :     Delete an existing notes : DELETE "api/project/deleteproject/:id". Login required
+// ROUTE - 4: Delete an existing project: DELETE "api/project/deleteproject/:id". Login required
 router.delete('/deleteproject/:id', async (req, res) => {
     try {
 
-        // Find the note to updated to update it 
-        let project = await Project.findById(req.params.id)
+        // Find the project to be deleted
+        let project = await Project.findById(req.params.id);
 
-        // if note not found
+        // If project not found
         if (!project) {
-            return res.status(404).send({ status, Error: "Project Not found" })
+            return res.status(404).send({ status, Error: "Project Not found" });
         }
 
-        // if note Exists 
-        project = await Project.findByIdAndDelete(req.params.id)
-        status = true
-        res.send({ status, "success": "Project has been Deleted successfully" })
+        // If project exists 
+        project = await Project.findByIdAndDelete(req.params.id);
+        status = true;
+        res.send({ status, "success": "Project has been Deleted successfully" });
     } catch (error) {
-        console.error(error.message)
-        res.status(500).json({ status: status, Error: 'Internal server Error Occure' })
+        console.error(error.message);
+        res.status(500).json({ status: status, Error: 'Internal server Error Occurred' });
     }
 });
 
 
-module.exports = router
+module.exports = router;

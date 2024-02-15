@@ -1,18 +1,27 @@
-import './css/style.css'
-import React, { useEffect, useState,useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import globalContext from '../Context/notes/globalContext'
+// Importing necessary modules and styles
+import './css/style.css';
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import globalContext from '../Context/notes/globalContext';
 
+// UserProfile functional component definition
 const UserProfile = () => {
-    const gContext = useContext(globalContext)
+    // Accessing global context
+    const gContext = useContext(globalContext);
     const { showAlert } = gContext;
-    const [userProfile, setUserProfile] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', isActive: '' })
-    const [image, setImage] = useState('')
+
+    // State variables initialization
+    const [userProfile, setUserProfile] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', isActive: '' });
+    const [image, setImage] = useState('');
+    
+    // Navigation hook
     const navigate = useNavigate();
-    const Host = 'http://localhost:5000'
-    const imageURL = 'http://localhost:5000/uploads/'
+    
+    // Host and image URL declaration
+    const Host = 'http://localhost:5000';
+    const imageURL = 'http://localhost:5000/uploads/';
 
-
+    // Fetching user data from the server
     const userdata = async () => {
         try {
             const response = await fetch(`${Host}/api/auth/getuser`, {
@@ -22,14 +31,15 @@ const UserProfile = () => {
                     'auth-token': localStorage.getItem('token')
                 },
             });
-            let json = await response.json()
-            setUserProfile(json.user)
-            setImage(json.user.profile)
+            let json = await response.json();
+            setUserProfile(json.user);
+            setImage(json.user.profile);
         } catch (error) {
-            showAlert('Internal Error occure','danger')
+            showAlert('Internal Error occurred', 'danger');
         }
-    }
+    };
 
+    // Function to update user details
     const updateMember = async (id, firstName, lastName, phone) => {
         try {
             const response = await fetch(`${Host}/api/member/updatemember/${id}`, {
@@ -40,43 +50,47 @@ const UserProfile = () => {
                 body: JSON.stringify({ firstName, lastName, phone })
             });
             await response.json();
-            showAlert('User Details Edited Successfully', 'success')
+            showAlert('User Details Edited Successfully', 'success');
         } catch (error) {
-            showAlert('Internal Error occure', 'danger')
+            showAlert('Internal Error occurred', 'danger');
         }
-    }
+    };
 
+    // Effect hook to fetch user data on component mount
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            userdata()
-        }
-        else {
+            userdata();
+        } else {
             navigate("/login");
         }
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
+    // Handling form submission for updating user details
     const handleAddSubmit = (e) => {
         e.preventDefault();
-        updateMember(userProfile._id, userProfile.firstName, userProfile.lastName, userProfile.phone)
-        userdata()
-    }
+        updateMember(userProfile._id, userProfile.firstName, userProfile.lastName, userProfile.phone);
+        userdata();
+    };
 
+    // Handling input change
     const onchange = (e) => {
-        setUserProfile({ ...userProfile, [e.target.name]: e.target.value })
-    }
+        setUserProfile({ ...userProfile, [e.target.name]: e.target.value });
+    };
 
-    let d = new Date(userProfile.joindate).toString().split(' ')
-    const joiningDate = `${d[2]}-${d[1]}-${d[3]}`
+    // Formatting joining date
+    let d = new Date(userProfile.joindate).toString().split(' ');
+    const joiningDate = `${d[2]}-${d[1]}-${d[3]}`;
 
+    // Rendering JSX
     return (
         <div>
-            <div className="topbar  p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
+            <div className="topbar fs-5 p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
                 USER PROFILE
             </div>
             <div className="container-fulid p-2 m-2" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }}>
                 <div className=" row p-2 mt-4">
-                    <h4 className='px-3 my-2' style={{ color: '#a40df1', fontFamily: 'emoji' }} >{userProfile.firstName} {userProfile.lastName}</h4>
+                    <h4 className='px-3 fs-3 fw-bold my-2' style={{ color: '#a40df1', fontFamily: 'emoji' }} >{userProfile.firstName} {userProfile.lastName}</h4>
                     <div className=" row col-lg-9" >
                         <form onSubmit={handleAddSubmit} encType="multipart/form-data">
                             <div className="row  row-cols-3">
@@ -89,7 +103,7 @@ const UserProfile = () => {
                                 <div className="col-md-4 py-3 profile-box-item  border border-dark">
                                     <div className="d-flex flex-column">
                                         <label><strong>Joining Date</strong></label>
-                                        <label>{joiningDate ? joiningDate : userProfile.joindate}</label>
+                                        <label>{joiningDate ? joiningDate === "undefined-Date-undefined" ? "N/A" : joiningDate : userProfile.joindate  === "undefined-Date-undefined" ? "N/A" : userProfile.joindate}</label>
                                     </div>
                                 </div>
                                 <div className="col-md-4 py-3 profile-box-item  border border-dark">
@@ -119,10 +133,11 @@ const UserProfile = () => {
                     <div className="col-lg-3 p-0  mt-0 text-center" >
                         <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} className='Addmember-Profile' style={{ border: '10px solid #c6c6c6', borderRadius: '50%' }} alt="ProfilePicture" />
                     </div>
-                </div> 
+                </div>
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
-export default UserProfile
+// Exporting UserProfile component
+export default UserProfile;

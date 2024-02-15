@@ -48,6 +48,18 @@ npm run both
  
 ```
 
+### <u> Run Commands : </u>
+
+<b>NOTE :  </b> If you have completed the installation commands previously, execute the following command to run the project:
+<br>
+
+Open your project folder and Run code in terminal
+```
+cd '.\Daily Project Work Entry\'
+npm run both
+ 
+```
+
 ## Contribution
 
 
@@ -105,8 +117,15 @@ we have json file which is already avilable in Code
 
 **Path of Json File :** [members.json](./Database/members.json)
 
-**User Name :** admin@dprs.com
-**Password :** admin
+**Default Passwords :**
+<br>
+
+**User Name :** admin@dprs.com  || **Password :** admin
+
+**User Name :** farukali@dprs.com  || **Password :** farukali
+
+<br>
+
 
 ![MongoDb Compass Adding Json File](./Database/Mongodb_Compass_AddingDataFile.png)
 

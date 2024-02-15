@@ -1,17 +1,28 @@
-import React, { useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Alert from '../Alert'
-import globalContext from '../Context/notes/globalContext'
-import './css/style.css'
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Alert from '../Alert';
+import globalContext from '../Context/notes/globalContext';
+import './css/style.css';
 
 const Login = () => {
-    const [typeFiled, setTypeField] = useState("password")
-    const gContext = useContext(globalContext)
+    // State for password visibility
+    const [typeField, setTypeField] = useState("password");
+
+    // Accessing global context for alerts
+    const gContext = useContext(globalContext);
     const { showAlert } = gContext;
-    const [credentials, setCredentials] = useState({ email: "", password: "" })
+
+    // State for user credentials
+    const [credentials, setCredentials] = useState({ email: "", password: "" });
+
+    // Navigation hook for redirecting
     const history = useNavigate();
+
+    // Function to handle form submission
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        // Sending login request
         const response = await fetch("http://localhost:5000/api/auth/login", {
             method: 'POST',
             headers: {
@@ -19,27 +30,33 @@ const Login = () => {
             },
             body: JSON.stringify({ email: credentials.email.toLowerCase(), password: credentials.password })
         });
+        
+        // Parsing response JSON
         const json = await response.json();
+        
+        // Handling success or failure
         if (json.success) {
-            localStorage.setItem('token', json.authToken)
-            showAlert("Loged in Sucessfully", 'success')
-            history('/')
+            localStorage.setItem('token', json.authToken);
+            showAlert("Logged in Successfully", 'success');
+            history('/');
+        } else {
+            showAlert("Invalid Details", 'danger');
         }
-        else {
-            showAlert("Invalid Details", 'danger')
-        }
-    }
+    };
 
+    // Function to handle input changes
     const onchange = (e) => {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value })
-    }
+        setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    };
 
+    // Function to toggle password visibility
     const visible = (e) => {
-        setTypeField(typeFiled === "password" ? "text" : "password")
-    }
+        setTypeField(typeField === "password" ? "text" : "password");
+    };
 
+    // Setting body background color
+    document.body.style.backgroundColor = '#e4e6ee';
 
-    document.body.style.backgroundColor = '#e4e6ee'
     return (
         <>
             <Alert />
@@ -51,9 +68,9 @@ const Login = () => {
                     </div>
                     <div className="py-2 m-1 ">
                         <div className="input-border form-control d-flex">
-                            <input type={typeFiled} className='w-100 ' id="password" value={credentials.password} onChange={onchange} name='password' required placeholder="Password" style={{ outline: 'none', border: 'none' }} />
+                            <input type={typeField} className='w-100 ' id="password" value={credentials.password} onChange={onchange} name='password' required placeholder="Password" style={{ outline: 'none', border: 'none' }} />
                             <span className=" flex-shrink-1" onClick={visible}>
-                                {typeFiled === 'password' ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                                {typeField === 'password' ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
                                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
                                 </svg> : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-eye-slash-fill" viewBox="0 0 16 16">
@@ -72,7 +89,7 @@ const Login = () => {
                 </form>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;

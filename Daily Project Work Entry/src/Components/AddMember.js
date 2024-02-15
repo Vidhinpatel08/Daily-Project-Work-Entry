@@ -1,62 +1,106 @@
-import React, { useContext, useRef, useState } from 'react'
-import noteContext from '../Context/notes/notecontext'
-import './css/style.css'
-import './css/memberStyle.css'
+// Importing necessary dependencies and styles
+import React, { useContext, useRef, useState } from 'react';
+import noteContext from '../Context/notes/notecontext'; // Importing context for notes
+import './css/style.css'; // Importing general styles
+import './css/memberStyle.css'; // Importing member-specific styles
 
+// Functional component for adding a member
 const AddMember = () => {
-  const imageURL = 'http://localhost:5000/uploads/'
-  const [mode, setMode] = useState(false)
-  const [image, setImage] = useState('')
+  // Define base URL for profile image
+  const imageURL = 'http://localhost:5000/uploads/';
+
+  // State variables for mode (active/inactive), image, and member details
+  const [mode, setMode] = useState(false);
+  const [image, setImage] = useState('');
+  const [member, setMember] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    userRole: '',
+    phone: '',
+    userDesignation: '',
+    alterPhone: '',
+    alterEmail: '',
+    department: '',
+    password: '',
+    joindate: '',
+    LeaveStartDate: '',
+    LeaveEndDate: '',
+    profile: ''
+  });
+
+  // Context for managing notes
   const context = useContext(noteContext);
   const { addmemberFun } = context;
-  const refclose = useRef(null)
 
-  const [member, setMember] = useState({ firstName: '', lastName: '', email: '', userRole: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', password: '', joindate: '', LeaveStartDate: '', LeaveEndDate: '', profile: '' })
+  // Ref for closing modal
+  const refclose = useRef(null);
 
+  // Function to capitalize the first letter of a word
   const capitalized = (word) => {
-    let newText = word.toLowerCase()
-    return newText.charAt(0).toUpperCase() + newText.slice(1)
-  }
+    let newText = word.toLowerCase();
+    return newText.charAt(0).toUpperCase() + newText.slice(1);
+  };
+
+  // Function to handle form submission for adding a member
   const handleAddSubmit = (e) => {
     e.preventDefault();
-    let formData = new FormData()
+    let formData = new FormData();
+    // Appending member details to formData
     formData.append('profile', image);
-    formData.append('firstName', capitalized(member.firstName))
-    formData.append('lastName', capitalized(member.lastName))
-    formData.append('email', member.email.toLowerCase())
-    formData.append('userRole', member.userRole)
-    formData.append('phone', member.phone)
-    formData.append('userDesignation', member.userDesignation)
-    formData.append('alterPhone', member.alterPhone)
-    formData.append('alterEmail', member.alterEmail)
-    formData.append('department', member.department)
-    formData.append('password', member.password)
-    formData.append('joindate', member.joindate)
-    formData.append('LeaveStartDate', member.LeaveStartDate)
-    formData.append('LeaveEndDate', member.LeaveEndDate)
-    formData.append('isActive', mode)
+    formData.append('firstName', capitalized(member.firstName));
+    formData.append('lastName', capitalized(member.lastName));
+    formData.append('email', member.email.toLowerCase());
+    formData.append('userRole', member.userRole);
+    formData.append('phone', member.phone);
+    formData.append('userDesignation', member.userDesignation);
+    formData.append('alterPhone', member.alterPhone);
+    formData.append('alterEmail', member.alterEmail);
+    formData.append('department', member.department);
+    formData.append('password', member.password);
+    formData.append('joindate', member.joindate);
+    formData.append('LeaveStartDate', member.LeaveStartDate);
+    formData.append('LeaveEndDate', member.LeaveEndDate);
+    formData.append('isActive', mode);
 
-    addmemberFun(formData)
-    setMember({ firstName: '', lastName: '', email: '', userRole: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', password: '', joindate: '', LeaveStartDate: '', LeaveEndDate: '', profile: '' })
-    setMode(false)
-    refclose.current.click()
-  }
+    // Calling addmemberFun with formData
+    addmemberFun(formData);
+    // Resetting member state and mode
+    setMember({
+      firstName: '',
+      lastName: '',
+      email: '',
+      userRole: '',
+      phone: '',
+      userDesignation: '',
+      alterPhone: '',
+      alterEmail: '',
+      department: '',
+      password: '',
+      joindate: '',
+      LeaveStartDate: '',
+      LeaveEndDate: '',
+      profile: ''
+    });
+    setMode(false);
+    // Closing modal
+    refclose.current.click();
+  };
+
+  // Function to handle input changes
   const onchange = (e) => {
-    setMember({ ...member, [e.target.name]: e.target.value })
-  }
+    setMember({ ...member, [e.target.name]: e.target.value });
+  };
 
+  // Function to handle image upload
   const imageUpload = (e) => {
-    setImage(e.target.files[0])
-  }
+    setImage(e.target.files[0]);
+  };
 
+  // Function to toggle mode (active/inactive)
   const toggleMode = () => {
-    if (mode === true) {
-      setMode(false)
-    }
-    else {
-      setMode(true)
-    }
-  }
+    setMode(!mode);
+  };
 
   return (
     <>
@@ -173,4 +217,4 @@ const AddMember = () => {
   )
 }
 
-export default AddMember
+export default AddMember;

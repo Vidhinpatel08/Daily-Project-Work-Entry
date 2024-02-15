@@ -1,17 +1,25 @@
-import React, { useState,useContext } from 'react'
-import { NavLink } from 'react-router-dom'
-import globalContext from '../Context/notes/globalContext'
+import React, { useState, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import globalContext from '../Context/notes/globalContext';
 
+// Sidebar component definition
 const Sidebar = ({ children }) => {
-    const gContext = useContext(globalContext)
-    const { sidebarIsOpen,setSidebarIsOpen} = gContext;
-    const [isopen, setIsOpen] = useState(sidebarIsOpen)
-    const [isopenMaster, setIsOpenMaster] = useState(false)
-    const [isopenReport, setIsOpenReport] = useState(false)
+    // Accessing global context
+    const gContext = useContext(globalContext);
+    // Destructuring sidebarIsOpen and setSidebarIsOpen from global context
+    const { sidebarIsOpen, setSidebarIsOpen } = gContext;
+    // State variables for sidebar status
+    const [isopen, setIsOpen] = useState(sidebarIsOpen);
+    const [isopenMaster, setIsOpenMaster] = useState(false);
+    const [isopenReport, setIsOpenReport] = useState(false);
+
+    // Function to toggle sidebar
     const toggle = () => {
-        setIsOpen(!isopen)
-        setSidebarIsOpen(!isopen)
-    }
+        setIsOpen(!isopen);
+        setSidebarIsOpen(!isopen);
+    };
+
+
     return (
         <div className='d-flex ' id='sidebar-main-container'>
             <div className={isopen ? "sidebar open" : "sidebar"} id='sidebar-container' style={{ transition: 'all 0.5s' }} >
@@ -28,6 +36,7 @@ const Sidebar = ({ children }) => {
                     </div>
                 </div>
 
+                {/* Navigation links */}
                 <NavLink to='/' className='link d-flex align-items-center justify-content-start ' aria-activedescendant='active'  >
                     <div className="icone">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-display" viewBox="0 0 16 16">
@@ -60,6 +69,7 @@ const Sidebar = ({ children }) => {
                     </div>
                 </NavLink>
 
+                {/* Master section */}
                 <div className={isopenMaster ? 'sidebar-item open' : 'sidebar-item'} aria-activedescendant='active' tabIndex={0}>
                     <div className="sidebar-title" onClick={() => { setIsOpenMaster(!isopenMaster) }}>
                         <span>
@@ -100,6 +110,7 @@ const Sidebar = ({ children }) => {
                     </div>
                 </div>
 
+                {/* Report section */}
                 <div className={isopenReport ? 'sidebar-item open' : 'sidebar-item'} aria-activedescendant='active' tabIndex={1}>
                     <div className="sidebar-title" onClick={() => { setIsOpenReport(!isopenReport) }}>
                         <span>
@@ -148,4 +159,4 @@ const Sidebar = ({ children }) => {
     )
 }
 
-export default Sidebar
+export default Sidebar;

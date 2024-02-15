@@ -16,25 +16,30 @@ i {
   cursor: pointer;
 }
 
-#nav-container{
+#nav-container {
   width: 100%;
 }
-#Dashboard-chart{
+
+#Dashboard-chart {
   display: flex;
 }
+
 @media screen and (max-width: 722px) {
   #nav-container {
     width: 116%;
   }
-  #sidebar-main-container{
+
+  #sidebar-main-container {
     display: block;
   }
-  #sidebar-container{
+
+  #sidebar-container {
     width: 50%;
     height: 100%;
     overflow: visible;
   }
-  #Dashboard-chart{
+
+  #Dashboard-chart {
     display: block;
   }
 }
@@ -43,7 +48,8 @@ i {
   #nav-container {
     width: 100%;
   }
-  #Dashboard-chart{
+
+  #Dashboard-chart {
     display: flex;
     overflow: scroll;
   }

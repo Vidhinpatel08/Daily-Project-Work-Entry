@@ -85,7 +85,7 @@
   },
   "clientName": "Facebook",
   "country": "United States",
-  "code": "C0010",
+  "code": "C010",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -94,7 +94,7 @@
   },
   "clientName": "Exxon Mobil",
   "country": "United States",
-  "code": "C0011",
+  "code": "C011",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -103,7 +103,7 @@
   },
   "clientName": "Royal Dutch Shell",
   "country": "Netherlands",
-  "code": "C0012",
+  "code": "C012",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -112,7 +112,7 @@
   },
   "clientName": "Hindustan Unilever",
   "country": "India",
-  "code": "C0013",
+  "code": "C013",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -121,7 +121,7 @@
   },
   "clientName": "Reliance Industries",
   "country": "India",
-  "code": "C0014",
+  "code": "C014",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -130,7 +130,7 @@
   },
   "clientName": "Merck & Co.",
   "country": "United States",
-  "code": "C0015",
+  "code": "C015",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -139,7 +139,7 @@
   },
   "clientName": "Coca-Cola",
   "country": "United States",
-  "code": "C0016",
+  "code": "C016",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -148,7 +148,7 @@
   },
   "clientName": "Verizon Communications",
   "country": "United States",
-  "code": "C0017",
+  "code": "C017",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -157,7 +157,7 @@
   },
   "clientName": "BP",
   "country": "United Kingdom",
-  "code": "C0018",
+  "code": "C018",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -166,7 +166,7 @@
   },
   "clientName": "Infosys",
   "country": "India",
-  "code": "C0019",
+  "code": "C019",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -175,7 +175,7 @@
   },
   "clientName": "State Bank of India",
   "country": "India",
-  "code": "C0020",
+  "code": "C020",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -184,7 +184,7 @@
   },
   "clientName": "ASML",
   "country": "Netherlands",
-  "code": "C0021",
+  "code": "C021",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -193,7 +193,7 @@
   },
   "clientName": "LVMH Moet Hennessy",
   "country": "France",
-  "code": "C0022",
+  "code": "C022",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -202,7 +202,7 @@
   },
   "clientName": "AT&T",
   "country": "United States",
-  "code": "C0023",
+  "code": "C023",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -211,7 +211,7 @@
   },
   "clientName": "Procter & Gamble",
   "country": "United States",
-  "code": "C0024",
+  "code": "C024",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -220,7 +220,7 @@
   },
   "clientName": "Johnson & Johnson",
   "country": "United States",
-  "code": "C0025",
+  "code": "C025",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -229,7 +229,7 @@
   },
   "clientName": "Visa",
   "country": "United States",
-  "code": "C0026",
+  "code": "C026",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -238,7 +238,7 @@
   },
   "clientName": "Mastercard",
   "country": "United States",
-  "code": "C0027",
+  "code": "C027",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -247,7 +247,7 @@
   },
   "clientName": "General Motors",
   "country": "United States",
-  "code": "C0028",
+  "code": "C028",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -256,7 +256,7 @@
   },
   "clientName": "Google",
   "country": "United States",
-  "code": "C0029",
+  "code": "C029",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -265,7 +265,7 @@
   },
   "clientName": "Hyundai Motor",
   "country": "South Korea",
-  "code": "C0030",
+  "code": "C030",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -274,7 +274,7 @@
   },
   "clientName": "Sony",
   "country": "Japan",
-  "code": "C0031",
+  "code": "C031",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -283,7 +283,7 @@
   },
   "clientName": "Berkshire Hathaway",
   "country": "United States",
-  "code": "C0032",
+  "code": "C032",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -292,7 +292,7 @@
   },
   "clientName": "Samsung Electronics",
   "country": "South Korea",
-  "code": "C0033",
+  "code": "C033",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -301,7 +301,7 @@
   },
   "clientName": "Apple",
   "country": "United States",
-  "code": "C0034",
+  "code": "C034",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -310,7 +310,7 @@
   },
   "clientName": "Samsung Electronics",
   "country": "South Korea",
-  "code": "C0035",
+  "code": "C035",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -319,7 +319,7 @@
   },
   "clientName": "Volkswagen",
   "country": "Germany",
-  "code": "C0036",
+  "code": "C036",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -328,7 +328,7 @@
   },
   "clientName": "AXA",
   "country": "France",
-  "code": "C0037",
+  "code": "C037",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -337,7 +337,7 @@
   },
   "clientName": "Tencent Holdings",
   "country": "China",
-  "code": "C0038",
+  "code": "C038",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -346,7 +346,7 @@
   },
   "clientName": "IBM",
   "country": "United States",
-  "code": "C0039",
+  "code": "C039",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -355,7 +355,7 @@
   },
   "clientName": "Lockheed Martin",
   "country": "United States",
-  "code": "C0040",
+  "code": "C040",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -364,7 +364,7 @@
   },
   "clientName": "Boeing",
   "country": "United States",
-  "code": "C0041",
+  "code": "C041",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -373,7 +373,7 @@
   },
   "clientName": "Walmart",
   "country": "United States",
-  "code": "C0042",
+  "code": "C042",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -382,7 +382,7 @@
   },
   "clientName": "General Electric",
   "country": "United States",
-  "code": "C0043",
+  "code": "C043",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -391,7 +391,7 @@
   },
   "clientName": "JPMorgan Chase",
   "country": "United States",
-  "code": "C0044",
+  "code": "C044",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -400,7 +400,7 @@
   },
   "clientName": "Ford Motor",
   "country": "United States",
-  "code": "C0045",
+  "code": "C045",
   "ActiveStatus": true,
   "__v": 0
 },{
@@ -409,7 +409,7 @@
   },
   "clientName": "Amazon",
   "country": "United States",
-  "code": "C0046",
+  "code": "C046",
   "ActiveStatus": true,
   "__v": 0
 },{

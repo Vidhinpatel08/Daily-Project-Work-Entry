@@ -1,20 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+// Importing necessary modules and components from React, Chart.js, and context files
+import React, { useContext, useEffect, useState } from 'react';
 import noteContext from '../Context/notes/notecontext';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
-  Filler,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar, Line } from 'react-chartjs-2'
 import globalContext from '../Context/notes/globalContext';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Filler, Tooltip, Legend } from 'chart.js';
+import { Bar, Line } from 'react-chartjs-2';
 
+// Registering Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,7 +18,7 @@ ChartJS.register(
   Legend
 );
 
-
+// Options for chart configuration
 const options = {
   indexAxis: 'x',
   elements: {
@@ -44,12 +35,17 @@ const options = {
   },
 }
 
+// Component for displaying working charts
 const WorkingCharts = () => {
+  // Accessing global context for sidebar state
   const gContext = useContext(globalContext)
   const { sidebarIsOpen } = gContext;
 
+  // Accessing note context for DPRS data
   const context = useContext(noteContext);
   const { DPRS, getdprs } = context;
+
+  // State variables for storing chart data
   const [dailyData, setDailyData] = useState({
     labels: [],
     datasets: [
@@ -105,41 +101,45 @@ const WorkingCharts = () => {
       },
     ],
   })
-  let daydateData = []
-  let dayworkData = []
-  let daymanageData = []
-  let weekdateData = []
-  let weekworkData = []
-  let weekmanageData = []
-  let monthdateData = []
-  let monthworkData = []
-  let monthmanageData = []
+  
+  // Arrays for storing data to be plotted on charts
+  let daydateData = [];
+  let dayworkData = [];
+  let daymanageData = [];
+  let weekdateData = [];
+  let weekworkData = [];
+  let weekmanageData = [];
+  let monthdateData = [];
+  let monthworkData = [];
+  let monthmanageData = [];
 
-
+  // Function to convert minutes to time format
   const minutesToTime = (minutes) => {
     let h = Math.floor(minutes / 60);
     let m = minutes % 60;
     return h + (m * 10) / 6
   }
 
+  // Function to format date
   const getDate = (date) => {
     let d = date.toString().split(' ')
     return `${d[2]}-${d[1]}`
   }
 
+  // Function to format date as YYYY-MM-DD
   const formateDate = (date) => {
     let d = date.toString().split(' ')
     let Month = new Date(date).getMonth() + 1
     return `${d[3]}-${Month < 10 ? `0${Month}` : Month}-${d[2]}`
   }
 
+  // Function to get month and year
   const getMonth = (date) => {
     let d = date.toString().split(' ')
     return `${d[1]}-${d[3]}`
   }
 
-
-
+  // Function to fetch data for charts
   const datafetch = () => {
     // Monthly Data Fetch
     if (DPRS !== undefined && DPRS.length !== 0) {
@@ -362,20 +362,25 @@ const WorkingCharts = () => {
     }
   }
 
+  // Effect hook to fetch DPRS data on component mount
   useEffect(() => {
     getdprs()
     // eslint-disable-next-line 
   }, [])
 
+  // Effect hook to fetch data for charts whenever DPRS data changes
   useEffect(() => {
     datafetch()
     // eslint-disable-next-line 
   }, [DPRS])
+
+  // Effect hook to fetch data for charts whenever sidebar state changes
   useEffect(() => {
     datafetch()
     // eslint-disable-next-line 
   }, [sidebarIsOpen])
 
+  // Rendering chart components with data
   return (
     <div className="d-flex justify-content-around w-100 " style={{ height: 'fit-content' }} >
       <div className=" my-3">
@@ -391,4 +396,4 @@ const WorkingCharts = () => {
   )
 }
 
-export default WorkingCharts
+export default WorkingCharts;

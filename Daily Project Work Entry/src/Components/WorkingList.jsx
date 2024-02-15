@@ -4,76 +4,79 @@ import noteContext from '../Context/notes/notecontext';
 import ListItems from './ListItems';
 
 const WorkingList = () => {
-    // filter Date
-    let d = new Date().toString().split(' ')
-    let Month = new Date().getMonth() + 1
-    // const Today = ''
-    const Today = `${d[3]}-${Month < 10 ? `0${Month}` : Month}-${d[2]}`
+    // Get current date
+    let d = new Date().toString().split(' ');
+    let Month = new Date().getMonth() + 1;
+    const Today = `${d[3]}-${Month < 10 ? `0${Month}` : Month}-${d[2]}`;
 
+    // Context setup
     const context = useContext(noteContext);
     const { DPRS, getdprs, userdata, getMember, getProject, members, projects, user, updateDPRS } = context;
-    const refDprsEdit = useRef(null)
-    const refclose = useRef(null)
-    const [toDate, setToDate] = useState(`${Today}`)
-    const [filterDPRS, setFilterDPRS] = useState('')
-    const [DPRSEntry, setDPRSEntry] = useState({ member: `${user}`, project: '', date: `${Today}`, dprsDescription: '' })
+    const refDprsEdit = useRef(null);
+    const refclose = useRef(null);
+
+    // State setup
+    const [toDate, setToDate] = useState(`${Today}`);
+    const [filterDPRS, setFilterDPRS] = useState('');
+    const [DPRSEntry, setDPRSEntry] = useState({ member: `${user}`, project: '', date: `${Today}`, dprsDescription: '' });
     const [workHour, setWorkHour] = useState('00:00');
     const [managementHour, setManagementHour] = useState('00:00');
     const [inTime, setInTime] = useState('10:00');
     const [outTime, setOutTime] = useState('19:00');
-    const [moreComponet, setMoreComponet] = useState(false)
-    const [select, setSelect] = useState('')
+    const [moreComponet, setMoreComponet] = useState(false);
+    const [select, setSelect] = useState('');
 
+    // Function to update DPRS entry
     const updatedprs = (dprs) => {
-        setDPRSEntry(dprs)
-        setWorkHour(dprs.workHour)
-        setManagementHour(dprs.managementHour)
-        setInTime(dprs.inTime)
-        setOutTime(dprs.outTime)
-        setSelect(dprs.member)
-        refDprsEdit.current.click()
+        setDPRSEntry(dprs);
+        setWorkHour(dprs.workHour);
+        setManagementHour(dprs.managementHour);
+        setInTime(dprs.inTime);
+        setOutTime(dprs.outTime);
+        setSelect(dprs.member);
+        refDprsEdit.current.click();
+    };
 
-    }
-
+    // Function to handle input changes
     const onchange = (e) => {
-        setDPRSEntry({ ...DPRSEntry, [e.target.name]: e.target.value })
-        setSelect({ ...DPRSEntry, [e.target.name]: e.target.value }.member === '' ? user : { ...DPRSEntry, [e.target.name]: e.target.value }.member)
-    }
+        setDPRSEntry({ ...DPRSEntry, [e.target.name]: e.target.value });
+        setSelect({ ...DPRSEntry, [e.target.name]: e.target.value }.member === '' ? user : { ...DPRSEntry, [e.target.name]: e.target.value }.member);
+    };
 
-
+    // Function to toggle display of additional components
     const toggle = () => {
-        setMoreComponet(!moreComponet)
-    }
+        setMoreComponet(!moreComponet);
+    };
 
+    // Function to handle form submission
     const handleAddSubmit = (e) => {
         e.preventDefault();
-        updateDPRS(DPRSEntry._id, DPRSEntry.member, DPRSEntry.project, DPRSEntry.date, workHour, managementHour, inTime, outTime, DPRSEntry.dprsDescription)
-        setDPRSEntry({ member: `${user}`, project: '', date: `${Today}`, dprsDescription: '' })
-        setWorkHour('00:00')
-        setManagementHour('00:00')
-        setInTime('00:00')
-        setOutTime('00:00')
-        setMoreComponet(false)
-        setSelect('')
-        refclose.current.click()
-    }
+        updateDPRS(DPRSEntry._id, DPRSEntry.member, DPRSEntry.project, DPRSEntry.date, workHour, managementHour, inTime, outTime, DPRSEntry.dprsDescription);
+        setDPRSEntry({ member: `${user}`, project: '', date: `${Today}`, dprsDescription: '' });
+        setWorkHour('00:00');
+        setManagementHour('00:00');
+        setInTime('00:00');
+        setOutTime('00:00');
+        setMoreComponet(false);
+        setSelect('');
+        refclose.current.click();
+    };
 
-
+    // Fetch initial data
     useEffect(() => {
-        getProject()
-        getMember()
-        userdata()
-        getdprs()
+        getProject();
+        getMember();
+        userdata();
+        getdprs();
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
     return (
         <div>
-            {/* <!-- Button trigger modal --> */}
-            <button type="button" ref={refDprsEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#editDprs" >
-            </button>
+            {/* Modal trigger button */}
+            <button type="button" ref={refDprsEdit} className="btn d-none" data-bs-toggle="modal" data-bs-target="#editDprs" />
 
-            {/* <!-- Modal --> */}
+            {/* Edit DPRS Modal */}
             <div className="modal fade" ref={refclose} id="editDprs" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-xl modal-dialog-centered">
                     <div className="modal-content">
@@ -84,8 +87,9 @@ const WorkingList = () => {
                         <div className="modal-body">
                             <>
                                 <div className="" style={{ backgroundColor: 'white', color: 'black' }}>
-                                    <form onSubmit={handleAddSubmit} encType="multipart/form-data" >
+                                    <form onSubmit={handleAddSubmit} encType="multipart/form-data">
                                         <div className='m-1   row'>
+                                            {/* Member name selection */}
                                             <div className="my-2 mx-0 AddMember-mobile-style">
                                                 <div className='fs-6 fw-light '>Member Name *</div>
                                                 <select className="bottom-border " aria-label="filterTrackingStatus" value={DPRSEntry.member} onChange={onchange} name="member" disabled>
@@ -93,6 +97,7 @@ const WorkingList = () => {
                                                     {members.map((member) => { return `${member.firstName} ${member.lastName}` !== DPRSEntry.member && <option key={member._id} value={`${member.firstName} ${member.lastName}`} > {member.firstName} {member.lastName}</option> })}
                                                 </select>
                                             </div>
+                                            {/* Project selection */}
                                             <div className="my-2 AddMember-mobile-style">
                                                 <div className='fs-6 fw-light '>Select Project</div>
                                                 <select className="bottom-border" aria-label="filterProjectStatus" value={DPRSEntry.project} onChange={onchange} name="project" required>
@@ -100,6 +105,7 @@ const WorkingList = () => {
                                                     {projects.map((project, index) => { return (project.member.split(', ').some(pMember => pMember === `${select}`) === true ? projects[index] : null) }).filter((project) => { return project !== null }).map((project) => { return project.projectName !== DPRSEntry.project && <option key={project._id} value={project.projectName} >{project.projectName}</option> })}
                                                 </select>
                                             </div>
+                                            {/* Date, Work Hours, and Management Support Hours */}
                                             <div className="row mt-3 row-cols-3">
                                                 <div className="d-flex pt-1 flex-column ">
                                                     <div className='fs-6'>Work Date</div>
@@ -114,12 +120,14 @@ const WorkingList = () => {
                                                     <TimePicker clockIcon={null} value={managementHour} onChange={setManagementHour} required />
                                                 </div>
                                             </div>
+                                            {/* Task Description */}
                                             <div className="mt-3">
                                                 <div className="form-group ">
                                                     <div className='fs-6 py-2'>Enter Task Description</div>
                                                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name='dprsDescription' value={DPRSEntry.dprsDescription} onChange={onchange} placeholder='Enter Task Description' required></textarea>
                                                 </div>
                                             </div>
+                                            {/* Additional time inputs */}
                                             <div className={moreComponet ? 'mt-2' : 'mt-2 d-none'}>
                                                 <div className="row row-cols-2 ">
                                                     <div className="d-flex pt-1 flex-column ">
@@ -132,6 +140,7 @@ const WorkingList = () => {
                                                     </div>
                                                 </div>
                                             </div>
+                                            {/* Form submission buttons */}
                                             <div className="my-4">
                                                 <div className="container mx-2 p-1 AddMember-mobile-style">
                                                     <button type="submit" className="btn btn-primary btn-outline-light px-4 mx-1 py-1 fw-bold border border-dark text-center" style={{ width: '90px' }} ref={refclose}>Save</button>
@@ -140,28 +149,25 @@ const WorkingList = () => {
                                             </div>
                                         </div>
                                     </form>
-                                </div >
+                                </div>
                             </>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-
-            {/* filter modal  */}
+            {/* Filter modal */}
             <div className=" row p-0 m-0">
                 <div className="col-lg-8 mt-3 pt-2 AddMember-mobile-style">
                     <input type="text " className='bottom-border fw-light pt-1' value={filterDPRS} onChange={(e) => setFilterDPRS(e.target.value)} placeholder="Filter DPRS" maxLength={25} name="filterDPRS" />
                 </div>
-
                 <div className="col-lg-4 pt-1 AddMember-mobile-style">
                     <div className='fs-6 fw-light '>Date</div>
                     <input type="date" className='bottom-border ' placeholder='01-22-2023' value={toDate} onChange={(e) => setToDate(e.target.value)} name="toDate" required />
                 </div>
             </div>
 
-            {/* table Modal  */}
+            {/* Table */}
             <div className='border table-responsive p-1  m-2'>
                 <table className="mt-1 table table-striped table-hover text-center w-100 align-middle p-5" >
                     <thead>
@@ -196,5 +202,4 @@ const WorkingList = () => {
     )
 }
 
-
-export default WorkingList
+export default WorkingList;
