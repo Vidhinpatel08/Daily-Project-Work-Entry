@@ -8,10 +8,10 @@ const jwt = require('jsonwebtoken'); // Importing jsonwebtoken for authenticatio
 const fetchuser = require("../middleware/fetchuser"); // Importing custom middleware
 var nodemailer = require('nodemailer'); // Importing nodemailer for sending emails
 
-// let MyPassword = 'OSYfPbQ8YahZ7heZ4BNj83jYyT0rR650'; // Testing email password by third party app
-// let MyEmailId = '84ghhzww@mailosaur.net'; // Testing email password by third party app
-let MyPassword = 'xxxxxxxx'; // Your email password
-let MyEmailId = 'xxxxx@gmail.com'; // Your email address
+let MyPassword = 'OSYfPbQ8YahZ7heZ4BNj83jYyT0rR650'; // Testing email password by third party app
+let MyEmailId = '84ghhzww@mailosaur.net'; // Testing email password by third party app
+// let MyPassword = 'xxxxxxxx'; // Your email password
+// let MyEmailId = 'xxxxx@gmail.com'; // Your email address
 
 
 
@@ -105,12 +105,12 @@ router.post('/login-reset-password', async (req, res) => {
             var transporter = nodemailer.createTransport({
                 
                 // Use for TESTING BY mailosaur.com - mail tester  
-                // host: 'smtp.mailosaur.net',
-                // port: 587,
-                // secure: false,
+                host: 'smtp.mailosaur.net',
+                port: 587,
+                secure: false,
 
                 // Use for original email and password
-                service: 'gmail',
+                // service: 'gmail',
                 auth: {
                     user: MyEmailId,
                     pass: MyPassword
@@ -121,7 +121,7 @@ router.post('/login-reset-password', async (req, res) => {
                 from: 'youremail@gmail.com',
                 to: `${email},${oldUser.alterEmail}`,
                 subject: 'DPRS RESET PASSWORD LINK', 
-                text: `Hello ${oldUser.firstName} ${oldUser.lastName}, \nYou have requested to reset your DPRS (Daily Project Report System) password. Please use the following link to reset your password: \nDPRS RESET LINK: ${link} \nPlease note that this link is valid for 5 minutes only for security reasons. If you did not request this password reset or believe this to be a mistake, you can safely ignore this email. \nThank you. \nBest regards, \nDPRS TEAM \n`
+                text: `Hello ${oldUser.firstName} ${oldUser.lastName}, \n\nYou have requested to reset your DPRS (Daily Project Report System) password. Please use the following link to reset your password: \n\nDPRS RESET LINK: ${link} \n\nPlease note that this link is valid for 5 minutes only for security reasons. If you did not request this password reset or believe this to be a mistake, you can safely ignore this email. \n\nThank you. \n\nBest regards, \nDPRS TEAM \n\n`
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
