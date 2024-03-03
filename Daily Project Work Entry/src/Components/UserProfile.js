@@ -19,7 +19,7 @@ const UserProfile = () => {
     
     // Host and image URL declaration
     const Host = 'http://localhost:5000';
-    const imageURL = 'http://localhost:5000/uploads/';
+    const imageURL = `${Host}/uploads/`;
 
     // Fetching user data from the server
     const userdata = async () => {

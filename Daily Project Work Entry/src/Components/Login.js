@@ -7,6 +7,7 @@ import './css/style.css';
 const Login = () => {
     // State for password visibility
     const [typeField, setTypeField] = useState("password");
+    const host = 'http://localhost:5000'
 
     // Accessing global context for alerts
     const gContext = useContext(globalContext);
@@ -23,7 +24,7 @@ const Login = () => {
         e.preventDefault();
 
         // Sending login request
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -8,7 +8,8 @@ connectToMongo();
 
 // Creating an express application
 const app = express();
-const port = 5000; // Port number for the server to listen on
+const port = process.env.PORT || 5000; // Port number for the server to listen on
+const HOST = `http://localhost:`
 
 // Middleware setup
 app.use(express.json()); // Middleware to parse JSON bodies
@@ -26,5 +27,5 @@ app.use('/api/dprs', require('./routers/dprs')); // Route for managing DPRs (Dai
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Daily Project Work Entry Panel listening at http://localhost:${port}`); // Logging server start message
+  console.log(`Daily Project Work Entry Panel listening at ${HOST}${port}`); // Logging server start message
 });

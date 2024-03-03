@@ -17,7 +17,8 @@ const Member = () => {
   const [member, setMember] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '' });
   const [mode, setMode] = useState(false);
   const [image, setImage] = useState('');
-  const imageURL = 'http://localhost:5000/uploads/';
+  const host = 'http://localhost:5000'
+  const imageURL = `${host}/uploads/`;
 
   // State variables for filtering members
   const [filterName, setFilterName] = useState('');

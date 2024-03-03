@@ -7,6 +7,8 @@ import globalContext from '../Context/notes/globalContext'; // Importing global 
 
 // Functional component for Forgot Password page
 const ForgotPassword = () => {
+    const host = 'http://localhost:5000'
+
     // Accessing global context
     const gContext = useContext(globalContext);
     const { showAlert } = gContext; // Destructuring showAlert function from context
@@ -18,7 +20,7 @@ const ForgotPassword = () => {
         e.preventDefault(); // Preventing default form submission behavior
         try {
             // Sending POST request to reset password endpoint
-            const response = await fetch("http://localhost:5000/api/auth/login-reset-password", {
+            const response = await fetch(`${host}/api/auth/login-reset-password`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

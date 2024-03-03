@@ -15,7 +15,7 @@ const Navbar = (props) => {
     const [image, setImage] = useState('');
     // Define constants for host URL and image URL
     const Host = 'http://localhost:5000';
-    const imageURL = 'http://localhost:5000/uploads/';
+    const imageURL = `${Host}/uploads/`;
 
     // Define an asynchronous function to fetch user data
     const userdata = async () => {
