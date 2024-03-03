@@ -10,7 +10,7 @@ const DPRSState = (props) => { // Defining functional component DPRSState with p
     const [user, setUser] = useState(); // Using useState hook for user state
     const [DPRS, setDPRS] = useState(); // Using useState hook for DPRS state
 
-    const host = 'http://localhost:5000'; // Setting host variable
+    const host = process.env.REACT_APP_BACKEND_HOSTING; // Setting host variable
 
     // Function to fetch members
     const getMember = async () => {

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Project = require('../models/Project');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'welcome$man'; // create secret Key
+const JWT_SECRET =  process.env.JWT_SECRET;
 let status = false;
 
 

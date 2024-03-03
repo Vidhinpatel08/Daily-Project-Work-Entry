@@ -7,7 +7,7 @@ import './css/memberStyle.css'; // Importing member-specific styles
 // Functional component for adding a member
 const AddMember = () => {
   // Define base URL for profile image
-  const host = 'http://localhost:5000'
+  const host = process.env.REACT_APP_BACKEND_HOSTING
   const imageURL = `${host}/uploads/`;
 
   // State variables for mode (active/inactive), image, and member details

@@ -38,7 +38,7 @@ const Projects = () => {
   const [members, setMembers] = useState([]); // Initializing state for members array
   const [membersList, setMembersList] = useState([]); // Initializing state for selected members list
   const [limitHours, setLimitHours] = useState('08:00'); // Initializing state for limit hours
-  const host = 'http://localhost:5000'; // Setting host URL
+  const host = process.env.REACT_APP_BACKEND_HOSTING; // Setting host URL
 
   // Function to update project details
   const updateproject = (currentProject) => {

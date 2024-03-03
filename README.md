@@ -37,7 +37,6 @@ Open your project folder and Run code in terminal
 ```
 npm i
 cd '.\Daily Project Work Entry\'
-npm uninstall --save chart.js react-chartjs-2
 npm install --save chart.js react-chartjs-2
 npm i --save chart.js@3.9.1
 npm i

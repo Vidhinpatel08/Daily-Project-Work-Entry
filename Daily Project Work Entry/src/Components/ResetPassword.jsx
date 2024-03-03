@@ -6,7 +6,7 @@ import globalContext from '../Context/notes/globalContext'; // Importing global 
 // Define functional component ResetPassword
 const ResetPassword = () => {
     // Defining the base URL for API requests
-    const host = `http://localhost:5000`;
+    const host = process.env.REACT_APP_BACKEND_HOSTING;
     
     // Accessing global context using useContext hook
     const gContext = useContext(globalContext);

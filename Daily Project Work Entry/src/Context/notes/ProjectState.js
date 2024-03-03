@@ -10,7 +10,7 @@ const ProjectState = (props) => {
   // State variables
   const [projects, setProjects] = useState([]);
   const [client, setClient] = useState([]);
-  const host = 'http://localhost:5000';
+  const host = process.env.REACT_APP_BACKEND_HOSTING;
 
   // Function to capitalize first letter of a word
   const capitalized = (word) => {

@@ -5,7 +5,7 @@ import globalContext from './globalContext'; // Import globalContext
 const GlobalState = (props) => {
     const [sidebarIsOpen, setSidebarIsOpen] = useState(false); // Define state for sidebarIsOpen and its setter
     const [user, setUser] = useState(); // Define state for user data
-    const host = 'http://localhost:5000'; // Define host URL
+    const host = process.env.REACT_APP_BACKEND_HOSTING; // Define host URL
     const [alert, setAlert] = useState(null); // Define state for alert message
 
     // Function to show alert message

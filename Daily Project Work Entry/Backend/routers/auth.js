@@ -8,14 +8,10 @@ const jwt = require('jsonwebtoken'); // Importing jsonwebtoken for authenticatio
 const fetchuser = require("../middleware/fetchuser"); // Importing custom middleware
 var nodemailer = require('nodemailer'); // Importing nodemailer for sending emails
 
-let MyPassword = 'OSYfPbQ8YahZ7heZ4BNj83jYyT0rR650'; // Testing email password by third party app
-let MyEmailId = '84ghhzww@mailosaur.net'; // Testing email password by third party app
-// let MyPassword = 'xxxxxxxx'; // Your email password
-// let MyEmailId = 'xxxxx@gmail.com'; // Your email address
+let MyPassword =  process.env.BASE_EMAIL; // Your email password
+let MyEmailId =  process.env.BASE_PASSWORD; // Your email address
 
-
-
-const JWT_SECRET = 'welcome$man'; // Secret key for JWT authentication
+const JWT_SECRET =  process.env.JWT_SECRET; // Secret key for JWT authentication
 let success = false; // Flag for API success
 
 // Route to get user details after authentication
@@ -105,12 +101,12 @@ router.post('/login-reset-password', async (req, res) => {
             var transporter = nodemailer.createTransport({
                 
                 // Use for TESTING BY mailosaur.com - mail tester  
-                host: 'smtp.mailosaur.net',
-                port: 587,
-                secure: false,
+                // host: 'smtp.mailosaur.net',
+                // port: 587,
+                // secure: false,
 
                 // Use for original email and password
-                // service: 'gmail',
+                service: 'gmail',
                 auth: {
                     user: MyEmailId,
                     pass: MyPassword

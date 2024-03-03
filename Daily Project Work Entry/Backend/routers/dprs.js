@@ -7,7 +7,7 @@ const DPRS = require("../models/DPRS");
 const jwt = require('jsonwebtoken');
 
 // Secret key for JWT authentication
-const JWT_SECRET = 'welcome$man';
+const JWT_SECRET =  process.env.JWT_SECRET;
 let status = false;
 
 // Route to fetch all DPRS entries

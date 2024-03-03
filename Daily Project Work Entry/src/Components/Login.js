@@ -7,7 +7,7 @@ import './css/style.css';
 const Login = () => {
     // State for password visibility
     const [typeField, setTypeField] = useState("password");
-    const host = 'http://localhost:5000'
+    const host = process.env.REACT_APP_BACKEND_HOSTING
 
     // Accessing global context for alerts
     const gContext = useContext(globalContext);

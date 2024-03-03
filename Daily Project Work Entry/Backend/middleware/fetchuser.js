@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 // Define JWT secret key
-const JWT_SECRET = 'welcome$man'; // create secret Key
+const JWT_SECRET = process.env.JWT_SECRET; // create secret Key
 
 // Middleware function to fetch user from JWT token
 const fetchuser = (req, res, next) => {

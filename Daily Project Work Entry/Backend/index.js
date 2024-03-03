@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // Importing necessary modules
 const connectToMongo = require('./db'); // Importing database connection function
 const express = require('express'); // Importing express framework
@@ -9,7 +11,7 @@ connectToMongo();
 // Creating an express application
 const app = express();
 const port = process.env.PORT || 5000; // Port number for the server to listen on
-const HOST = `http://localhost:`
+const HOST = process.env.HOST_NAME
 
 // Middleware setup
 app.use(express.json()); // Middleware to parse JSON bodies

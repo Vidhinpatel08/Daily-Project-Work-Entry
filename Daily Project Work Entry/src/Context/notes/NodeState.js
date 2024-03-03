@@ -6,7 +6,7 @@ const NoteState = (props) => {
   const gContext = useContext(globalContext); // Using useContext hook to get global context
   const { showAlert } = gContext; // Destructuring showAlert from global context
   const [members, setMembers] = useState([]); // Initializing state for members
-  const host = 'http://localhost:5000'; // Setting host URL
+  const host = process.env.REACT_APP_BACKEND_HOSTING; // Setting host URL
 
   // Fetch all members
   const getMember = async () => {

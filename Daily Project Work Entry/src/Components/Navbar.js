@@ -14,7 +14,7 @@ const Navbar = (props) => {
     const [userProfile, setUserProfile] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', isActive: '' });
     const [image, setImage] = useState('');
     // Define constants for host URL and image URL
-    const Host = 'http://localhost:5000';
+    const Host = process.env.REACT_APP_BACKEND_HOSTING;
     const imageURL = `${Host}/uploads/`;
 
     // Define an asynchronous function to fetch user data

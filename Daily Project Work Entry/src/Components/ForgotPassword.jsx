@@ -7,7 +7,7 @@ import globalContext from '../Context/notes/globalContext'; // Importing global 
 
 // Functional component for Forgot Password page
 const ForgotPassword = () => {
-    const host = 'http://localhost:5000'
+    const host = process.env.REACT_APP_BACKEND_HOSTING
 
     // Accessing global context
     const gContext = useContext(globalContext);
