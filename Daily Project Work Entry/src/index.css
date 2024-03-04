@@ -28,8 +28,18 @@ i {
   display: none;
 }
 
+.logo_mobile_sidebar{
+  display: none;
+}
+
 
 @media screen and (max-width: 722px) {
+  
+  .logo_mobile_sidebar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   #nav-container {
     width: 102%;
   }
@@ -57,6 +67,10 @@ i {
     display: none;
   }
 
+  .Navbar_toggle{
+    transition: 0.5ms;
+  }
+
   #Navbar-Mobile {
     margin: 0px -19px !important;
   }
@@ -71,6 +85,7 @@ i {
 
   #DailyProjectWorkEntry-title-mobile {
     display: inline-block;
+    margin: auto !important;
   }
 
   .Activity_Detail_Mobile {
