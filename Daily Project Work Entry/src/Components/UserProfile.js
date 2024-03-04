@@ -18,7 +18,7 @@ const UserProfile = () => {
     const navigate = useNavigate();
     
     // Host and image URL declaration
-    const Host = 'process.env.REACT_APP_BACKEND_HOSTING';
+    const Host = process.env.REACT_APP_BACKEND_HOSTING;
     const imageURL = `${Host}/uploads/`;
 
     // Fetching user data from the server

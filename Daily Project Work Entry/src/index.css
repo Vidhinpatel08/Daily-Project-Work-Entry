@@ -26,7 +26,7 @@ i {
 
 @media screen and (max-width: 722px) {
   #nav-container {
-    width: 116%;
+    width: 102%;
   }
 
   #sidebar-main-container {
@@ -34,7 +34,7 @@ i {
   }
 
   #sidebar-container {
-    width: 50%;
+    width: 30%;
     height: 100%;
     overflow: visible;
   }
@@ -42,6 +42,20 @@ i {
   #Dashboard-chart {
     display: block;
   }
+
+  #nav-container-div {
+    display: flex;
+    align-items: center;
+  }
+
+  #nav-username {
+    display: none;
+  }
+
+  .dropdown-menu{
+    left: -70px !important;
+  }
+
 }
 
 @media screen and (min-width :723px) and (max-width: 1201px) {

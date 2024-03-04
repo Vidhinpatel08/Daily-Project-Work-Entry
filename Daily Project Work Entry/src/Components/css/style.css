@@ -47,7 +47,28 @@
     border-radius: 10px;
 }
 
+#login-div-mobileview {
+    margin-top: 120px;
+    width: 40%;
+    padding: 45px;
+}
 
+#login-div-title {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+#forgotpassword-maindiv {
+    margin-top: 11%;
+    width: 550px;
+    padding: 25px;
+}
+
+#resetpassword-main-div {
+    margin: 110px;
+    width: 45%;
+    padding: 25px;
+}
 
 @media screen and (max-width: 722px) {
     .profile-box-item {
@@ -56,5 +77,26 @@
         margin-left: 15px;
         background-color: #e8e8e8;
         border-radius: 10px;
+    }
+
+    #login-div-mobileview {
+        margin-top: 120px;
+        width: 85%;
+        padding: 10px 13px;
+    }
+
+    #login-div-title {
+        padding-bottom: 0.3rem !important;
+    }
+
+    #forgotpassword-maindiv {
+        margin-top: 30%;
+        width: 80%;
+        padding: 10px;
+    }
+
+    #resetpassword-main-div {
+        margin: 50px 0px;
+        width: 90%;
     }
 }

@@ -4,6 +4,7 @@ import Alert from '../Alert';
 import globalContext from '../Context/notes/globalContext';
 import './css/style.css';
 
+
 const Login = () => {
     // State for password visibility
     const [typeField, setTypeField] = useState("password");
@@ -61,9 +62,9 @@ const Login = () => {
     return (
         <>
             <Alert />
-            <div className='container  mx-auto p-5 login-style' style={{ marginTop: '120px', width: '40%' }}>
+            <div className='container  mx-auto  login-style' id='login-div-mobileview'>
                 <form onSubmit={handleSubmit}>
-                    <h1 className="h3 mb-3 fw-normal py-3 fw-semibold">LOG IN</h1>
+                    <h1 className="h3 mb-3 fw-normal fw-semibold" id='login-div-title'>LOG IN</h1>
                     <div className="py-2 m-1">
                         <input type="email" className="input-border form-control" id="email" value={credentials.email.toLowerCase()} onChange={onchange} name='email' aria-describedby="emailHelp" required placeholder="Email Address" />
                     </div>

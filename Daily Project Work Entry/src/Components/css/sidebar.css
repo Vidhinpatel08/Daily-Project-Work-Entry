@@ -30,7 +30,7 @@
     background-color: rgb(13 110 253);
     color: white;
     transition: all 0.5s;
-    border: 1px solid rgb(93, 93, 93);
+    border: 0.7px solid rgb(93, 93, 93);
     border-radius: 5px;
 }
 
@@ -225,4 +225,15 @@ NavLink {
     .workHour-container {
         margin-left: 10%;
     }
+
+    #sidebar-main-container {
+        width: 100%;
+    }
+
+    #sidebar-container {
+        width: fit-content;
+        margin: 0px;
+    }
+
+
 }

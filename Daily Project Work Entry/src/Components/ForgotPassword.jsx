@@ -47,7 +47,7 @@ const ForgotPassword = () => {
     return (
         <>
             <Alert /> {/* Rendering Alert component */}
-            <div className='container mx-auto px-4 py-4 login-style rounded' style={{ marginTop: '12%', width: '550px' }}>
+            <div className='container mx-auto  login-style rounded' id="forgotpassword-maindiv">
                 <form onSubmit={handleSubmit}>
                     <h1 className="h3 mb-3 fw-normal py-3 fw-semibold">Reset Password</h1>
                     <div className="py-2 m-1">

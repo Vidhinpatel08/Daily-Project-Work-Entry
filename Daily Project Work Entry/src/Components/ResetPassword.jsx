@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'; // Importing necessary modu
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import globalContext from '../Context/notes/globalContext'; // Importing global context
+import './css/style.css'; // Importing CSS file for styling
 
 // Define functional component ResetPassword
 const ResetPassword = () => {
@@ -82,9 +83,9 @@ const ResetPassword = () => {
 
     // JSX for the component UI
     return (
-        <div className='container mx-auto px-5 py-4 login-style' style={{ marginTop: '120px', width: '45%' }}>
+        <div className='container mx-auto login-style' id='resetpassword-main-div'>
             <form onSubmit={handleSubmit}>
-                <h1 className="h3 mb-3 fw-normal py-3 fw-semibold">Reset Password</h1>
+                <h1 className="h3 mb-3 fw-normal py-2 fw-semibold">Reset Password</h1>
                 <div className="py-2 m-1">
                     <input type="email" className="input-border form-control" id="email" value={credentials.email} disabled name='email' aria-describedby="emailHelp" required placeholder="Email Address" />
                 </div>

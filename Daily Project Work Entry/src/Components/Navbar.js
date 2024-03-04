@@ -4,6 +4,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 // Import globalContext from '../Context/notes/globalContext'
 import globalContext from '../Context/notes/globalContext';
+import '../index.css'
 
 // Define the functional component Navbar
 const Navbar = (props) => {
@@ -67,21 +68,21 @@ const Navbar = (props) => {
     return (
         <>
             <nav className="navbar bg-primary sticky-top d-flex" id='nav-container' data-bs-theme="dark" style={{ color: 'white' }}>
-                <div className="d-flex m-1 w-100">
-                    <div className="px-2">
+                <div className="d-flex m-1 w-100 " id='nav-container-div'>
+                    <div className="px-2 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-grid-3x3-gap-fill align-items-center" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
                         </svg>
                     </div>
                     <div className="px-2">
-                        <label className='fw-bold fs-5' style={{ fontFamily: 'emoji' }} > Daily Project Work Entry</label>
+                        <label className='fw-bold fs-5' style={{ fontFamily: 'emoji' }} id='DailyProjectWorkEntry-title'> Daily Project Work Entry</label>
                     </div>
                     {islogin && (
                         <div className="ms-auto px-2 d-flex">
                             <div className="dropdown px-4 mx-2">
                                 <Link to="/userprofile" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} width="32" height="32" className="rounded-circle mx-2 border border-dark" alt="ProfilePicture" />
-                                    <strong style={{ color: 'white', fontFamily:'sans-serif', fontSize:'18px' }}>{userProfile.firstName} {userProfile.lastName}</strong>
+                                    <strong id='nav-username' style={{ color: 'white', fontFamily:'sans-serif', fontSize:'18px' }}>{userProfile.firstName} {userProfile.lastName}</strong>
                                 </Link>
                                 <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                                     <li className='d-flex align-items-center px-2'>

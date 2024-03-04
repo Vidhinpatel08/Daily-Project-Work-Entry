@@ -97,15 +97,15 @@ const Dprs = () => {
                         </div>
                         {/* Additional input fields */}
                         <div className="row mt-3 row-cols-3">
-                            <div className="d-flex pt-1 flex-column">
+                            <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                 <div className='fs-6'>Work Date</div>
                                 <input type="date" className='bottom-border pt-1' value={DPRS.date} onChange={onchange} name="date" required />
                             </div>
-                            <div className="d-flex pt-1 flex-column">
+                            <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                 <div className='fs-6'>Work Hours</div>
                                 <TimePicker clockIcon={null} value={workHour} onChange={setWorkHour} />
                             </div>
-                            <div className="d-flex pt-1 flex-column">
+                            <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                 <div className='fs-6'>Management Support Hours</div>
                                 <TimePicker clockIcon={null} value={managementHour} onChange={setManagementHour} required />
                             </div>
@@ -119,11 +119,11 @@ const Dprs = () => {
                         {/* More component section */}
                         <div className={moreComponet ? 'mt-2' : 'mt-2 d-none'}>
                             <div className="row row-cols-2">
-                                <div className="d-flex pt-1 flex-column">
+                                <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                     <div className='fs-6'>In Time</div>
                                     <TimePicker clockIcon={null} value={inTime} onChange={setInTime} />
                                 </div>
-                                <div className="d-flex pt-1 flex-column">
+                                <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                     <div className='fs-6'>Out Time</div>
                                     <TimePicker clockIcon={null} value={outTime} onChange={setOutTime} />
                                 </div>
