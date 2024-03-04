@@ -55,7 +55,7 @@ const DPRSState = (props) => { // Defining functional component DPRSState with p
                 },
             });
             let json = await response.json();
-            setUser(`${json.user.firstName} ${json.user.lastName}`);
+            setUser(`${json.user.firstName} ${json.user.lastName}` ? `${json.user.firstName} ${json.user.lastName}`: "USER");
         } catch (error) {
             console.error('Internal Error occure :', error);
         }

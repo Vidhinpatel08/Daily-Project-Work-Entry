@@ -81,8 +81,20 @@ const Navbar = (props) => {
                         <div className="ms-auto px-2 d-flex">
                             <div className="dropdown px-4 mx-2">
                                 <Link to="/userprofile" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} width="32" height="32" className="rounded-circle mx-2 border border-dark" alt="ProfilePicture" />
-                                    <strong id='nav-username' style={{ color: 'white', fontFamily:'sans-serif', fontSize:'18px' }}>{userProfile.firstName} {userProfile.lastName}</strong>
+                                    {/* <img src={typeof (image) === 'string' ? ((userProfile.profile === null || userProfile.profile === undefined) ? `${imageURL}img/online-learning.jpg` : `${imageURL}${userProfile.profile}`) : URL.createObjectURL(image)} width="32" height="32" className="rounded-circle mx-2 border border-dark" alt="ProfilePicture" /> */}
+                                    <img
+                                        src={
+                                            typeof image === 'string' ?
+                                                ((userProfile.profile === null || userProfile.profile === undefined) ?
+                                                    `${imageURL}img/online-learning.jpg` :
+                                                    `${imageURL}${userProfile.profile}`) :
+                                                (image instanceof Blob ? URL.createObjectURL(image) : `${imageURL}img/online-learning.jpg`)
+                                        }
+                                        width="32" height="32" className="rounded-circle mx-2 border border-dark"
+                                        alt="User Profile"
+                                    />
+
+                                    <strong id='nav-username' style={{ color: 'white', fontFamily: 'sans-serif', fontSize: '18px' }}>{userProfile.firstName} {userProfile.lastName}</strong>
                                 </Link>
                                 <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                                     <li className='d-flex align-items-center px-2'>
