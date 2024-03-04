@@ -166,7 +166,7 @@ const AddMember = () => {
                             <input type="email " className='bottom-border' placeholder="Alternative Email" value={member.alterEmail} onChange={onchange} name="alterEmail" />
                           </div>
                           <div className="col-md-12 mt-4 pt-1 AddMember-mobile-style">
-                            <select className="bottom-border" placeholder="Department *" aria-label="Department" value={member.department} onChange={onchange} name="department" style={{ width: '30%' }} required>
+                            <select className="bottom-border width_32per Mobile_fullwidth AddMember-mobile-style" placeholder="Department *" aria-label="Department" value={member.department} onChange={onchange} name="department"  required>
                               <option value=''>Department*</option>
                               <option value='Dispatch Department'>Web Application Development</option>
                               <option value='Finance Department'>Mobile Application Development</option>
@@ -190,8 +190,8 @@ const AddMember = () => {
                               name="profile" onChange={imageUpload}
                               accept="image/png, image/jpeg" />
                           </div>
-                          <div className="form-check form-switch mt-3 AddMember-mobile-style">
-                            <input className="form-check-input border border-dark " type="checkbox" role="switch" onChange={toggleMode} name="isActive" />
+                          <div className="form-check form-switch mt-3 Mobile_margin_3">
+                            <input className="form-check-input border border-dark " type="checkbox" role="switch" onChange={toggleMode} name="isActive" id='flexSwitchCheckChecked' />
                             <label className="form-check-label  " htmlFor="flexSwitchCheckChecked">Is Active?</label>
                           </div>
                         </div>

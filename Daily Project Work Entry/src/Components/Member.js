@@ -128,19 +128,19 @@ const Member = () => {
                           {/* Form fields */}
                           <div className="row row-cols-3">
                             {/* First Name */}
-                            <div className="mt-4 ">
+                            <div className="mt-4 AddMember-mobile-style">
                               <input type="text" className='bottom-border' placeholder="First Name *" name="firstName" value={member.firstName} onChange={onchange} minLength={2} required />
                             </div>
                             {/* Last Name */}
-                            <div className="mt-4 ">
+                            <div className="mt-4 AddMember-mobile-style">
                               <input type="text" className='bottom-border' placeholder="Last Name *" name="lastName" value={member.lastName} onChange={onchange} minLength={2} required />
                             </div>
                             {/* Email */}
-                            <div className="mt-4 ">
+                            <div className="mt-4 AddMember-mobile-style">
                               <input type="email" className='bottom-border' placeholder="Email *" name="email" value={member.email} onChange={onchange} required />
                             </div>
                             {/* User Role */}
-                            <div className="mt-4 pt-2 ">
+                            <div className="mt-4 pt-2 AddMember-mobile-style">
                               <select className="bottom-border" placeholder="User Role *" aria-label="User Role *" value={member.userRole} onChange={onchange} name="userRole" required>
                                 <option value=''>User Role*</option>
                                 <option value='Employee'>Employee</option>
@@ -148,16 +148,16 @@ const Member = () => {
                               </select>
                             </div>
                             {/* Join Date */}
-                            <div className="col mt-2 ">
+                            <div className="col mt-2 AddMember-mobile-style">
                               <div className='fs-6'>Choose a JoinDate:</div>
                               <input type="date" className='bottom-border' value={member.joindate} onChange={onchange} name="joindate" />
                             </div>
                             {/* Phone Number */}
-                            <div className="mt-4 pt-1 ">
+                            <div className="mt-4 pt-1 AddMember-mobile-style">
                               <input type="text" className='bottom-border' placeholder="Phone Number *" value={member.phone} onChange={onchange} name="phone" minLength={10} required />
                             </div>
                             {/* User Designation */}
-                            <div className="mt-4 pt-1 ">
+                            <div className="mt-4 pt-1 AddMember-mobile-style">
                               <select className="bottom-border" placeholder="User Designation *" aria-label="User Designation *" value={member.userDesignation} onChange={onchange} name="userDesignation" required>
                                 <option value=''>User Designation*</option>
                                 <option value='Architect'>Architect</option>
@@ -172,16 +172,16 @@ const Member = () => {
                               </select>
                             </div>
                             {/* Alternative Phone Number */}
-                            <div className="mt-4 ">
+                            <div className="mt-4 AddMember-mobile-style">
                               <input type="text" className='bottom-border' placeholder="Alternative Phone Number" value={member.alterPhone} onChange={onchange} name="alterPhone" minLength={10} />
                             </div>
                             {/* Alternative Email */}
-                            <div className="mt-4 ">
+                            <div className="mt-4 AddMember-mobile-style">
                               <input type="email" className='bottom-border' placeholder="Alternative Email" value={member.alterEmail} onChange={onchange} name="alterEmail" />
                             </div>
                             {/* Department */}
-                            <div className="col-md-12 mt-4 pt-1 " id='member-department-addmember'>
-                              <select className="bottom-border" placeholder="Department *" aria-label="Department" value={member.department} onChange={onchange} name="department" style={{ width: '30%' }} required>
+                            <div className="col-md-12 mt-4 pt-1 AddMember-mobile-style" id='member-department-addmember'>
+                              <select className="bottom-border width_32per Mobile_fullwidth AddMember-mobile-style" placeholder="Department *" aria-label="Department" value={member.department} onChange={onchange} name="department" style={{ width: '30%' }} required>
                                 <option value=''>Department*</option>
                                 <option value='Dispatch Department'>Web Application Development</option>
                                 <option value='Finance Department'>Mobile Application Development</option>
@@ -189,27 +189,27 @@ const Member = () => {
                               </select>
                             </div>
                             {/* Leave StartDate */}
-                            <div className="col-md-6 mt-4 ">
+                            <div className="col-md-6 mt-4 AddMember-mobile-style">
                               <div className='fs-6'>Choose a Leave StartDate</div>
                               <input type="date" className='bottom-border' value={member.LeaveStartDate} onChange={onchange} name="LeaveStartDate" />
                             </div>
                             {/* Leave EndDate */}
-                            <div className="col-md-6 mt-4 ">
+                            <div className="col-md-6 mt-4 AddMember-mobile-style">
                               <div className='fs-6'>Choose a Leave EndDate</div>
                               <input type="date" className='bottom-border' value={member.LeaveEndDate} onChange={onchange} name="LeaveEndDate" />
                             </div>
                             {/* Password (disabled) */}
-                            <div className="mt-4 pt-2 ">
-                              <input type="password" disabled className='bottom-border' placeholder="Password *" name="password" />
+                            <div className="mt-4 pt-2 AddMember-mobile-style">
+                              <input type="password" disabled className='bottom-border' placeholder="Password" name="password" />
                             </div>
                             {/* Profile Picture */}
-                            <div className="col mt-1 pt-1 ">
+                            <div className="col mt-1 pt-1 AddMember-mobile-style">
                               <div className='fs-6'><strong>Profile Picture</strong></div>
                               <input type="file" name="profile" onChange={imageUpload} accept="image/png, image/jpeg" />
                             </div>
                             {/* Active status */}
-                            <div className="form-check form-switch mt-3 ">
-                              <input className="form-check-input border border-dark" checked={mode} type="checkbox" role="switch" onChange={toggleMode} name="isActive" />
+                            <div className="form-check form-switch mt-3 Mobile_margin_3">
+                              <input className="form-check-input border border-dark" checked={mode} type="checkbox" role="switch" onChange={toggleMode} name="isActive"  />
                               <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Is Active?</label>
                             </div>
                           </div>

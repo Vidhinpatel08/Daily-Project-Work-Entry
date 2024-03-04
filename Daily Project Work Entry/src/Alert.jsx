@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 // Importing the global context from './Context/notes/globalContext'
 import globalContext from './Context/notes/globalContext';
+import { useLocation } from 'react-router-dom';
 
 // Alert component definition
 const Alert = () => {
@@ -18,6 +19,11 @@ const Alert = () => {
         let newText = word.toLowerCase();
         return newText.charAt(0).toUpperCase() + newText.slice(1);
     };
+
+    const location = useLocation();
+    const isLoginPage = location.pathname === '/login';
+    const isForgotPasswordPage = location.pathname === '/emailsender';
+
 
     // Function to return the appropriate symbol based on the type
     const symbols = (type) => {
@@ -51,11 +57,13 @@ const Alert = () => {
 
     // JSX return statement
     return (
-        <div className="my-1 " style={{ height: alert ? '15px' : '',  zIndex: 5, position:'fixed', right:'1%' }}>   
-            {alert && <div className={`alert alert-${alert.type} alert-dismissible fade show py-3  px-3 rounded-pill border border-dark`} role="alert" >
-                <strong>{symbols(alert.type)}   {capitalized(alert.type)} : </strong> {alert.msg}
-            </div>}
-        </div>
+            <div className="my-1" style={{ height: alert ? '15px' : '', zIndex: 5, position: isLoginPage || isForgotPasswordPage ? 'fixed' : 'fixed', right: '1%', top: isLoginPage || isForgotPasswordPage ? '0' : '' , }}>
+                {alert && (
+                    <div className={`alert alert-${alert.type} alert-dismissible fade show py-2 px-3 rounded-pill border border-dark Mobile_alert`} role="alert">
+                        <strong>{symbols(alert.type)} {capitalized(alert.type)} : </strong> {alert.msg}
+                    </div>
+                )}
+            </div>
     );
 };
 

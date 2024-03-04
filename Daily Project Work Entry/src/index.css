@@ -28,18 +28,35 @@ i {
   display: none;
 }
 
-.logo_mobile_sidebar{
+.logo_mobile_sidebar {
   display: none;
 }
 
+.width_32per {
+  width: 32% !important;
+}
 
 @media screen and (max-width: 722px) {
   
-  .logo_mobile_sidebar{
+  .Mobile_alert {
+    padding: 10px !important;
+  }
+
+  .Mobile_fullwidth {
+    width: 100% !important;
+  }
+
+  .Mobile_margin_3 {
+    margin: 10px 18px !important;
+    width: fit-content !important;
+  }
+
+  .logo_mobile_sidebar {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   #nav-container {
     width: 102%;
   }
@@ -67,8 +84,8 @@ i {
     display: none;
   }
 
-  .Navbar_toggle{
-    transition: 0.5ms;
+  .Navbar_toggle {
+    transition: all 0.5ms;
   }
 
   #Navbar-Mobile {

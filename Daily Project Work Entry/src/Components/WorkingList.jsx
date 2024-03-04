@@ -106,16 +106,16 @@ const WorkingList = () => {
                                                 </select>
                                             </div>
                                             {/* Date, Work Hours, and Management Support Hours */}
-                                            <div className="row mt-3 row-cols-3">
-                                                <div className="d-flex pt-1 flex-column ">
+                                            <div className="row mt-3 row-cols-3" id='dprs_mobile-fields'>
+                                                <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                                     <div className='fs-6'>Work Date</div>
                                                     <input type="date" className='bottom-border pt-1' value={DPRSEntry.date} onChange={onchange} name="date" required />
                                                 </div>
-                                                <div className="d-flex pt-1 flex-column ">
+                                                <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                                     <div className='fs-6'>Work Hours</div>
                                                     <TimePicker clockIcon={null} value={workHour} onChange={setWorkHour} />
                                                 </div>
-                                                <div className="d-flex pt-1 flex-column ">
+                                                <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                                     <div className='fs-6'>Management Support Hours</div>
                                                     <TimePicker clockIcon={null} value={managementHour} onChange={setManagementHour} required />
                                                 </div>
@@ -130,11 +130,11 @@ const WorkingList = () => {
                                             {/* Additional time inputs */}
                                             <div className={moreComponet ? 'mt-2' : 'mt-2 d-none'}>
                                                 <div className="row row-cols-2 ">
-                                                    <div className="d-flex pt-1 flex-column ">
+                                                    <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                                         <div className='fs-6'>In Time</div>
                                                         <TimePicker clockIcon={null} value={inTime} onChange={setInTime} />
                                                     </div>
-                                                    <div className="d-flex pt-1  flex-column ">
+                                                    <div className="d-flex pt-1  flex-column AddMember-mobile-style">
                                                         <div className='fs-6'>Out Time</div>
                                                         <TimePicker clockIcon={null} value={outTime} onChange={setOutTime} />
                                                     </div>
