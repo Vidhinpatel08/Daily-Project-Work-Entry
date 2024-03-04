@@ -83,10 +83,10 @@ const AddProject = (props) => {
               <form onSubmit={handleAddSubmit} encType="multipart/form-data">
                 <div className='m-4 mb-0  '>
                   <div className="row p-0 row-cols-3">
-                    <div className="mt-4 AddMember-mobile-style">
+                    <div className="mt-4 AddMember-mobile-style ">
                       <input type="text " className='bottom-border ' placeholder="Project Name *" value={project.projectName} onChange={onchange} name="projectName" minLength={2} maxLength={25} required />
                     </div>
-                    <div className=" d-flex AddMember-mobile-style">
+                    <div className=" d-flex AddMember-mobile-style ">
                       {/* Selecting client name */}
                       <select className="bottom-border clientFiled " placeholder="Client Name" value={project.clientName} onChange={onchange} aria-label="clientName" name="clientName" >
                         <option value=''>Client Name</option>
@@ -100,11 +100,11 @@ const AddProject = (props) => {
                         </svg>
                       </button>
                     </div>
-                    <div className="pt-2 AddMember-mobile-style">
+                    <div className="pt-2 AddMember-mobile-style ">
                       {/* Selecting project members */}
                       <Multiselect isObject={false} displayValue='Id' key={members.map((m) => { return m._id })} className='multiselectContainer' hidePlaceholder={true} onRemove={addedMember} onSelect={addedMember} showCheckbox options={members.map((member) => { return `${member.firstName} ${member.lastName}` })} />
                     </div>
-                    <div className="mt-4 pt-1 AddMember-mobile-style">
+                    <div className="mt-4 pt-1 AddMember-mobile-style ">
                       {/* Selecting technologies */}
                       <select className="bottom-border" placeholder="Technologies" aria-label="Technologies" value={project.technologies} onChange={onchange} name="technologies" >
                         <option value=''>Technologies</option>
@@ -115,7 +115,7 @@ const AddProject = (props) => {
                         <option value='Java'>Java</option>
                       </select>
                     </div>
-                    <div className=" d-flex AddMember-mobile-style">
+                    <div className=" d-flex AddMember-mobile-style ">
                       {/* Entering duration hours */}
                       <input type="text " className=' mt-4  bottom-border durationfield ' placeholder="Duration Hours" value={project.durationHours} onChange={onchange} name="durationHours" minLength={1} maxLength={25} required />
                       {/* Selecting duration type */}
@@ -128,12 +128,12 @@ const AddProject = (props) => {
                         </select>
                       </section>
                     </div>
-                    <div className="d-flex pt-1 flex-column ">
+                    <div className="d-flex pt-1 flex-column " id='Limit-Hour-Mobile'>
                       <label htmlFor="days" className='' style={{ fontSize: '14px' }}>select limit hours</label>
                       {/* Selecting limit hours */}
                       <TimePicker clockIcon={null} style={{ position: 'relative' }} value={limitHours} onChange={setLimitHours} />
                     </div>
-                    <div className="mt-4 pt-1 AddMember-mobile-style">
+                    <div className="mt-4 pt-1 AddMember-mobile-style ">
                       {/* Selecting project manager */}
                       <select className="bottom-border" placeholder="Project Manager *" aria-label="Project Manager" name="projectManager" value={project.projectManager} onChange={onchange} required>
                         <option value=''>Project Manager *</option>
@@ -141,7 +141,7 @@ const AddProject = (props) => {
                         {members.filter(member => member.userDesignation === 'Manager').map((member) => { return <option key={member._id} value={`${member.firstName} ${member.lastName}`} > {member.firstName} {member.lastName}</option> })}
                       </select>
                     </div>
-                    <div className="mt-4 pt-1 AddMember-mobile-style">
+                    <div className="mt-4 pt-1 AddMember-mobile-style ">
                       {/* Selecting project type */}
                       <select className="bottom-border" aria-label="Type" name="type" value={project.type} onChange={onchange} required>
                         <option value=''>Type *</option>
@@ -169,7 +169,7 @@ const AddProject = (props) => {
                   </div>
                 </div>
                 <div className="m-4">
-                  <div className="container mx-4 p-1 AddMember-mobile-style">
+                  <div className="container mx-4 p-1 AddMember-mobile-style ">
                     {/* Buttons to save or cancel */}
                     <button type="submit" className="btn btn-primary px-4 fw-bold border border-dark" ref={refclose}>Save</button>
                     <button type="reset" className="btn btn-light btn-outline-dark mx-3 px-3 fw-bold " data-bs-dismiss="modal">Cancel</button>

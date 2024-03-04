@@ -59,7 +59,12 @@
 @media screen and (max-width: 722px) {
     .AddMember-mobile-style {
         width: 100%;
-        margin: 5px auto !important;
+        margin: 5px 0px !important;
+    }
+
+    #dprs_mobile-fields {
+        margin-top: 1px !important;
+        width: 100%;
     }
 
     .clientFiled {
@@ -69,7 +74,7 @@
     }
 
     .bottom-border {
-        width: 280px;
+        width: 100%;
         border: none;
         border-bottom: 1px solid #1890ff;
         outline: none;
@@ -94,6 +99,11 @@
     .switchTrack {
         padding-left: 60px;
     }
+
+    #Limit-Hour-Mobile{
+        width: 100%;
+    }
+
 
 }
 

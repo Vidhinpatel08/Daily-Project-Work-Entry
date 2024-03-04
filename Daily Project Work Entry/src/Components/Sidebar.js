@@ -19,11 +19,28 @@ const Sidebar = ({ children }) => {
         setSidebarIsOpen(!isopen);
     };
 
+    // // Function to handle window resize
+    // const handleResize = () => {
+    //     if (window.innerWidth <= 722) {
+    //         setIsOpen(true);
+    //         setSidebarIsOpen(true);
+    //     }
+    // };
+
+    // // Effect to listen for window resize
+    // useEffect(() => {
+    //     window.addEventListener('resize', handleResize);
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    //     // eslint-disable-next-line
+    // }, []);
+
 
     return (
         <div className='d-flex ' id='sidebar-main-container'>
             <div className={isopen ? "sidebar open" : "sidebar"} id='sidebar-container' style={{ transition: 'all 0.5s' }} >
-                <div className="top_section">
+                <div className="top_section" id='Bar-logo-sidebar'>
                     <div className="bars pt-1">
                         {!isopen ?
                             <svg xmlns="http://www.w3.org/2000/svg" onClick={toggle} width="30" height="30" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">

@@ -168,7 +168,7 @@ const WorkingList = () => {
             </div>
 
             {/* Table */}
-            <div className='border table-responsive p-1  m-2'>
+            <div className='border table-responsive p-1  m-2 w-100'>
                 <table className="mt-1 table table-striped table-hover text-center w-100 align-middle p-5" >
                     <thead>
                         <tr className='py-2' style={{ backgroundColor: '#d9d9d9' }}>

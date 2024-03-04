@@ -2,6 +2,10 @@
     .AddMember-mobile-style {
         width: 100%;
     }
+    .mobile-member-filed{
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
 
     .Addmember-Profile {
         width: 80px;

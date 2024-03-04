@@ -46,7 +46,7 @@ const WorkSummaryBox = (props) => { // Creating a functional component named Wor
 
     return ( // Returning JSX elements
         <>
-            <div className='border text-center px-4 py-2 my-1 rounded' style={{ width: sidebarIsOpen ? '150px' : '170px', fontFamily: "sans-serif", backgroundColor: styleColor }}>
+            <div className='border text-center px-4 py-2 my-1 rounded' id='WorkSummaryBox-box' style={{ width: sidebarIsOpen ? '150px' : '170px', fontFamily: "sans-serif", backgroundColor: styleColor }}>
                 <div className='fw-bold '>{formateDate(date)} ({entry})</div>
                 <div className='py-1'>({day(date)})</div>
                 <div>{minutesToTime(workHour)}/{minutesToTime(wpd * entry)}</div>

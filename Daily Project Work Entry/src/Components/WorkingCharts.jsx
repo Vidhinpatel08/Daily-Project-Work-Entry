@@ -382,15 +382,15 @@ const WorkingCharts = () => {
 
   // Rendering chart components with data
   return (
-    <div className="d-flex justify-content-around w-100 " style={{ height: 'fit-content' }} >
+    <div className="d-flex justify-content-around w-100 "  id='dashboard-content-WorkingCharts'  style={{ height: 'fit-content'}} >
       <div className=" my-3">
-        <Bar data={dailyData} options={options} width={420} height={300} />
+        <Bar data={dailyData} options={options} width={420} height={300} className='Bar-line_graph' />
       </div>
       <div className=' my-3'>
-        <Line data={weeklyData} options={options} width={420} height={300}/>
+        <Line data={weeklyData} options={options} width={420} height={300} className='Bar-line_graph' />
       </div >
       <div className=' my-3'>
-        <Line data={monthlyData} options={options} width={420} height={300}/>
+        <Line data={monthlyData} options={options} width={420} height={300} className='Bar-line_graph' />
       </div >
     </div >
   )

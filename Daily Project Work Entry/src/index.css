@@ -24,6 +24,11 @@ i {
   display: flex;
 }
 
+#DailyProjectWorkEntry-title-mobile {
+  display: none;
+}
+
+
 @media screen and (max-width: 722px) {
   #nav-container {
     width: 102%;
@@ -51,9 +56,19 @@ i {
   #nav-username {
     display: none;
   }
+  #Navbar-Mobile{
+    margin: 0px -19px !important;
+    }
 
-  .dropdown-menu{
-    left: -70px !important;
+  .dropdown-menu {
+    left: -95px !important;
+  }
+
+  #DailyProjectWorkEntry-title-web {
+    display: none;
+  }
+  #DailyProjectWorkEntry-title-mobile {
+    display: inline-block;
   }
 
 }

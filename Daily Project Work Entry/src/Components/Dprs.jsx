@@ -96,7 +96,7 @@ const Dprs = () => {
                             </select>
                         </div>
                         {/* Additional input fields */}
-                        <div className="row mt-3 row-cols-3">
+                        <div className="row mt-3 row-cols-3" id='dprs_mobile-fields'>
                             <div className="d-flex pt-1 flex-column AddMember-mobile-style">
                                 <div className='fs-6'>Work Date</div>
                                 <input type="date" className='bottom-border pt-1' value={DPRS.date} onChange={onchange} name="date" required />
@@ -110,7 +110,7 @@ const Dprs = () => {
                                 <TimePicker clockIcon={null} value={managementHour} onChange={setManagementHour} required />
                             </div>
                         </div>
-                        <div className="mt-3">
+                        <div className="mt-3" id=''>
                             <div className="form-group">
                                 <div className='fs-6 py-2'>Enter Task Description</div>
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" name='dprsDescription' value={DPRS.dprsDescription} onChange={onchange} placeholder='Enter Task Description' required></textarea>

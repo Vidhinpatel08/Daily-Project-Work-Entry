@@ -201,8 +201,8 @@ const Projects = () => {
                         </section>
                       </div>
                       {/* Limit Hours Select */}
-                      <div className="d-flex pt-1 flex-column">
-                        <label htmlFor="days" className='' style={{ fontSize: '14px' }}>select limit hours</label>
+                      <div className="d-flex pt-1 flex-column" id='Limit-Hour-Mobile'>
+                        <label htmlFor="days" className='w-100' style={{ fontSize: '14px' }}>select limit hours</label>
                         <TimePicker
                           clockIcon={null}
                           style={{ position: 'relative' }}
@@ -258,7 +258,7 @@ const Projects = () => {
         </div>
 
         {/* Add Project Button */}
-        <div className='d-flex flex-row-reverse mx-5'>
+        <div className='d-flex flex-row-reverse mx-2'>
           <button type="button" className="btn p-0 addMemberStyle" data-bs-toggle="modal" data-bs-target="#exampleModalAddProject">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-plus-circle-fill" viewBox="0 0 16 16">
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />

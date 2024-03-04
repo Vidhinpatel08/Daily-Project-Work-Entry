@@ -222,10 +222,6 @@ NavLink {
         top: auto;
     }
 
-    .workHour-container {
-        margin-left: 10%;
-    }
-
     #sidebar-main-container {
         width: 100%;
     }
@@ -233,7 +229,14 @@ NavLink {
     #sidebar-container {
         width: fit-content;
         margin: 0px;
+        /* position: fixed;
+        left: -70%; */
     }
+
+    /* #Bar-logo-sidebar {
+        display: none;
+    }
+ */
 
 
 }

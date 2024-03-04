@@ -70,6 +70,13 @@
     padding: 25px;
 }
 
+#dashboard-content-WorkingCharts {
+    display: flex;
+    justify-content: space-around;
+    width: fit-content;
+}
+
+
 @media screen and (max-width: 722px) {
     .profile-box-item {
         width: 100%;
@@ -99,4 +106,29 @@
         margin: 50px 0px;
         width: 90%;
     }
+
+    #dashboard-content-WorkingCharts {
+        display: flex;
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        overflow: scroll;
+    }
+
+    #WorkSummaryBox-box {
+        width: 140px !important;
+        margin: 5px;
+    }
+
+    #workHour-container-flex {
+        justify-content: center !important;
+
+    }
+    .Bar-line_graph {
+        width: 300px !important;
+    }
+
 }

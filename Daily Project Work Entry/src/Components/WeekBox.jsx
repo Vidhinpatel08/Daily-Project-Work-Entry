@@ -43,7 +43,7 @@ const WeekBox = (props) => {
   return (
     <>
       {/* WeekBox container with dynamic styles */}
-      <div className='border text-center px-1 py-3 my-1 rounded' style={{ width: sidebarIsOpen ? '154px' : '170px', fontFamily: "sans-serif", backgroundColor: styleColor }}>
+      <div className='border text-center px-1 py-3 my-1 rounded' id='WorkSummaryBox-box'  style={{ width: sidebarIsOpen ? '154px' : '170px', fontFamily: "sans-serif", backgroundColor: styleColor }}>
         {/* Displaying StartDate and lastDate */}
         <div className='fw-bold pb-1'>{dates(StartDate)} ~ {dates(lastDate)}</div>
         {/* Displaying workHour in time format */}
