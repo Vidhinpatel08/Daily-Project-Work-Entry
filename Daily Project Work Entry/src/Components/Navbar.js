@@ -10,7 +10,7 @@ import '../index.css'
 const Navbar = (props) => {
     // Extract showAlert function from globalContext
     const gContext = useContext(globalContext);
-    const { showAlert } = gContext;
+    const { showAlert, sidebarIsOpen, setSidebarIsOpen } = gContext;
     // Initialize state variables for user profile data and image
     const [userProfile, setUserProfile] = useState({ _id: '', firstName: '', lastName: '', email: '', userRole: '', joindate: '', phone: '', userDesignation: '', alterPhone: '', alterEmail: '', department: '', LeaveStartDate: '', LeaveEndDate: '', password: '', isActive: '' });
     const [image, setImage] = useState('');
@@ -64,12 +64,21 @@ const Navbar = (props) => {
         showAlert("Logout Successfully", 'success');
     };
 
+    const logo_click = () => {
+        setSidebarIsOpen(!sidebarIsOpen)
+    }
+
+    useEffect(() => {
+        // console.log("sidebarIsOpen : ", sidebarIsOpen)
+        // eslint-disable-next-line
+    }, [sidebarIsOpen]);
+
     // Return JSX for the Navbar component
     return (
         <>
             <nav className="navbar bg-primary sticky-top d-flex" id='nav-container' data-bs-theme="dark" style={{ color: 'white' }}>
-                <div className="d-flex m-1 w-100 " id='nav-container-div'>
-                    <div className="px-2 ">
+                <div className="d-flex m-1 w-100 " >
+                    <div className="px-2 " id='nav-container-div' onClick={logo_click}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-grid-3x3-gap-fill align-items-center" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
                         </svg>

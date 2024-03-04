@@ -56,9 +56,10 @@ i {
   #nav-username {
     display: none;
   }
-  #Navbar-Mobile{
+
+  #Navbar-Mobile {
     margin: 0px -19px !important;
-    }
+  }
 
   .dropdown-menu {
     left: -95px !important;
@@ -67,10 +68,21 @@ i {
   #DailyProjectWorkEntry-title-web {
     display: none;
   }
+
   #DailyProjectWorkEntry-title-mobile {
     display: inline-block;
   }
 
+  .Activity_Detail_Mobile {
+    padding: 2px !important;
+  }
+
+  #Activity_Summary_Search_Mobile {
+    margin-top: 8px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (min-width :723px) and (max-width: 1201px) {

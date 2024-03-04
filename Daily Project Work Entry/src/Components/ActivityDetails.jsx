@@ -61,7 +61,7 @@ const ActivityDetails = () => {
             <div className="topbar fs-5 p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
                 USER ACTIVITY DETAILS
             </div>
-            <div className="mx-2 p-3" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} onClick={clickme}>
+            <div className="mx-2 p-3 Activity_Detail_Mobile" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} onClick={clickme}>
 
                 {/* Filter Modal  */}
                 <div className="m-2 row">

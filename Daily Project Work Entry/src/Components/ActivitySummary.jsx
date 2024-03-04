@@ -140,7 +140,7 @@ const ActivitySummary = () => {
             <div className="topbar fs-5 p-2 m-2 mt-1" style={{ backgroundColor: 'white', color: '#a40df1', fontFamily: 'emoji', borderBottom: '0.5px solid #c1bebe' }}>
                 USER ACTIVITY SUMMARY
             </div>
-            <div className="mx-2 p-3" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} onMouseEnter={clickme}>
+            <div className="mx-2 p-3 Activity_Detail_Mobile" style={{ backgroundColor: 'white', border: '0.2px solid #c1bebe' }} onMouseEnter={clickme}>
                 <div className="m-2 row">
                     <div className="col-lg-2 AddMember-mobile-style">
                         <div className='fs-6 fw-light'>From Date</div>
@@ -165,7 +165,7 @@ const ActivitySummary = () => {
                             <option value='Week Wise Report'>Week Wise Report</option>
                         </select>
                     </div>
-                    <div className="col-lg-2 px-5 AddMember-mobile-style">
+                    <div className="col-lg-2 px-5 AddMember-mobile-style " id='Activity_Summary_Search_Mobile'>
                         <button type="button" className="btn btn-primary" onClick={datafetch}>Search</button>
                     </div>
                 </div>

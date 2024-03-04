@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import globalContext from '../Context/notes/globalContext';
 
@@ -36,6 +36,18 @@ const Sidebar = ({ children }) => {
     //     // eslint-disable-next-line
     // }, []);
 
+    useEffect(() => {
+        setIsOpen(sidebarIsOpen);
+        // console.log("isopen:",isopen)
+        // eslint-disable-next-line
+    }, [sidebarIsOpen]);
+
+    const navigation_mobile = () => {
+        if (window.innerWidth <= 722) {
+            toggle()
+        }
+    }
+
 
     return (
         <div className='d-flex ' id='sidebar-main-container'>
@@ -54,7 +66,7 @@ const Sidebar = ({ children }) => {
                 </div>
 
                 {/* Navigation links */}
-                <NavLink to='/' className='link d-flex align-items-center justify-content-start ' aria-activedescendant='active'  >
+                <NavLink to='/' className='link d-flex align-items-center justify-content-start  Navigatiom_mobile_sidebar' onClick={navigation_mobile} aria-activedescendant='active'  >
                     <div className="icone">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-display" viewBox="0 0 16 16">
                             <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z" />
@@ -64,7 +76,7 @@ const Sidebar = ({ children }) => {
                         DASHBOARD
                     </div>
                 </NavLink>
-                <NavLink to='/dprs' className='link d-flex align-items-center justify-content-start ' aria-activedescendant='active'  >
+                <NavLink to='/dprs' className='link d-flex align-items-center justify-content-start  Navigatiom_mobile_sidebar' onClick={navigation_mobile} aria-activedescendant='active'  >
                     <div className="icone">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-send" viewBox="0 0 16 16">
                             <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
@@ -74,7 +86,7 @@ const Sidebar = ({ children }) => {
                         DPRS
                     </div>
                 </NavLink>
-                <NavLink to='/project' className='link d-flex align-items-center justify-content-start ' aria-activedescendant='active'  >
+                <NavLink to='/project' className='link d-flex align-items-center justify-content-start  Navigatiom_mobile_sidebar' onClick={navigation_mobile} aria-activedescendant='active'  >
                     <div className="icone">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-vcard" viewBox="0 0 16 16">
                             <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
@@ -103,7 +115,7 @@ const Sidebar = ({ children }) => {
                         </svg>
                     </div>
                     <div className='sidebar-content'>
-                        <NavLink to='/member' className="sidebar-subconent" >
+                        <NavLink to='/member' className="sidebar-subconent Navigatiom_mobile_sidebar" onClick={navigation_mobile} >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-people-fill" viewBox="0 0 16 16">
                                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -113,7 +125,7 @@ const Sidebar = ({ children }) => {
                                 </div>
                             </span>
                         </NavLink>
-                        <NavLink to='/client' className="sidebar-subconent" >
+                        <NavLink to='/client' className="sidebar-subconent Navigatiom_mobile_sidebar" onClick={navigation_mobile} >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-lines-fill" viewBox="0 0 16 16">
                                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
@@ -144,7 +156,7 @@ const Sidebar = ({ children }) => {
                         </svg>
                     </div>
                     <div className='sidebar-content'>
-                        <NavLink to='/activitydetails' className="sidebar-subconent" >
+                        <NavLink to='/activitydetails' className="sidebar-subconent Navigatiom_mobile_sidebar" onClick={navigation_mobile} >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-list-task" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" />
@@ -156,7 +168,7 @@ const Sidebar = ({ children }) => {
                                 </div>
                             </span>
                         </NavLink>
-                        <NavLink to='/activitysummary' className="sidebar-subconent" >
+                        <NavLink to='/activitysummary' className="sidebar-subconent Navigatiom_mobile_sidebar" onClick={navigation_mobile} >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-list-stars" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />

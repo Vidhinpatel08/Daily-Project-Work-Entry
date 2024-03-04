@@ -216,27 +216,34 @@ NavLink {
 }
 
 @media screen and (max-width: 722px) {
+    #sidebar-container {
+        transition: 0.5s;
+        width: fit-content;
+        margin: 0px;
+        position: fixed;
+        left: -70%;
+    }
+
     .sidebar.open {
+        transition: 0.5s;
         width: fit-content;
         position: fixed;
         top: auto;
+        left: 0% !important;
+        z-index: 5;
     }
 
     #sidebar-main-container {
         width: 100%;
     }
 
-    #sidebar-container {
-        width: fit-content;
-        margin: 0px;
-        /* position: fixed;
-        left: -70%; */
-    }
 
-    /* #Bar-logo-sidebar {
+    #Bar-logo-sidebar {
         display: none;
     }
- */
 
+    .Navigatiom_mobile_sidebar {
+        transition: 0.5s;
+    }
 
 }
