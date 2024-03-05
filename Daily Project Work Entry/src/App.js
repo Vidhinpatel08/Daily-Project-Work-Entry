@@ -20,6 +20,8 @@ import GlobalState from './Context/notes/GlobalState';
 import ResetPassword from './Components/ResetPassword';
 import ForgotPassword from './Components/ForgotPassword';
 import Alert from './Alert';
+import ErrorPage from './ErrorPage';
+
 
 // Exporting the component
 export default function App() {
@@ -62,6 +64,8 @@ export default function App() {
                     <Route path='/userprofile' element={(<UserProfile />)}></Route>
                     {/* Route for reset password */}
                     <Route path='/forgetpassword' element={(<ResetPassword />)}></Route>
+                    {/* Route for Error */}
+                    <Route path='*' element={(<ErrorPage></ErrorPage>)}></Route>
                   </Routes>
                 </Sidebar>
               </>
