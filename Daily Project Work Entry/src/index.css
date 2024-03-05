@@ -55,7 +55,7 @@ i {
   align-items: center;
 }
 
-@media screen and (max-width: 722px) {
+@media screen and (max-width: 400px) {
   .btn-errorpage{
     padding: 5px !important ;
     margin: 5px !important;

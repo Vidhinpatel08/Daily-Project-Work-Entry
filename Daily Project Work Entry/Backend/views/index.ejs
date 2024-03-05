@@ -16,7 +16,9 @@
       border: 1px solid black;
       padding: 9px;
       width: 100%;
+      overflow: overlay;
     }
+
     /* Login form style */
     .login-style {
       margin-top: 120px;
@@ -24,6 +26,17 @@
       align-items: flex-start;
       border: 1px solid black;
       background-color: #ffffff;
+    }
+
+    @media screen and (max-width: 722px) {
+      .login-style {
+      margin-top: 50px;
+      width: 89%;
+      padding: 10px !important;
+      align-items: flex-start;
+      border: 1px solid black;
+      background-color: #ffffff;
+    }
     }
   </style>
   <!-- JavaScript -->
@@ -41,7 +54,7 @@
     }
     // Redirect if status is verified
     var status = '<%- JSON.stringify(status) %>';
-    var hostHomepage = 'https://dprs.netlify.app'; 
+    var hostHomepage = 'https://dprs.netlify.app';
     if (JSON.parse(status) == "verified") {
       window.location.href = `${hostHomepage}`;
     }
@@ -54,7 +67,7 @@
     <form action="" method="post" onsubmit="return checkPasswords()">
       <h1 class="h3 mb-3 fw-normal py-3 fw-semibold">Welcome to Reset Password</h1>
       <div class="py-2 m-1">
-        <label>
+        <label class="input-border form-control inputfield" style="background: #e4e6ee;">
           <%= email%>
         </label>
       </div>
