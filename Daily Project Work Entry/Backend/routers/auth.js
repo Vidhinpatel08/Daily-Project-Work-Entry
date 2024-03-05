@@ -8,8 +8,10 @@ const jwt = require('jsonwebtoken'); // Importing jsonwebtoken for authenticatio
 const fetchuser = require("../middleware/fetchuser"); // Importing custom middleware
 var nodemailer = require('nodemailer'); // Importing nodemailer for sending emails
 
-let MyPassword =  process.env.BASE_EMAIL; // Your email password
-let MyEmailId =  process.env.BASE_PASSWORD; // Your email address
+const MyEmailId =  process.env.BASE_EMAIL; // Your email password
+const MyPassword =  process.env.BASE_PASSWORD; // Your email address
+
+const Host = process.env.HOST_NAME
 
 const JWT_SECRET =  process.env.JWT_SECRET; // Secret key for JWT authentication
 let success = false; // Flag for API success
@@ -96,7 +98,7 @@ router.post('/login-reset-password', async (req, res) => {
         }
         const secret = JWT_SECRET + oldUser.password; // Generate secret key
         const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: '5m' }); // Generate token with expiration
-        const link = `http://localhost:5000/api/auth/reset-password/${oldUser._id}/${token}`; // Reset password link
+        const link = `${Host}/api/auth/reset-password/${oldUser._id}/${token}`; // Reset password link
         try {
             var transporter = nodemailer.createTransport({
                 
