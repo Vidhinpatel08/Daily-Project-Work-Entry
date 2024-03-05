@@ -65,6 +65,8 @@ export default function App() {
                     {/* Route for reset password */}
                     <Route path='/forgetpassword' element={(<ResetPassword />)}></Route>
                     {/* Route for Error */}
+                    <Route path='/errorpage' element={(<ErrorPage></ErrorPage>)}></Route>
+                    {/* Route for Error */}
                     <Route path='*' element={(<ErrorPage></ErrorPage>)}></Route>
                   </Routes>
                 </Sidebar>
