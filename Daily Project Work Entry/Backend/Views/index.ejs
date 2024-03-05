@@ -41,9 +41,9 @@
     }
     // Redirect if status is verified
     var status = '<%- JSON.stringify(status) %>';
-    const host_Homepage = process.env.HOST_HOMEPAGE 
+    var hostHomepage = 'https://dprs.netlify.app'; 
     if (JSON.parse(status) == "verified") {
-      window.location.href = `${host_Homepage}/login`;
+      window.location.href = `${hostHomepage}`;
     }
   </script>
 </head>
